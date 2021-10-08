@@ -316,6 +316,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 65149371}
+  - component: {fileID: 65149372}
   m_Layer: 0
   m_Name: FallFloorRoot
   m_TagString: Untagged
@@ -338,6 +339,25 @@ Transform:
   m_Father: {fileID: 692658892}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &65149372
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65149370}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 567afb2eb308945419d7cea144f8bce0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &71625226
 GameObject:
   m_ObjectHideFlags: 0
