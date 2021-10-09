@@ -13,6 +13,11 @@ public class DialogeSystem : MonoBehaviour
         "Oh, wait! There's a locked door there!"
     };
     private string[] dialoge02 = {"Let me get a closer look..."};
+    private string[] dialoge03 = new string[2]
+    {
+        "I think I'm in some kind of vent...",
+        "I've gotta get the hell outta here!"
+    };
     private string[] dialoge99_0 = new string[3]
     {
         "I think so...",
@@ -50,6 +55,11 @@ public class DialogeSystem : MonoBehaviour
                 else if (dialogeType == 1)
                 {
                     ChangeTextAndImageAndChar(dialoge02, dialogeNULLImages, 1, false);
+                }
+
+                else if (dialogeType == 2)
+                {
+                    ChangeTextAndImageAndChar(dialoge03, dialogeNULLImages, 1, false);
                 }
 
                 else if (dialogeType == 99)
@@ -105,24 +115,40 @@ public class DialogeSystem : MonoBehaviour
         {
             ActivateRight();
             anim_right.Play("Player");
-            slideCount = 2;
             text.text = "What the hell happened to this place?";
+            slideCount = dialoge01.Length;
         }
 
         else if (dialogeType == 1)
         {
             ActivateRight();
             anim_right.Play("Player");
-            slideCount = 1;
             text.text = "What?! The door is unlocked but there is a wooden wall blocking my way!";
+            slideCount = dialoge02.Length;
+        }
+
+        else if (dialogeType == 2)
+        {
+            ActivateRight();
+            anim_right.Play("Player");
+            text.text = "WHAT THE HELL?!";
+            slideCount = dialoge03.Length;
+        }
+
+        else if (dialogeType == 3)
+        {
+            ActivateRight();
+            anim_right.Play("Player");
+            text.text = "WHAT THE HELL?!";
+            slideCount = dialoge03.Length;
         }
 
         else if (dialogeType == 99)
         {
             ActivateRight();
             anim_right.Play("Player");
-            slideCount = 3;
             text.text = "What is this place...?";
+            slideCount = dialoge99_0.Length;
         }
     }
 

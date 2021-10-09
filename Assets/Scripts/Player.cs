@@ -3,7 +3,9 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    private float currentSpeed;
     private float speed = 10f;
+    private float runSpeed = 16f;
     private float mouseSensitivity;
     private float gravity = Physics.gravity.y * 2f;
     private bool grounded;
@@ -11,6 +13,7 @@ public class Player : MonoBehaviour
     private Vector3 velocity;
     public LayerMask layerMask;
     public Transform Camera;
+    public Slider stamina;
 
     void Start()
     {
@@ -32,6 +35,7 @@ public class Player : MonoBehaviour
         if (Time.timeScale > 0f)
         {
             MovementAndLook();
+            Sprint();
 
             if (!grounded)
             {
@@ -47,7 +51,7 @@ public class Player : MonoBehaviour
         float x = Input.GetAxisRaw("Strafe");
         float z = Input.GetAxisRaw("Forward");
         Vector3 move = transform.right * x + transform.forward * z;
-        controller.Move(move * speed * Time.deltaTime);
+        controller.Move(move * currentSpeed * Time.deltaTime);
 
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
         transform.Rotate(Vector3.up * mouseX);
@@ -60,6 +64,25 @@ public class Player : MonoBehaviour
         else
         {
             Camera.localRotation = Quaternion.identity;
+        }
+    }
+
+    void Sprint()
+    {
+        if (Input.GetButton("Run") & stamina.value > 0f)
+        {
+            currentSpeed = runSpeed;
+            stamina.value -= 10f * Time.deltaTime;
+        }
+
+        else
+        {
+            currentSpeed = speed;
+
+            if (controller.velocity == Vector3.zero)
+            {
+                stamina.value += 10f * Time.deltaTime;
+            }
         }
     }
 }
