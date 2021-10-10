@@ -54,7 +54,6 @@ public class DialogueSystem : MonoBehaviour
     public Image dialogueImage;
     private Sprite dialogueImage_null;
     public GameObject BLACK_BG;
-    public GameObject efx_dlg5_barrier;
     public GameObject efx_dlg5_joe;
     public AudioClip sfx_dlg4_eerie;
 
@@ -212,8 +211,7 @@ public class DialogueSystem : MonoBehaviour
             DeactiveAll();
             text.text = "Ha ha ha!";
             slideCount = dialogue05.Length;
-            efx_dlg5_barrier.SetActive(true);
-            efx_dlg5_joe.SetActive(false);
+            efx_dlg5_joe.SetActive(true);
         }
 
         else if (dialogueType == 99)
