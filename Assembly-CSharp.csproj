@@ -93,7 +93,7 @@
     <Compile Include="Assets\Scripts\Assembly-CSharp\PlaytimeScript.cs" />
     <Compile Include="Assets\Scripts\Hover.cs" />
     <Compile Include="Assets\Scripts\Assembly-CSharp\NeedMoreScript.cs" />
-    <Compile Include="Assets\Scripts\DialogeSystem.cs" />
+    <Compile Include="Assets\Scripts\DialogueSystem.cs" />
     <Compile Include="Assets\Scripts\Assembly-CSharp\ExitButtonScript.cs" />
     <Compile Include="Assets\Scripts\Assembly-CSharp\EndlessNotebookScript.cs" />
     <Compile Include="Assets\Scripts\Assembly-CSharp\CursorControllerScript.cs" />
