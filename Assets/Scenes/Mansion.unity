@@ -4864,11 +4864,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8afafbac26e64c40a6df43910d48de5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialoge: 0
-  dialoge01Images:
+  dialogue: 0
+  dialogue01Images:
   - {fileID: 21300000, guid: d09452d715aabc54888f13797fc34f25, type: 3}
   - {fileID: 21300000, guid: 7efb9c1a8d1421b498c12cad1064ffdc, type: 3}
-  dialogeNULLImages:
+  dialogueNULLImages:
   - {fileID: 21300000, guid: d09452d715aabc54888f13797fc34f25, type: 3}
   - {fileID: 21300000, guid: d09452d715aabc54888f13797fc34f25, type: 3}
   - {fileID: 21300000, guid: d09452d715aabc54888f13797fc34f25, type: 3}
@@ -4972,10 +4972,9 @@ MonoBehaviour:
   anim_left: {fileID: 201229603}
   anim_right: {fileID: 379468553}
   text: {fileID: 2054171}
-  dialogeImage: {fileID: 1270285910}
+  dialogueImage: {fileID: 1270285910}
   BLACK_BG: {fileID: 2125651748}
-  efx_dlg5_barrier: {fileID: 693279426}
-  efx_dlg5_joe: {fileID: 0}
+  efx_dlg5_joe: {fileID: 1554006601}
   sfx_dlg4_eerie: {fileID: 8300000, guid: b0b7201e3f0004741bee69803a86ef3e, type: 3}
 --- !u!82 &585638338
 AudioSource:
@@ -6153,51 +6152,6 @@ Transform:
   m_Father: {fileID: 265647257}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &693279426
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 693279427}
-  - component: {fileID: 693279428}
-  m_Layer: 0
-  m_Name: Barrier
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &693279427
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 693279426}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -5, y: -105, z: 105}
-  m_LocalScale: {x: 10, y: 10, z: 10}
-  m_Children: []
-  m_Father: {fileID: 2133466708}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!64 &693279428
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 693279426}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &702829727
 GameObject:
   m_ObjectHideFlags: 0
@@ -13471,13 +13425,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1554006603}
   - component: {fileID: 1554006602}
+  - component: {fileID: 1554006604}
   m_Layer: 0
-  m_Name: joe_final
+  m_Name: Joe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1554006602
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13537,12 +13492,25 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1554006601}
   m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: -12.477121, y: -105, z: 104}
+  m_LocalPosition: {x: -5, y: -105, z: 105}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_Father: {fileID: 2133466708}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
+--- !u!65 &1554006604
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1554006601}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 10, z: 0.20000005}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1556528279
 GameObject:
   m_ObjectHideFlags: 0
@@ -20528,7 +20496,7 @@ Transform:
   - {fileID: 625857006}
   - {fileID: 1969474539}
   - {fileID: 1348334972}
-  - {fileID: 693279427}
+  - {fileID: 1554006603}
   m_Father: {fileID: 370703386}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
