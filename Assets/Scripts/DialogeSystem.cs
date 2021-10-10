@@ -18,12 +18,34 @@ public class DialogeSystem : MonoBehaviour
         "I think I'm in some kind of vent...",
         "I've gotta get the hell outta here!"
     };
+    private string[] dialoge04 = new string[5]
+    {
+        "Off you go into the secret, unknown place.",
+        "Wait a minute, what's that sound?!",
+        "Alright, let's try going there.",
+        "Wait, there's an opening here; how did I not notice it?",
+        "Let's see if there's a way to get outta here."
+    };
+    private string[] dialoge05 = new string[10]
+    {
+        "<i>Wait a minute! While's he's thinking, I could escape! This is perfect!", //0
+        "Let me think...", //1
+        "Hmm...", //2
+        "So what are you gonna do to me?", //3
+        "<color=red>Oh yes!", //4
+        "Oh no...", //5
+        "Well yes, of cource, idiot!", //6
+        "Is that... Joe?", //7
+        "Ready for a deadly chainsaw?", //8
+        "Hold on, who--" //9
+    };
     private string[] dialoge99_0 = new string[3]
     {
         "I think so...",
         "So do we just try to find him?",
         "I think this is where Joe lives."
     };
+    private AudioSource audioSource;
     public Sprite[] dialoge01Images;
     public Sprite[] dialogeNULLImages;
     public Animator anim_left;
@@ -32,10 +54,14 @@ public class DialogeSystem : MonoBehaviour
     public Image dialogeImage;
     private Sprite dialogeImage_null;
     public GameObject BLACK_BG;
+    public GameObject efx_dlg5_barrier;
+    public GameObject efx_dlg5_joe;
+    public AudioClip sfx_dlg4_eerie;
 
     void Start()
     {
         gameObject.SetActive(false);
+        audioSource = GetComponent<AudioSource>();
         dialogeImage_null = dialogeImage.sprite;
     }
 
@@ -60,6 +86,44 @@ public class DialogeSystem : MonoBehaviour
                 else if (dialogeType == 2)
                 {
                     ChangeTextAndImageAndChar(dialoge03, dialogeNULLImages, 1, false);
+                }
+
+                else if (dialogeType == 3)
+                {
+                    if (slideCount != 0)
+                    {
+                        ChangeTextAndImageAndChar(dialoge04, dialogeNULLImages, 1, false);
+                    }
+
+                    else
+                    {
+                        ChangeTextAndImageAndChar(dialoge04, dialogeNULLImages, -1, false);
+                    }
+
+                    if (slideCount == 1)
+                    {
+                        audioSource.PlayOneShot(sfx_dlg4_eerie);
+                    }
+                }
+
+                else if (dialogeType == 4)
+                {
+                    if (slideCount == 9 | slideCount == 7 | slideCount == 5 | slideCount == 3 | slideCount == 0)
+                    {
+                        ChangeTextAndImageAndChar(dialoge05, dialogeNULLImages, 1, false);
+                        anim_right.Play("Player");
+                    }
+
+                    else if (slideCount == 6 | slideCount == 4 | slideCount == 2 | slideCount == 1)
+                    {
+                        ChangeTextAndImageAndChar(dialoge05, dialogeNULLImages, 0, false);
+                        anim_left.Play("Joe");
+                    }
+
+                    else if (slideCount == 8)
+                    {
+                        ChangeTextAndImageAndChar(dialoge05, dialogeNULLImages, -1, false);
+                    }
                 }
 
                 else if (dialogeType == 99)
@@ -139,8 +203,17 @@ public class DialogeSystem : MonoBehaviour
         {
             ActivateRight();
             anim_right.Play("Player");
-            text.text = "WHAT THE HELL?!";
-            slideCount = dialoge03.Length;
+            text.text = "Dead end.";
+            slideCount = dialoge04.Length;
+        }
+
+        else if (dialogeType == 4)
+        {
+            DeactiveAll();
+            text.text = "Ha ha ha!";
+            slideCount = dialoge05.Length;
+            efx_dlg5_barrier.SetActive(true);
+            efx_dlg5_joe.SetActive(false);
         }
 
         else if (dialogeType == 99)
@@ -178,9 +251,14 @@ public class DialogeSystem : MonoBehaviour
             ActivateRight();
         }
 
-        else if (side == 2)
+        else if (side == 4)
         {
             ActivateBoth();
+        }
+
+        else if (side == -1)
+        {
+            DeactiveAll();
         }
     }
 
