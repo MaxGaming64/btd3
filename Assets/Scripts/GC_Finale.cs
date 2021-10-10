@@ -4,7 +4,7 @@ public class GC_Finale : MonoBehaviour
 {
     private AudioSource mainMus;
     public AudioClip mus_finale;
-    public DialogeSystem ds;
+    public DialogueSystem ds;
 
     void Start()
     {

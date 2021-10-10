@@ -2,23 +2,23 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class DialogeSystem : MonoBehaviour
+public class DialogueSystem : MonoBehaviour
 {
     private int slideCount;
-    private int dialogeType;
-    public bool dialoge;
-    private string[] dialoge01 = new string[2]
+    private int dialogueType;
+    public bool dialogue;
+    private string[] dialogue01 = new string[2]
     {
         "But I think I need to find the key to the door first...",
         "Oh, wait! There's a locked door there!"
     };
-    private string[] dialoge02 = {"Let me get a closer look..."};
-    private string[] dialoge03 = new string[2]
+    private string[] dialogue02 = {"Let me get a closer look..."};
+    private string[] dialogue03 = new string[2]
     {
         "I think I'm in some kind of vent...",
         "I've gotta get the hell outta here!"
     };
-    private string[] dialoge04 = new string[5]
+    private string[] dialogue04 = new string[5]
     {
         "Off you go into the secret, unknown place.",
         "Wait a minute, what's that sound?!",
@@ -26,7 +26,7 @@ public class DialogeSystem : MonoBehaviour
         "Wait, there's an opening here; how did I not notice it?",
         "Let's see if there's a way to get outta here."
     };
-    private string[] dialoge05 = new string[10]
+    private string[] dialogue05 = new string[10]
     {
         "<i>Wait a minute! While's he's thinking, I could escape! This is perfect!", //0
         "Let me think...", //1
@@ -39,20 +39,20 @@ public class DialogeSystem : MonoBehaviour
         "Ready for a deadly chainsaw?", //8
         "Hold on, who--" //9
     };
-    private string[] dialoge99_0 = new string[3]
+    private string[] dialogue99_0 = new string[3]
     {
         "I think so...",
         "So do we just try to find him?",
         "I think this is where Joe lives."
     };
     private AudioSource audioSource;
-    public Sprite[] dialoge01Images;
-    public Sprite[] dialogeNULLImages;
+    public Sprite[] dialogue01Images;
+    public Sprite[] dialogueNULLImages;
     public Animator anim_left;
     public Animator anim_right;
     public TextMeshProUGUI text;
-    public Image dialogeImage;
-    private Sprite dialogeImage_null;
+    public Image dialogueImage;
+    private Sprite dialogueImage_null;
     public GameObject BLACK_BG;
     public GameObject efx_dlg5_barrier;
     public GameObject efx_dlg5_joe;
@@ -62,7 +62,7 @@ public class DialogeSystem : MonoBehaviour
     {
         gameObject.SetActive(false);
         audioSource = GetComponent<AudioSource>();
-        dialogeImage_null = dialogeImage.sprite;
+        dialogueImage_null = dialogueImage.sprite;
     }
 
     void Update()
@@ -73,31 +73,31 @@ public class DialogeSystem : MonoBehaviour
             {
                 slideCount--;
 
-                if (dialogeType == 0)
+                if (dialogueType == 0)
                 {
-                    ChangeTextAndImageAndChar(dialoge01, dialoge01Images, 1, false);
+                    ChangeTextAndImageAndChar(dialogue01, dialogue01Images, 1, false);
                 }
 
-                else if (dialogeType == 1)
+                else if (dialogueType == 1)
                 {
-                    ChangeTextAndImageAndChar(dialoge02, dialogeNULLImages, 1, false);
+                    ChangeTextAndImageAndChar(dialogue02, dialogueNULLImages, 1, false);
                 }
 
-                else if (dialogeType == 2)
+                else if (dialogueType == 2)
                 {
-                    ChangeTextAndImageAndChar(dialoge03, dialogeNULLImages, 1, false);
+                    ChangeTextAndImageAndChar(dialogue03, dialogueNULLImages, 1, false);
                 }
 
-                else if (dialogeType == 3)
+                else if (dialogueType == 3)
                 {
                     if (slideCount != 0)
                     {
-                        ChangeTextAndImageAndChar(dialoge04, dialogeNULLImages, 1, false);
+                        ChangeTextAndImageAndChar(dialogue04, dialogueNULLImages, 1, false);
                     }
 
                     else
                     {
-                        ChangeTextAndImageAndChar(dialoge04, dialogeNULLImages, -1, false);
+                        ChangeTextAndImageAndChar(dialogue04, dialogueNULLImages, -1, false);
                     }
 
                     if (slideCount == 1)
@@ -106,57 +106,57 @@ public class DialogeSystem : MonoBehaviour
                     }
                 }
 
-                else if (dialogeType == 4)
+                else if (dialogueType == 4)
                 {
                     if (slideCount == 9 | slideCount == 7 | slideCount == 5 | slideCount == 3 | slideCount == 0)
                     {
-                        ChangeTextAndImageAndChar(dialoge05, dialogeNULLImages, 1, false);
+                        ChangeTextAndImageAndChar(dialogue05, dialogueNULLImages, 1, false);
                         anim_right.Play("Player");
                     }
 
                     else if (slideCount == 6 | slideCount == 4 | slideCount == 2 | slideCount == 1)
                     {
-                        ChangeTextAndImageAndChar(dialoge05, dialogeNULLImages, 0, false);
+                        ChangeTextAndImageAndChar(dialogue05, dialogueNULLImages, 0, false);
                         anim_left.Play("Joe");
                     }
 
                     else if (slideCount == 8)
                     {
-                        ChangeTextAndImageAndChar(dialoge05, dialogeNULLImages, -1, false);
+                        ChangeTextAndImageAndChar(dialogue05, dialogueNULLImages, -1, false);
                     }
                 }
 
-                else if (dialogeType == 99)
+                else if (dialogueType == 99)
                 {
                     if (slideCount == 2)
                     {
-                        ChangeTextAndImageAndChar(dialoge99_0, dialogeNULLImages, 0, false);
+                        ChangeTextAndImageAndChar(dialogue99_0, dialogueNULLImages, 0, false);
                         anim_left.Play("Pri_talk");
                     }
 
                     else if (slideCount == 1)
                     {
-                        ChangeTextAndImageAndChar(dialoge99_0, dialogeNULLImages, 1, false);
+                        ChangeTextAndImageAndChar(dialogue99_0, dialogueNULLImages, 1, false);
                         anim_right.Play("Player");
                     }
 
                     else if (slideCount == 0)
                     {
-                        ChangeTextAndImageAndChar(dialoge99_0, dialogeNULLImages, 0, false);
+                        ChangeTextAndImageAndChar(dialogue99_0, dialogueNULLImages, 0, false);
                         anim_left.Play("BAL_Sad");
                     }
                 }
 
                 if (slideCount < 0)
                 {
-                    dialoge = false;
-                    dialogeImage.sprite = dialogeImage_null;
+                    dialogue = false;
+                    dialogueImage.sprite = dialogueImage_null;
                     gameObject.SetActive(false);
                 }
             }
         }
 
-        if (dialoge)
+        if (dialogue)
         {
             BLACK_BG.SetActive(true);
             Time.timeScale = 0f;
@@ -171,66 +171,66 @@ public class DialogeSystem : MonoBehaviour
 
     public void StartDialoge(int DialogeType)
     {
-        dialoge = true;
-        dialogeType = DialogeType;
+        dialogue = true;
+        dialogueType = DialogeType;
         gameObject.SetActive(true);
 
-        if (dialogeType == 0)
+        if (dialogueType == 0)
         {
             ActivateRight();
             anim_right.Play("Player");
             text.text = "What the hell happened to this place?";
-            slideCount = dialoge01.Length;
+            slideCount = dialogue01.Length;
         }
 
-        else if (dialogeType == 1)
+        else if (dialogueType == 1)
         {
             ActivateRight();
             anim_right.Play("Player");
             text.text = "What?! The door is unlocked but there is a wooden wall blocking my way!";
-            slideCount = dialoge02.Length;
+            slideCount = dialogue02.Length;
         }
 
-        else if (dialogeType == 2)
+        else if (dialogueType == 2)
         {
             ActivateRight();
             anim_right.Play("Player");
             text.text = "WHAT THE HELL?!";
-            slideCount = dialoge03.Length;
+            slideCount = dialogue03.Length;
         }
 
-        else if (dialogeType == 3)
+        else if (dialogueType == 3)
         {
             ActivateRight();
             anim_right.Play("Player");
             text.text = "Dead end.";
-            slideCount = dialoge04.Length;
+            slideCount = dialogue04.Length;
         }
 
-        else if (dialogeType == 4)
+        else if (dialogueType == 4)
         {
             DeactiveAll();
             text.text = "Ha ha ha!";
-            slideCount = dialoge05.Length;
+            slideCount = dialogue05.Length;
             efx_dlg5_barrier.SetActive(true);
             efx_dlg5_joe.SetActive(false);
         }
 
-        else if (dialogeType == 99)
+        else if (dialogueType == 99)
         {
             ActivateRight();
             anim_right.Play("Player");
             text.text = "What is this place...?";
-            slideCount = dialoge99_0.Length;
+            slideCount = dialogue99_0.Length;
         }
     }
 
-    void ChangeTextAndImageAndChar(string[] dialogeNum, Sprite[] dialogeImageNum, int side, bool loadText)
+    void ChangeTextAndImageAndChar(string[] dialogueNum, Sprite[] dialogueImageNum, int side, bool loadText)
     {
         if (slideCount >= 0)
         {
-            text.text = dialogeNum[slideCount];
-            dialogeImage.sprite = dialogeImageNum[slideCount];
+            text.text = dialogueNum[slideCount];
+            dialogueImage.sprite = dialogueImageNum[slideCount];
         }
 
         else

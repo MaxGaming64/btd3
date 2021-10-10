@@ -15,7 +15,7 @@ public class GC_Mansion : MonoBehaviour
     public MeshRenderer lockDoor01;
     public Material SwingDoor60;
     public Material button_click;
-    public DialogeSystem dialogeSystem;
+    public DialogueSystem dialogeSystem;
     private Transform player;
     public GameObject cutsceneCam;
     public Animator fallFloorAnim;
@@ -46,7 +46,7 @@ public class GC_Mansion : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Pause") & !dialogeSystem.dialoge)
+        if (Input.GetButtonDown("Pause") & !dialogeSystem.dialogue)
         {
             if (paused)
             {
