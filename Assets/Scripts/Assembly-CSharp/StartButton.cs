@@ -5,8 +5,6 @@ public class StartButton : MonoBehaviour
 {
 	public void StartGame()
 	{
-		SceneManager.LoadSceneAsync("Intro");
-		Cursor.visible = false;
-		Cursor.lockState = CursorLockMode.Locked;
+		SceneManager.LoadSceneAsync("Mansion");
 	}
 }
