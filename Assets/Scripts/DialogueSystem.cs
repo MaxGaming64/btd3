@@ -7,6 +7,14 @@ public class DialogueSystem : MonoBehaviour
     private int slideCount;
     private int dialogueType;
     public bool dialogue;
+    private string[] introDialogue = new string[5]
+    {
+        "...and you went to his house.",
+        "Principal told you his address,",
+        "So you ask Principal where he lives.",
+        "You search for him, and no luck...",
+        "But then, you realize that Baldi is not there."
+    };
     private string[] dialogue01 = new string[2]
     {
         "But I think I need to find the key to the door first...",
@@ -72,31 +80,36 @@ public class DialogueSystem : MonoBehaviour
             {
                 slideCount--;
 
-                if (dialogueType == 0)
+                if (dialogueType == -1)
                 {
-                    ChangeTextAndImageAndChar(dialogue01, dialogue01Images, 1, false);
+                    ChangeTextAndImageAndChar(introDialogue, dialogueNULLImages, -1);
+                }
+                
+                else if (dialogueType == 0)
+                {
+                    ChangeTextAndImageAndChar(dialogue01, dialogue01Images, 1);
                 }
 
                 else if (dialogueType == 1)
                 {
-                    ChangeTextAndImageAndChar(dialogue02, dialogueNULLImages, 1, false);
+                    ChangeTextAndImageAndChar(dialogue02, dialogueNULLImages, 1);
                 }
 
                 else if (dialogueType == 2)
                 {
-                    ChangeTextAndImageAndChar(dialogue03, dialogueNULLImages, 1, false);
+                    ChangeTextAndImageAndChar(dialogue03, dialogueNULLImages, 1);
                 }
 
                 else if (dialogueType == 3)
                 {
                     if (slideCount != 0)
                     {
-                        ChangeTextAndImageAndChar(dialogue04, dialogueNULLImages, 1, false);
+                        ChangeTextAndImageAndChar(dialogue04, dialogueNULLImages, 1);
                     }
 
                     else
                     {
-                        ChangeTextAndImageAndChar(dialogue04, dialogueNULLImages, -1, false);
+                        ChangeTextAndImageAndChar(dialogue04, dialogueNULLImages, -1);
                     }
 
                     if (slideCount == 1)
@@ -109,19 +122,19 @@ public class DialogueSystem : MonoBehaviour
                 {
                     if (slideCount == 9 | slideCount == 7 | slideCount == 5 | slideCount == 3 | slideCount == 0)
                     {
-                        ChangeTextAndImageAndChar(dialogue05, dialogueNULLImages, 1, false);
+                        ChangeTextAndImageAndChar(dialogue05, dialogueNULLImages, 1);
                         anim_right.Play("Player");
                     }
 
                     else if (slideCount == 6 | slideCount == 4 | slideCount == 2 | slideCount == 1)
                     {
-                        ChangeTextAndImageAndChar(dialogue05, dialogueNULLImages, 0, false);
+                        ChangeTextAndImageAndChar(dialogue05, dialogueNULLImages, 0);
                         anim_left.Play("Joe");
                     }
 
                     else if (slideCount == 8)
                     {
-                        ChangeTextAndImageAndChar(dialogue05, dialogueNULLImages, -1, false);
+                        ChangeTextAndImageAndChar(dialogue05, dialogueNULLImages, -1);
                     }
                 }
 
@@ -129,19 +142,19 @@ public class DialogueSystem : MonoBehaviour
                 {
                     if (slideCount == 2)
                     {
-                        ChangeTextAndImageAndChar(dialogue99_0, dialogueNULLImages, 0, false);
+                        ChangeTextAndImageAndChar(dialogue99_0, dialogueNULLImages, 0);
                         anim_left.Play("Pri_talk");
                     }
 
                     else if (slideCount == 1)
                     {
-                        ChangeTextAndImageAndChar(dialogue99_0, dialogueNULLImages, 1, false);
+                        ChangeTextAndImageAndChar(dialogue99_0, dialogueNULLImages, 1);
                         anim_right.Play("Player");
                     }
 
                     else if (slideCount == 0)
                     {
-                        ChangeTextAndImageAndChar(dialogue99_0, dialogueNULLImages, 0, false);
+                        ChangeTextAndImageAndChar(dialogue99_0, dialogueNULLImages, 0);
                         anim_left.Play("BAL_Sad");
                     }
                 }
@@ -168,13 +181,20 @@ public class DialogueSystem : MonoBehaviour
         }
     }
 
-    public void StartDialoge(int DialogeType)
+    public void StartDialoge(int DialogueType)
     {
         dialogue = true;
-        dialogueType = DialogeType;
+        dialogueType = DialogueType;
         gameObject.SetActive(true);
 
-        if (dialogueType == 0)
+        if (dialogueType == -1)
+        {
+            DeactiveAll();
+            text.text = "One day, you come to Baldi's school.";
+            slideCount = introDialogue.Length;
+        }
+        
+        else if (dialogueType == 0)
         {
             ActivateRight();
             anim_right.Play("Player");
@@ -223,7 +243,7 @@ public class DialogueSystem : MonoBehaviour
         }
     }
 
-    void ChangeTextAndImageAndChar(string[] dialogueNum, Sprite[] dialogueImageNum, int side, bool loadText)
+    void ChangeTextAndImageAndChar(string[] dialogueNum, Sprite[] dialogueImageNum, int side)
     {
         if (slideCount >= 0)
         {
@@ -231,15 +251,12 @@ public class DialogueSystem : MonoBehaviour
             dialogueImage.sprite = dialogueImageNum[slideCount];
         }
 
-        else
+        if (side == -1)
         {
-            if (loadText)
-            {
-                text.text = "LOADING";
-            }
+            DeactiveAll();
         }
 
-        if (side == 0)
+        else if (side == 0)
         {
             ActivateLeft();
         }
@@ -252,11 +269,6 @@ public class DialogueSystem : MonoBehaviour
         else if (side == 4)
         {
             ActivateBoth();
-        }
-
-        else if (side == -1)
-        {
-            DeactiveAll();
         }
     }
 

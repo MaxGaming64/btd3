@@ -24,24 +24,9 @@ public class GC_Mansion : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-
-        if (GameObject.FindGameObjectWithTag("MainMus") == null)
-        {
-            mainMus = new GameObject().AddComponent<AudioSource>();
-            mainMus.gameObject.name = "MainMus";
-            mainMus.gameObject.tag = "MainMus";
-            mainMus.pitch = 0.1f;
-            mainMus.volume = 0.7f;
-            mainMus.loop = true;
-            mainMus.clip = mus_school;
-            mainMus.Play();
-            DontDestroyOnLoad(mainMus);
-        }
-
-        else
-        {
-            mainMus = GameObject.FindGameObjectWithTag("MainMus").GetComponent<AudioSource>();
-        }
+        mainMus = GameObject.FindGameObjectWithTag("MainMus").GetComponent<AudioSource>();
+        DontDestroyOnLoad(mainMus);
+        dialogeSystem.StartDialoge(-1);
     }
 
     void Update()
