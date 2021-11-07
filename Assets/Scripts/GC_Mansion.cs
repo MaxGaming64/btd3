@@ -20,7 +20,7 @@ public class GC_Mansion : MonoBehaviour
     public GameObject cutsceneCam;
     public Animator fallFloorAnim;
 
-    void Start()
+    private void Start()
     {
         audioSource = GetComponent<AudioSource>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -29,7 +29,7 @@ public class GC_Mansion : MonoBehaviour
         dialogeSystem.StartDialoge(-1);
     }
 
-    void Update()
+    private void Update()
     {
         if (Input.GetButtonDown("Pause") & !dialogeSystem.dialogue)
         {
