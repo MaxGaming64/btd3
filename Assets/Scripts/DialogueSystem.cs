@@ -36,8 +36,8 @@ public class DialogueSystem : MonoBehaviour
     };
     private string[] dialogue05 = new string[10]
     {
-        "<i>Wait a minute! While's he's thinking, I could escape! This is perfect!", //0
-        "Let me think...", //1
+        "<i>Hmm, it's gonna take him a long time, huh? Then, let's escape!", //0
+        "Let me think... I gotta make up a really huge plan...", //1
         "Hmm...", //2
         "So what are you gonna do to me?", //3
         "<color=red>Oh yes!", //4
