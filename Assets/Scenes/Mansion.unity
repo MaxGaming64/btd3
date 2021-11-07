@@ -3968,6 +3968,66 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 442963568}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &468975939
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 468975940}
+  - component: {fileID: 468975941}
+  - component: {fileID: 468975942}
+  m_Layer: 0
+  m_Name: EscapeTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &468975940
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 468975939}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -15, y: -105, z: 90}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1820856879}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &468975941
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 468975939}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 10, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &468975942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 468975939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec9c8feef3362314da22cad3e47f8266, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogeType: 5
+  gc: {fileID: 1376021871}
+  dialogeSystem: {fileID: 585638337}
 --- !u!1 &484780089
 GameObject:
   m_ObjectHideFlags: 0
@@ -15434,6 +15494,7 @@ Transform:
   - {fileID: 762080364}
   - {fileID: 1348334972}
   - {fileID: 1554006603}
+  - {fileID: 468975940}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -19124,6 +19185,11 @@ PrefabInstance:
       propertyPath: efx_dlg5_joe
       value: 
       objectReference: {fileID: 1554006601}
+    - target: {fileID: 2385325390740277298, guid: 7618656325727c547b5e46c507bfb8d6,
+        type: 3}
+      propertyPath: efx_dlg6_trigger
+      value: 
+      objectReference: {fileID: 468975939}
     - target: {fileID: 2385325391988329923, guid: 7618656325727c547b5e46c507bfb8d6,
         type: 3}
       propertyPath: m_Pivot.x

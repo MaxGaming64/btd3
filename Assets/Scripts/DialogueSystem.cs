@@ -47,6 +47,12 @@ public class DialogueSystem : MonoBehaviour
         "Ready for a deadly chainsaw?", //8
         "Hold on, who--" //9
     };
+    private string[] dialogue06 = new string[3]
+    {
+        "I need to find some food, though... I'm starving...",
+        "Well, at least I won't see Joe in a couple of days.",
+        "But what is that noise??"
+    };
     private string[] dialogue99_0 = new string[3]
     {
         "I think so...",
@@ -54,6 +60,7 @@ public class DialogueSystem : MonoBehaviour
         "I think this is where Joe lives."
     };
     private AudioSource audioSource;
+    private AudioSource mainMus;
     public Sprite[] dialogue01Images;
     public Sprite[] dialogueNULLImages;
     public Animator anim_left;
@@ -63,16 +70,19 @@ public class DialogueSystem : MonoBehaviour
     private Sprite dialogueImage_null;
     public GameObject BLACK_BG;
     public GameObject efx_dlg5_joe;
+    public GameObject efx_dlg6_trigger;
     public AudioClip sfx_dlg4_eerie;
+    public AudioClip sfx_dlg5_ambient;
 
-    void Start()
+    private void Start()
     {
         gameObject.SetActive(false);
         audioSource = GetComponent<AudioSource>();
+        mainMus = GameObject.FindGameObjectWithTag("MainMus").GetComponent<AudioSource>();
         dialogueImage_null = dialogueImage.sprite;
     }
 
-    void Update()
+    private void Update()
     {
         if (Input.GetMouseButtonDown(0) | Input.GetMouseButtonDown(1))
         {
@@ -136,6 +146,11 @@ public class DialogueSystem : MonoBehaviour
                     {
                         ChangeTextAndImageAndChar(dialogue05, dialogueNULLImages, -1);
                     }
+                }
+
+                else if (dialogueType == 5)
+                {
+                    ChangeTextAndImageAndChar(dialogue06, dialogueNULLImages, 1);
                 }
 
                 else if (dialogueType == 99)
@@ -232,6 +247,18 @@ public class DialogueSystem : MonoBehaviour
             text.text = "Ha ha ha!";
             slideCount = dialogue05.Length;
             efx_dlg5_joe.SetActive(true);
+            efx_dlg6_trigger.SetActive(true);
+        }
+
+        else if (dialogueType == 5)
+        {
+            ActivateRight();
+            anim_right.Play("Player");
+            text.text = "I think I found Baldi's kitchen!";
+            slideCount = dialogue06.Length;
+            mainMus.clip = sfx_dlg5_ambient;
+            mainMus.volume = 0.5f;
+            mainMus.Play();
         }
 
         else if (dialogueType == 99)
@@ -243,7 +270,7 @@ public class DialogueSystem : MonoBehaviour
         }
     }
 
-    void ChangeTextAndImageAndChar(string[] dialogueNum, Sprite[] dialogueImageNum, int side)
+    private void ChangeTextAndImageAndChar(string[] dialogueNum, Sprite[] dialogueImageNum, int side)
     {
         if (slideCount >= 0)
         {
@@ -272,25 +299,25 @@ public class DialogueSystem : MonoBehaviour
         }
     }
 
-    void ActivateLeft()
+    private void ActivateLeft()
     {
         anim_left.gameObject.SetActive(true);
         anim_right.gameObject.SetActive(false);
     }
 
-    void ActivateRight()
+    private void ActivateRight()
     {
         anim_left.gameObject.SetActive(false);
         anim_right.gameObject.SetActive(true);
     }
 
-    void ActivateBoth()
+    private void ActivateBoth()
     {
         anim_left.gameObject.SetActive(true);
         anim_right.gameObject.SetActive(true);
     }
 
-    void DeactiveAll()
+    private void DeactiveAll()
     {
         anim_left.gameObject.SetActive(false);
         anim_right.gameObject.SetActive(false);
