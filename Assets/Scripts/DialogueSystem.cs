@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class DialogueSystem : MonoBehaviour
@@ -61,6 +62,7 @@ public class DialogueSystem : MonoBehaviour
     };
     private AudioSource audioSource;
     private AudioSource mainMus;
+    private GameObject hud;
     public Sprite[] dialogue01Images;
     public Sprite[] dialogueNULLImages;
     public Animator anim_left;
@@ -78,12 +80,21 @@ public class DialogueSystem : MonoBehaviour
     {
         gameObject.SetActive(false);
         audioSource = GetComponent<AudioSource>();
-        mainMus = GameObject.FindGameObjectWithTag("MainMus").GetComponent<AudioSource>();
         dialogueImage_null = dialogueImage.sprite;
+        
+        if (SceneManager.GetActiveScene().name == "Finale")
+        {
+            hud = GameObject.Find("Hud");
+        }
     }
 
     private void Update()
     {
+        if (mainMus == null)
+        {
+            mainMus = GameObject.FindGameObjectWithTag("MainMus").GetComponent<AudioSource>();
+        }
+        
         if (Input.GetMouseButtonDown(0) | Input.GetMouseButtonDown(1))
         {
             if (slideCount >= 0)
@@ -179,6 +190,11 @@ public class DialogueSystem : MonoBehaviour
                     dialogue = false;
                     dialogueImage.sprite = dialogueImage_null;
                     gameObject.SetActive(false);
+
+                    if (SceneManager.GetActiveScene().name == "Finale")
+                    {
+                        hud.SetActive(true);
+                    }
                 }
             }
         }
@@ -201,6 +217,11 @@ public class DialogueSystem : MonoBehaviour
         dialogue = true;
         dialogueType = DialogueType;
         gameObject.SetActive(true);
+
+        if (SceneManager.GetActiveScene().name == "Finale")
+        {
+            hud.SetActive(false);
+        }
 
         if (dialogueType == -1)
         {
