@@ -4,7 +4,6 @@ public class WTH_Trigger : MonoBehaviour
 {
     private bool used;
     public int dialogeType;
-    public GC_Mansion gc;
     public DialogueSystem dialogeSystem;
     
     void OnTriggerEnter(Collider other)
