@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class WTH_Trigger : MonoBehaviour
+public class DialogueTrigger : MonoBehaviour
 {
     private bool used;
     public int dialogeType;
