@@ -60,6 +60,15 @@ public class DialogueSystem : MonoBehaviour
         "So do we just try to find him?",
         "I think this is where Joe lives."
     };
+    private string[] dialogue99_1 = new string[6]
+    {
+        "Uh oh...", //0
+        "<color=red>EVERTHING GOES CRAZY!", //1
+        "When it's a finale...", //2
+        "This is the finale...", //3
+        "Because...", //4
+        "Why are your eyes blue?" //5
+    };
     private AudioSource audioSource;
     private AudioSource mainMus;
     private GameObject hud;
@@ -185,6 +194,27 @@ public class DialogueSystem : MonoBehaviour
                     }
                 }
 
+                else if (dialogueType == 100)
+                {
+                    if (slideCount == 1 | slideCount == 2 | slideCount == 3 | slideCount == 4 | slideCount == 6)
+                    {
+                        ChangeTextAndImageAndChar(dialogue99_1, dialogueNULLImages, 0);
+                        anim_left.Play("Joe");
+                    }
+
+                    else if (slideCount == 5)
+                    {
+                        ChangeTextAndImageAndChar(dialogue99_1, dialogueNULLImages, 1);
+                        anim_right.Play("Player");
+                    }
+
+                    else if (slideCount == 0)
+                    {
+                        ChangeTextAndImageAndChar(dialogue99_1, dialogueNULLImages, 0);
+                        anim_left.Play("BAL_Sad");
+                    }
+                }
+
                 if (slideCount < 0)
                 {
                     dialogue = false;
@@ -194,6 +224,11 @@ public class DialogueSystem : MonoBehaviour
                     if (SceneManager.GetActiveScene().name == "Finale")
                     {
                         hud.SetActive(true);
+                    }
+
+                    if (dialogueType == 100)
+                    {
+                        GameObject.FindGameObjectWithTag("GameController").GetComponent<GC_Finale>().StartCoroutine("StartBossIntro");
                     }
                 }
             }
@@ -288,6 +323,14 @@ public class DialogueSystem : MonoBehaviour
             anim_right.Play("Player");
             text.text = "What is this place...?";
             slideCount = dialogue99_0.Length;
+        }
+
+        else if (dialogueType == 100)
+        {
+            ActivateLeft();
+            anim_left.Play("Joe");
+            text.text = "Well, I guess you idiots somehow found me!";
+            slideCount = dialogue99_1.Length;
         }
     }
 
