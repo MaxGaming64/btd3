@@ -47,7 +47,8 @@ public class GC_Finale : MonoBehaviour
 
         if (PlayerPrefs.GetInt("respawn") == 1)
         {
-            mainMus.clip = mus_finale;
+            mainMus.clip = mus_bossfinale2;
+            mainMus.volume = 0.1f;
             mainMus.Play();
             player.GetComponent<Player>().enabled = false;
             player.position = new Vector3(15f, 10f, -270f);
