@@ -331,6 +331,12 @@ public class DialogueSystem : MonoBehaviour
             anim_left.Play("Joe");
             text.text = "Well, I guess you idiots somehow found me!";
             slideCount = dialogue99_1.Length;
+
+            AudioSource mainMus = GameObject.FindGameObjectWithTag("MainMus").GetComponent<AudioSource>();
+
+            mainMus.clip = GameObject.FindGameObjectWithTag("GameController").GetComponent<GC_Finale>().mus_bossfinale2;
+            mainMus.volume = 0.1f;
+            mainMus.Play();
         }
     }
 
