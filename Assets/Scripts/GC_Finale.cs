@@ -1,9 +1,11 @@
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
 
 public class GC_Finale : MonoBehaviour
 {
     private bool bossPause;
+    public bool paused;
+    public GameObject pauseCanvas;
     private AudioSource mainMus;
     public AudioClip mus_finale;
     public AudioClip mus_bossintro;
@@ -22,11 +24,10 @@ public class GC_Finale : MonoBehaviour
     public Sprite joeRedSprite;
     public Sprite joeBlueSprite;
     public Sprite joeNoneSprite;
+    public GameObject barrier;
 
     private void Start()
     {
-        ds.StartDialoge(99);
-
         if (GameObject.FindGameObjectWithTag("MainMus") == null)
         {
             mainMus = new GameObject().AddComponent<AudioSource>();
@@ -43,14 +44,53 @@ public class GC_Finale : MonoBehaviour
         {
             mainMus = GameObject.FindGameObjectWithTag("MainMus").GetComponent<AudioSource>();
         }
+
+        if (PlayerPrefs.GetInt("respawn") == 1)
+        {
+            mainMus.clip = mus_finale;
+            mainMus.Play();
+            player.GetComponent<Player>().enabled = false;
+            player.position = new Vector3(15f, 10f, -270f);
+            player.rotation = Quaternion.Euler(0f, 90f, 0f);
+            PlayerPrefs.SetInt("respawn", 0);
+        }
+
+        else
+        {
+            ds.StartDialoge(99);
+        }
     }
 
     private void Update()
     {
+        if (Input.GetButtonDown("Pause") & !ds.dialogue & !joe.killing)
+        {
+            if (paused)
+            {
+                paused = false;
+                Time.timeScale = 1f;
+                pauseCanvas.SetActive(false);
+            }
+
+            else
+            {
+                paused = true;
+                Time.timeScale = 0f;
+                pauseCanvas.SetActive(true);
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q) & paused)
+        {
+            Time.timeScale = 1f;
+            Destroy(mainMus.gameObject);
+            UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
+        }
+
 #if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.T))
         {
-            StartCoroutine("StartBossIntro");
+            StartCoroutine(StartBossIntro());
         }
 #endif
 
@@ -65,11 +105,6 @@ public class GC_Finale : MonoBehaviour
             player.transform.position = Vector3.Lerp(player.transform.position, new Vector3(15f, 10f, -270f), Time.deltaTime * 2f);
             player.transform.rotation = Quaternion.Lerp(player.transform.rotation, rotation, Time.deltaTime * 2f);
         }
-
-        else
-        {
-            playerScript.enabled = true;
-        }
     }
 
     private IEnumerator StartBossIntro()
@@ -81,11 +116,13 @@ public class GC_Finale : MonoBehaviour
         yield return new WaitForSeconds(16f);
         StartMainBattle(0);
         joeSprite.sprite = joeRedSprite;
+        barrier.SetActive(true);
     }
     
     private void StartMainBattle(int type)
     {
         bossPause = false;
+        player.GetComponent<Player>().enabled = true;
         joe.attacking = true;
         joeSprite.sprite = joeRedSprite;
         
