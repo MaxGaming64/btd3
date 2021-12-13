@@ -54,6 +54,7 @@ public class Joe : MonoBehaviour
             mainMus.PlayOneShot(die, 2f);
             StartCoroutine(Die());
             StartCoroutine(Fade());
+            GameObject.Find("Hud").SetActive(false);
             PlayerPrefs.SetInt("respawn", 1);
         }
     }
