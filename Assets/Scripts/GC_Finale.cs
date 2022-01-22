@@ -138,8 +138,21 @@ public class GC_Finale : MonoBehaviour
 
     private void Knockout()
     {
+        player.GetComponent<Player>().enabled = false;
         mainMus.clip = mus_bossknockout;
         mainMus.Play();
         joeSprite.sprite = joeNoneSprite;
+        joe.GetComponent<Billboard>().enabled = false;
+    }
+
+    private IEnumerator Prepare(int forWhat)
+    {
+        bossPause = true;
+        mainMus.clip = mus_bossprepare;
+        mainMus.Play();
+        joeSprite.sprite = joeBlueSprite;
+        joe.GetComponent<Billboard>().enabled = false;
+        yield return new WaitForSeconds(mus_bossprepare.length);
+        StartMainBattle(forWhat);
     }
 }
