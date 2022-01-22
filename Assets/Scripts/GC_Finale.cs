@@ -85,13 +85,6 @@ public class GC_Finale : MonoBehaviour
             UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
         }
 
-#if UNITY_EDITOR
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            StartCoroutine(StartBossIntro());
-        }
-#endif
-
         Player playerScript = player.GetComponent<Player>();
         
         if (bossPause)
