@@ -4026,7 +4026,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogeType: 5
-  gc: {fileID: 1376021871}
   dialogeSystem: {fileID: 585638337}
 --- !u!1 &484780089
 GameObject:
@@ -5951,7 +5950,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogeType: 3
-  gc: {fileID: 1376021871}
   dialogeSystem: {fileID: 585638337}
 --- !u!65 &762080366
 BoxCollider:
@@ -8834,7 +8832,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogeType: 0
-  gc: {fileID: 1376021871}
   dialogeSystem: {fileID: 585638337}
 --- !u!1 &1069734100 stripped
 GameObject:
@@ -8983,7 +8980,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogeType: 2
-  gc: {fileID: 1376021871}
   dialogeSystem: {fileID: 585638337}
 --- !u!65 &1110149520
 BoxCollider:
@@ -10848,7 +10844,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogeType: 4
-  gc: {fileID: 1376021871}
   dialogeSystem: {fileID: 585638337}
 --- !u!1 &1350650378
 GameObject:
