@@ -54,6 +54,7 @@ public class Joe : MonoBehaviour
             mainMus.PlayOneShot(die, 2f);
             StartCoroutine(Die());
             StartCoroutine(Fade());
+            StartCoroutine(FadeJoeSmile());
             GameObject.Find("Hud").SetActive(false);
             PlayerPrefs.SetInt("respawn", 1);
         }
@@ -70,6 +71,16 @@ public class Joe : MonoBehaviour
         for (float i = 0f; i >= 0; i += Time.deltaTime * 0.1f)
         {
             fade.color = new Color(0f, 0f, 0f, i);
+            yield return null;
+        }
+    }
+
+    private IEnumerator FadeJoeSmile()
+    {
+        yield return new WaitForSeconds(die.length - 5f);
+        for (float i = 1f; i >= 0; i -= Time.deltaTime * 0.5f)
+        {
+            gc.joeSprite.color = new Color(1f, 1f, 1f, i);
             yield return null;
         }
     }
