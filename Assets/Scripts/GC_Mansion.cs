@@ -97,6 +97,7 @@ public class GC_Mansion : MonoBehaviour
         cutsceneCam.SetActive(true);
         timeToEnablePlayer = 2f;
         player.position = new Vector3(5f, -5f, 45f);
+        player.rotation = Quaternion.identity;
         fallFloorAnim.enabled = true;
         mainMus.clip = tube_suck;
         mainMus.pitch = 1f;

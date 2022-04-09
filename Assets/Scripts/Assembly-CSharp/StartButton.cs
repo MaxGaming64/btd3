@@ -5,6 +5,6 @@ public class StartButton : MonoBehaviour
 {
 	public void StartGame()
 	{
-		SceneManager.LoadSceneAsync("Mansion");
+		SceneManager.LoadSceneAsync("Chapter1");
 	}
 }
