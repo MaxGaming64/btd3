@@ -54,6 +54,16 @@ public class DialogueSystem : MonoBehaviour
         "Well, at least I won't see Joe in a couple of days.",
         "But what is that noise??"
     };
+    private string[] dialogue07 = new string[7]
+    {
+        "Don't worry, Baldi! I'll save you!", //0
+        "BUT BE CAREFUL, THERE ARE DANGEROUS ALIENS THERE!", //1
+        "TO SAVE ME, YOU MUST GO FORWARD TO PLANET XEN!", //2
+        "Oh no! How can I save you?!", //3
+        "YES, AND I'M KIDNAPPED BY JOE!!!", //4
+        "What?? Are you Baldi?!", //5
+        "HELP!!!!!!" //6
+    };
     private string[] dialogue99_0 = new string[3]
     {
         "I think so...",
@@ -72,6 +82,7 @@ public class DialogueSystem : MonoBehaviour
     private AudioSource audioSource;
     private AudioSource mainMus;
     private GameObject hud;
+    private CharacterController player;
     public Sprite[] dialogue01Images;
     public Sprite[] dialogueNULLImages;
     public Animator anim_left;
@@ -84,12 +95,16 @@ public class DialogueSystem : MonoBehaviour
     public GameObject efx_dlg6_trigger;
     public AudioClip sfx_dlg4_eerie;
     public AudioClip sfx_dlg5_ambient;
+    private GameObject efx_dlg5_player;
+    public AudioClip sfx_dlg6_ambient;
 
     void Start()
     {
         gameObject.SetActive(false);
         audioSource = GetComponent<AudioSource>();
         dialogueImage_null = dialogueImage.sprite;
+        efx_dlg5_player = GameObject.FindGameObjectWithTag("Player");
+        player = efx_dlg5_player.GetComponent<CharacterController>();
 
         if (SceneManager.GetActiveScene().name == "Finale")
         {
@@ -161,6 +176,18 @@ public class DialogueSystem : MonoBehaviour
                     case 5:
                         ChangeTextAndImageAndChar(dialogue06, dialogueNULLImages, 1);
                         break;
+                    case 6:
+                        if (slideCount == 6 | slideCount == 4 | slideCount == 2 | slideCount == 1)
+                        {
+                            ChangeTextAndImageAndChar(dialogue07, dialogueNULLImages, -1);
+                        }
+
+                        else if (slideCount == 5 | slideCount == 3 | slideCount == 0)
+                        {
+                            ChangeTextAndImageAndChar(dialogue07, dialogueNULLImages, 1);
+                            anim_right.Play("Player");
+                        }
+                        break;
                     case 99:
                         if (slideCount == 2)
                         {
@@ -212,9 +239,14 @@ public class DialogueSystem : MonoBehaviour
                         hud.SetActive(true);
                     }
 
-                    if (dialogueType == 100)
+                    switch (dialogueType)
                     {
-                        GameObject.FindGameObjectWithTag("GameController").GetComponent<GC_Finale>().StartCoroutine("StartBossIntro");
+                        case 6:
+                            SceneManager.LoadScene("Chapter2");
+                            break;
+                        case 100:
+                            GameObject.FindGameObjectWithTag("GameController").GetComponent<GC_Finale>().StartCoroutine("StartBossIntro");
+                            break;
                     }
                 }
             }
@@ -287,8 +319,20 @@ public class DialogueSystem : MonoBehaviour
                 anim_right.Play("Player");
                 text.text = "I think I found Baldi's kitchen!";
                 slideCount = dialogue06.Length;
+                player.enabled = false;
+                efx_dlg5_player.transform.position = new Vector3(-15f, -110f, 75f);
+                efx_dlg5_player.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+                player.enabled = true;
                 mainMus.clip = sfx_dlg5_ambient;
                 mainMus.volume = 0.5f;
+                mainMus.Play();
+                break;
+            case 6:
+                ActivateRight();
+                anim_right.Play("Player");
+                text.text = "Woah! What is this...";
+                slideCount = dialogue07.Length;
+                mainMus.clip = sfx_dlg6_ambient;
                 mainMus.Play();
                 break;
             case 99:
