@@ -21,7 +21,7 @@ public class DialogueSystem : MonoBehaviour
         "But I think I need to find the key to the door first...",
         "Oh, wait! There's a locked door there!"
     };
-    private string[] dialogue02 = {"Let me get a closer look..."};
+    private string[] dialogue02 = { "Let me get a closer look..." };
     private string[] dialogue03 = new string[2]
     {
         "I think I'm in some kind of vent...",
@@ -90,7 +90,7 @@ public class DialogueSystem : MonoBehaviour
         gameObject.SetActive(false);
         audioSource = GetComponent<AudioSource>();
         dialogueImage_null = dialogueImage.sprite;
-        
+
         if (SceneManager.GetActiveScene().name == "Finale")
         {
             hud = GameObject.Find("Hud");
@@ -103,116 +103,102 @@ public class DialogueSystem : MonoBehaviour
         {
             mainMus = GameObject.FindGameObjectWithTag("MainMus").GetComponent<AudioSource>();
         }
-        
+
         if (Input.GetMouseButtonDown(0) | Input.GetMouseButtonDown(1))
         {
             if (slideCount >= 0)
             {
                 slideCount--;
 
-                if (dialogueType == -1)
+                switch (dialogueType)
                 {
-                    ChangeTextAndImageAndChar(introDialogue, dialogueNULLImages, -1);
-                }
-                
-                else if (dialogueType == 0)
-                {
-                    ChangeTextAndImageAndChar(dialogue01, dialogue01Images, 1);
-                }
+                    case -1:
+                        ChangeTextAndImageAndChar(introDialogue, dialogueNULLImages, -1);
+                        break;
+                    case 0:
+                        ChangeTextAndImageAndChar(dialogue01, dialogue01Images, 1);
+                        break;
+                    case 1:
+                        ChangeTextAndImageAndChar(dialogue02, dialogueNULLImages, 1);
+                        break;
+                    case 2:
+                        ChangeTextAndImageAndChar(dialogue03, dialogueNULLImages, 1);
+                        break;
+                    case 3:
+                        if (slideCount != 0)
+                        {
+                            ChangeTextAndImageAndChar(dialogue04, dialogueNULLImages, 1);
+                        }
 
-                else if (dialogueType == 1)
-                {
-                    ChangeTextAndImageAndChar(dialogue02, dialogueNULLImages, 1);
-                }
+                        else
+                        {
+                            ChangeTextAndImageAndChar(dialogue04, dialogueNULLImages, -1);
+                        }
 
-                else if (dialogueType == 2)
-                {
-                    ChangeTextAndImageAndChar(dialogue03, dialogueNULLImages, 1);
-                }
+                        if (slideCount == 1)
+                        {
+                            audioSource.PlayOneShot(sfx_dlg4_eerie);
+                        }
+                        break;
+                    case 4:
+                        if (slideCount == 9 | slideCount == 7 | slideCount == 5 | slideCount == 3 | slideCount == 0)
+                        {
+                            ChangeTextAndImageAndChar(dialogue05, dialogueNULLImages, 1);
+                            anim_right.Play("Player");
+                        }
 
-                else if (dialogueType == 3)
-                {
-                    if (slideCount != 0)
-                    {
-                        ChangeTextAndImageAndChar(dialogue04, dialogueNULLImages, 1);
-                    }
+                        else if (slideCount == 6 | slideCount == 4 | slideCount == 2 | slideCount == 1)
+                        {
+                            ChangeTextAndImageAndChar(dialogue05, dialogueNULLImages, 0);
+                            anim_left.Play("Joe");
+                        }
 
-                    else
-                    {
-                        ChangeTextAndImageAndChar(dialogue04, dialogueNULLImages, -1);
-                    }
+                        else if (slideCount == 8)
+                        {
+                            ChangeTextAndImageAndChar(dialogue05, dialogueNULLImages, -1);
+                        }
+                        break;
+                    case 5:
+                        ChangeTextAndImageAndChar(dialogue06, dialogueNULLImages, 1);
+                        break;
+                    case 99:
+                        if (slideCount == 2)
+                        {
+                            ChangeTextAndImageAndChar(dialogue99_0, dialogueNULLImages, 0);
+                            anim_left.Play("Pri_talk");
+                        }
 
-                    if (slideCount == 1)
-                    {
-                        audioSource.PlayOneShot(sfx_dlg4_eerie);
-                    }
-                }
+                        else if (slideCount == 1)
+                        {
+                            ChangeTextAndImageAndChar(dialogue99_0, dialogueNULLImages, 1);
+                            anim_right.Play("Player");
+                        }
 
-                else if (dialogueType == 4)
-                {
-                    if (slideCount == 9 | slideCount == 7 | slideCount == 5 | slideCount == 3 | slideCount == 0)
-                    {
-                        ChangeTextAndImageAndChar(dialogue05, dialogueNULLImages, 1);
-                        anim_right.Play("Player");
-                    }
+                        else if (slideCount == 0)
+                        {
+                            ChangeTextAndImageAndChar(dialogue99_0, dialogueNULLImages, 0);
+                            anim_left.Play("BAL_Sad");
+                        }
+                        break;
+                    case 100:
+                        if (slideCount == 1 | slideCount == 2 | slideCount == 3 | slideCount == 4 | slideCount == 6)
+                        {
+                            ChangeTextAndImageAndChar(dialogue99_1, dialogueNULLImages, 0);
+                            anim_left.Play("Joe");
+                        }
 
-                    else if (slideCount == 6 | slideCount == 4 | slideCount == 2 | slideCount == 1)
-                    {
-                        ChangeTextAndImageAndChar(dialogue05, dialogueNULLImages, 0);
-                        anim_left.Play("Joe");
-                    }
+                        else if (slideCount == 5)
+                        {
+                            ChangeTextAndImageAndChar(dialogue99_1, dialogueNULLImages, 1);
+                            anim_right.Play("Player");
+                        }
 
-                    else if (slideCount == 8)
-                    {
-                        ChangeTextAndImageAndChar(dialogue05, dialogueNULLImages, -1);
-                    }
-                }
-
-                else if (dialogueType == 5)
-                {
-                    ChangeTextAndImageAndChar(dialogue06, dialogueNULLImages, 1);
-                }
-
-                else if (dialogueType == 99)
-                {
-                    if (slideCount == 2)
-                    {
-                        ChangeTextAndImageAndChar(dialogue99_0, dialogueNULLImages, 0);
-                        anim_left.Play("Pri_talk");
-                    }
-
-                    else if (slideCount == 1)
-                    {
-                        ChangeTextAndImageAndChar(dialogue99_0, dialogueNULLImages, 1);
-                        anim_right.Play("Player");
-                    }
-
-                    else if (slideCount == 0)
-                    {
-                        ChangeTextAndImageAndChar(dialogue99_0, dialogueNULLImages, 0);
-                        anim_left.Play("BAL_Sad");
-                    }
-                }
-
-                else if (dialogueType == 100)
-                {
-                    if (slideCount == 1 | slideCount == 2 | slideCount == 3 | slideCount == 4 | slideCount == 6)
-                    {
-                        ChangeTextAndImageAndChar(dialogue99_1, dialogueNULLImages, 0);
-                        anim_left.Play("Joe");
-                    }
-
-                    else if (slideCount == 5)
-                    {
-                        ChangeTextAndImageAndChar(dialogue99_1, dialogueNULLImages, 1);
-                        anim_right.Play("Player");
-                    }
-
-                    else if (slideCount == 0)
-                    {
-                        ChangeTextAndImageAndChar(dialogue99_1, dialogueNULLImages, 0);
-                        anim_left.Play("BAL_Sad");
-                    }
+                        else if (slideCount == 0)
+                        {
+                            ChangeTextAndImageAndChar(dialogue99_1, dialogueNULLImages, 0);
+                            anim_left.Play("BAL_Sad");
+                        }
+                        break;
                 }
 
                 if (slideCount < 0)
@@ -258,85 +244,73 @@ public class DialogueSystem : MonoBehaviour
             hud.SetActive(false);
         }
 
-        if (dialogueType == -1)
+        switch (dialogueType)
         {
-            DeactiveAll();
-            text.text = "One day, you come to Baldi's school.";
-            slideCount = introDialogue.Length;
-        }
-        
-        else if (dialogueType == 0)
-        {
-            ActivateRight();
-            anim_right.Play("Player");
-            text.text = "What the hell happened to this place?";
-            slideCount = dialogue01.Length;
-        }
+            case -1:
+                DeactiveAll();
+                text.text = "One day, you come to Baldi's school.";
+                slideCount = introDialogue.Length;
+                break;
+            case 0:
+                ActivateRight();
+                anim_right.Play("Player");
+                text.text = "What the hell happened to this place?";
+                slideCount = dialogue01.Length;
+                break;
+            case 1:
+                ActivateRight();
+                anim_right.Play("Player");
+                text.text = "What?! The door is unlocked but there is a wooden wall blocking my way!";
+                slideCount = dialogue02.Length;
+                break;
+            case 2:
+                ActivateRight();
+                anim_right.Play("Player");
+                text.text = "WHAT THE HELL?!";
+                slideCount = dialogue03.Length;
+                break;
+            case 3:
+                ActivateRight();
+                anim_right.Play("Player");
+                text.text = "Dead end.";
+                slideCount = dialogue04.Length;
+                break;
+            case 4:
+                DeactiveAll();
+                text.text = "Ha ha ha!";
+                slideCount = dialogue05.Length;
+                efx_dlg5_joe.SetActive(true);
+                efx_dlg6_trigger.SetActive(true);
+                break;
+            case 5:
+                ActivateRight();
+                anim_right.Play("Player");
+                text.text = "I think I found Baldi's kitchen!";
+                slideCount = dialogue06.Length;
+                mainMus.clip = sfx_dlg5_ambient;
+                mainMus.volume = 0.5f;
+                mainMus.Play();
+                break;
+            case 99:
+                ActivateRight();
+                anim_right.Play("Player");
+                text.text = "What is this place...?";
+                slideCount = dialogue99_0.Length;
+                break;
+            case 100:
+                {
+                    ActivateLeft();
+                    anim_left.Play("Joe");
+                    text.text = "Well, I guess you idiots somehow found me!";
+                    slideCount = dialogue99_1.Length;
 
-        else if (dialogueType == 1)
-        {
-            ActivateRight();
-            anim_right.Play("Player");
-            text.text = "What?! The door is unlocked but there is a wooden wall blocking my way!";
-            slideCount = dialogue02.Length;
-        }
+                    AudioSource mainMus = GameObject.FindGameObjectWithTag("MainMus").GetComponent<AudioSource>();
 
-        else if (dialogueType == 2)
-        {
-            ActivateRight();
-            anim_right.Play("Player");
-            text.text = "WHAT THE HELL?!";
-            slideCount = dialogue03.Length;
-        }
-
-        else if (dialogueType == 3)
-        {
-            ActivateRight();
-            anim_right.Play("Player");
-            text.text = "Dead end.";
-            slideCount = dialogue04.Length;
-        }
-
-        else if (dialogueType == 4)
-        {
-            DeactiveAll();
-            text.text = "Ha ha ha!";
-            slideCount = dialogue05.Length;
-            efx_dlg5_joe.SetActive(true);
-            efx_dlg6_trigger.SetActive(true);
-        }
-
-        else if (dialogueType == 5)
-        {
-            ActivateRight();
-            anim_right.Play("Player");
-            text.text = "I think I found Baldi's kitchen!";
-            slideCount = dialogue06.Length;
-            mainMus.clip = sfx_dlg5_ambient;
-            mainMus.volume = 0.5f;
-            mainMus.Play();
-        }
-
-        else if (dialogueType == 99)
-        {
-            ActivateRight();
-            anim_right.Play("Player");
-            text.text = "What is this place...?";
-            slideCount = dialogue99_0.Length;
-        }
-
-        else if (dialogueType == 100)
-        {
-            ActivateLeft();
-            anim_left.Play("Joe");
-            text.text = "Well, I guess you idiots somehow found me!";
-            slideCount = dialogue99_1.Length;
-
-            AudioSource mainMus = GameObject.FindGameObjectWithTag("MainMus").GetComponent<AudioSource>();
-
-            mainMus.clip = GameObject.FindGameObjectWithTag("GameController").GetComponent<GC_Finale>().mus_bossfinale2;
-            mainMus.volume = 0.1f;
-            mainMus.Play();
+                    mainMus.clip = GameObject.FindGameObjectWithTag("GameController").GetComponent<GC_Finale>().mus_bossfinale2;
+                    mainMus.volume = 0.1f;
+                    mainMus.Play();
+                    break;
+                }
         }
     }
 
