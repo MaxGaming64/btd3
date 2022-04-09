@@ -28,6 +28,11 @@ public class GC_Finale : MonoBehaviour
 
     private void Start()
     {
+        if (PlayerPrefs.GetInt("chapter") < 4)
+        {
+            PlayerPrefs.SetInt("chapter", 4);
+        }
+
         if (GameObject.FindGameObjectWithTag("MainMus") == null)
         {
             mainMus = new GameObject().AddComponent<AudioSource>();

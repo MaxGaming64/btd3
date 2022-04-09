@@ -11,6 +11,11 @@ public class GC_Xen : MonoBehaviour
 
     void Start()
     {
+        if (PlayerPrefs.GetInt("chapter") < 2)
+        {
+            PlayerPrefs.SetInt("chapter", 2);
+        }
+        
         if (GameObject.FindGameObjectWithTag("MainMus") == null)
         {
             mainMus = new GameObject().AddComponent<AudioSource>();
