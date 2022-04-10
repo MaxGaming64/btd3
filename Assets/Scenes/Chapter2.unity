@@ -123,6 +123,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!95 &24524695 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 735208989147854674, guid: fe8bab39717216443a670db756da7a80,
+    type: 3}
+  m_PrefabInstance: {fileID: 57087715}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &35408621
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -371,6 +377,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe8bab39717216443a670db756da7a80, type: 3}
+--- !u!1 &57087716 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1256649096680263744, guid: fe8bab39717216443a670db756da7a80,
+    type: 3}
+  m_PrefabInstance: {fileID: 57087715}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &184064846
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1325,6 +1337,8 @@ MonoBehaviour:
   pauseCanvas: {fileID: 1833037055}
   ds: {fileID: 1869366497}
   ambient: {fileID: 8300000, guid: ca8509eab88a5014b94578b7431e898a, type: 3}
+  fade: {fileID: 24524695}
+  chapter: {fileID: 57087716}
 --- !u!1 &1833037055 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7356228714318851992, guid: e734f3e0cd7efb049820384e8e1bff13,

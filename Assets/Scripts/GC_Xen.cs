@@ -8,6 +8,8 @@ public class GC_Xen : MonoBehaviour
     private AudioSource mainMus;
     public DialogueSystem ds;
     public AudioClip ambient;
+    public Animator fade;
+    public GameObject chapter;
 
     void Start()
     {
@@ -25,12 +27,17 @@ public class GC_Xen : MonoBehaviour
             mainMus.clip = ambient;
             mainMus.Play();
             DontDestroyOnLoad(mainMus);
+
+            fade.Play("Out");
         }
 
         else
         {
             mainMus = GameObject.FindGameObjectWithTag("MainMus").GetComponent<AudioSource>();
         }
+
+        chapter.GetComponent<TMPro.TextMeshProUGUI>().text = "Xen";
+        chapter.GetComponent<Animator>().Play("NewChapter");
     }
 
     void Update()

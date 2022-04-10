@@ -17997,6 +17997,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe8bab39717216443a670db756da7a80, type: 3}
+--- !u!1 &1267641446 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1256649096680263744, guid: fe8bab39717216443a670db756da7a80,
+    type: 3}
+  m_PrefabInstance: {fileID: 1267641445}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1268972141
 GameObject:
   m_ObjectHideFlags: 0
@@ -27507,6 +27513,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1659053220}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1665046555 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1772309187695111801, guid: fe8bab39717216443a670db756da7a80,
+    type: 3}
+  m_PrefabInstance: {fileID: 1267641445}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1673246697
 GameObject:
   m_ObjectHideFlags: 0
@@ -31581,7 +31593,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paused: 0
+  hud: {fileID: 1665046555}
   pauseCanvas: {fileID: 1712148408}
+  chapter: {fileID: 1267641446}
   mus_finale: {fileID: 8300000, guid: 5a6ab7cb92b08034987b190abd2ae305, type: 3}
   mus_bossintro: {fileID: 8300000, guid: d9b9ba7914059b54c8c2ca7f302018e7, type: 3}
   mus_bossmain1: {fileID: 8300000, guid: 6223c37154a727740b9e94e2b5a8e500, type: 3}
