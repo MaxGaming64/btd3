@@ -332,6 +332,10 @@ public class DialogueSystem : MonoBehaviour
                 anim_right.Play("Player");
                 text.text = "Woah! What is this...";
                 slideCount = dialogue07.Length;
+                player.enabled = false;
+                efx_dlg5_player.transform.position = new Vector3(-45f, -80f, 45f);
+                efx_dlg5_player.transform.rotation = Quaternion.identity;
+                player.enabled = true;
                 mainMus.clip = sfx_dlg6_ambient;
                 mainMus.Play();
                 break;
