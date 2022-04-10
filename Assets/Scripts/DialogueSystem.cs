@@ -48,20 +48,19 @@ public class DialogueSystem : MonoBehaviour
         "Ready for a deadly chainsaw?", //8
         "Hold on, who--" //9
     };
-    private string[] dialogue06 = new string[3]
+    private string[] dialogue06 = new string[2]
     {
         "I need to find some food, though... I'm starving...",
-        "Well, at least I won't see Joe in a couple of days.",
-        "But what is that noise??"
+        "Well, I won't see Joe for a long time, that's for sure!"
     };
     private string[] dialogue07 = new string[7]
     {
         "Don't worry, Baldi! I'll save you!", //0
         "BUT BE CAREFUL, THERE ARE DANGEROUS ALIENS THERE!", //1
-        "TO SAVE ME, YOU MUST GO FORWARD TO PLANET XEN!", //2
+        "TO SAVE ME, YOU MUST GO TO PLANET XEN!", //2
         "Oh no! How can I save you?!", //3
         "YES, AND I'M KIDNAPPED BY JOE!!!", //4
-        "What?? Are you Baldi?!", //5
+        "What?? Is that Baldi?!", //5
         "HELP!!!!!!" //6
     };
     private string[] dialogue99_0 = new string[3]
