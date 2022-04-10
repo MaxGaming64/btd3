@@ -3,9 +3,12 @@ using UnityEngine;
 
 public class GC_Finale : MonoBehaviour
 {
+    private bool chapterAnimPlayed;
     private bool bossPause;
     public bool paused;
+    public GameObject hud;
     public GameObject pauseCanvas;
+    public GameObject chapter;
     private AudioSource mainMus;
     public AudioClip mus_finale;
     public AudioClip mus_bossintro;
@@ -66,6 +69,13 @@ public class GC_Finale : MonoBehaviour
 
     private void Update()
     {
+        if (hud.activeSelf & !chapterAnimPlayed)
+        {
+            chapterAnimPlayed = true;
+            chapter.GetComponent<TMPro.TextMeshProUGUI>().text = "Finale";
+            chapter.GetComponent<Animator>().Play("NewChapter");
+        }
+        
         if (Input.GetButtonDown("Pause") & !ds.dialogue & !joe.killing)
         {
             if (paused)
