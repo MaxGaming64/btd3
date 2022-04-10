@@ -7,8 +7,11 @@ public class Player : MonoBehaviour
     private float speed = 10f;
     private float runSpeed = 16f;
     private float mouseSensitivity;
-    private float gravity = Physics.gravity.y * 2f;
+    private float jumpHeight = 5f;
+    private float XRotation;
+    private float gravity = Physics.gravity.y;
     private bool grounded;
+    private bool xen;
     private CharacterController controller;
     private Vector3 velocity;
     public LayerMask layerMask;
@@ -18,6 +21,13 @@ public class Player : MonoBehaviour
     void Start()
     {
         mouseSensitivity = PlayerPrefs.GetFloat("MouseSensitivity");
+
+        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Chapter2")
+        {
+            xen = true;
+            gravity = Physics.gravity.y / 2;
+        }
+
         controller = GetComponent<CharacterController>();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
@@ -34,7 +44,8 @@ public class Player : MonoBehaviour
 
         if (Time.timeScale > 0f)
         {
-            MovementAndLook();
+            Move();
+            Look();
             Sprint();
 
             if (!grounded)
@@ -46,24 +57,46 @@ public class Player : MonoBehaviour
         }
     }
 
-    void MovementAndLook()
+    void Move()
     {
         float x = Input.GetAxisRaw("Strafe");
         float z = Input.GetAxisRaw("Forward");
         Vector3 move = transform.right * x + transform.forward * z;
+
         controller.Move(move * currentSpeed * Time.deltaTime);
 
+        if (Input.GetKeyDown(KeyCode.Space) & grounded & xen)
+        {
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+        }
+    }
+
+    void Look()
+    {
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
+        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
+
         transform.Rotate(Vector3.up * mouseX);
 
-        if (Input.GetKey(KeyCode.Space))
+        XRotation -= mouseY;
+        XRotation = Mathf.Clamp(XRotation, -90f, 90f);
+
+        if (xen)
         {
-            Camera.localRotation = Quaternion.Euler(0f, 180f, 0f);
+            Camera.localRotation = Quaternion.Euler(XRotation, 0f, 0f);
         }
 
         else
         {
-            Camera.localRotation = Quaternion.identity;
+            if (Input.GetKey(KeyCode.Space))
+            {
+                Camera.localRotation = Quaternion.Euler(0f, 180f, 0f);
+            }
+
+            else
+            {
+                Camera.localRotation = Quaternion.identity;
+            }
         }
     }
 
