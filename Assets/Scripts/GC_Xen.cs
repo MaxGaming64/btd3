@@ -71,5 +71,12 @@ public class GC_Xen : MonoBehaviour
                 pauseCanvas.SetActive(true);
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.Q) & paused)
+        {
+            Time.timeScale = 1f;
+            Destroy(mainMus.gameObject);
+            SceneManager.LoadScene("MainMenu");
+        }
     }
 }
