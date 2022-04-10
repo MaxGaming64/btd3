@@ -4,10 +4,12 @@ using UnityEngine.SceneManagement;
 public class GC_Xen : MonoBehaviour
 {
     public bool paused;
+    private float timeToRandomAmb = -1f;
     public GameObject pauseCanvas;
     private AudioSource mainMus;
     public DialogueSystem ds;
     public AudioClip ambient;
+    public AudioClip alien_squit;
     public Animator fade;
     public GameObject chapter;
 
@@ -42,6 +44,17 @@ public class GC_Xen : MonoBehaviour
 
     void Update()
     {
+        if (timeToRandomAmb < 0f)
+        {
+            timeToRandomAmb = Random.Range(alien_squit.length, 30);
+            mainMus.PlayOneShot(alien_squit);
+        }
+
+        if (timeToRandomAmb > 0f)
+        {
+            timeToRandomAmb -= Time.deltaTime;
+        }
+        
         if (Input.GetButtonDown("Pause") & !ds.dialogue)
         {
             if (paused)
