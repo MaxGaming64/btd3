@@ -6,6 +6,7 @@ public class ElevTrigger : MonoBehaviour
     private bool used;
     public string animName;
     public GameObject trigger;
+    public GameObject barrier;
     public AudioClip ambient;
     
     private void OnTriggerEnter(Collider other)
@@ -13,6 +14,7 @@ public class ElevTrigger : MonoBehaviour
         if (other.CompareTag("Player") & !used)
         {
             used = true;
+            barrier.SetActive(true);
             GetComponent<Animator>().Play(animName);
             StartCoroutine(Audio());
         }
