@@ -97,7 +97,7 @@ public class GC_Finale : MonoBehaviour
         {
             Time.timeScale = 1f;
             Destroy(mainMus.gameObject);
-            UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
+            UnityEngine.SceneManagement.SceneManager.LoadScene("MenuLoader");
         }
 
         Player playerScript = player.GetComponent<Player>();
