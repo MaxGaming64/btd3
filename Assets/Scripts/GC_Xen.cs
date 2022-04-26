@@ -79,7 +79,7 @@ public class GC_Xen : MonoBehaviour
         {
             Time.timeScale = 1f;
             Destroy(mainMus.gameObject);
-            SceneManager.LoadScene("MainMenu");
+            SceneManager.LoadScene("MenuLoader");
         }
     }
 }
