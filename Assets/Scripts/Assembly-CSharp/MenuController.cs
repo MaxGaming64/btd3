@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 // Token: 0x0200001C RID: 28
 public class MenuController : MonoBehaviour
@@ -8,6 +9,10 @@ public class MenuController : MonoBehaviour
 	// Token: 0x06000063 RID: 99 RVA: 0x00003D32 File Offset: 0x00002132
 	private void Start()
 	{
+		if (version != null)
+        {
+			version.text = "V" + Application.version;
+		}
 	}
 
 	// Token: 0x06000064 RID: 100 RVA: 0x00003D45 File Offset: 0x00002145
@@ -48,4 +53,6 @@ public class MenuController : MonoBehaviour
 
 	// Token: 0x04000086 RID: 134
 	public GameObject back;
+
+	public TextMeshProUGUI version;
 }
