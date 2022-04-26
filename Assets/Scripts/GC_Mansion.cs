@@ -52,7 +52,7 @@ public class GC_Mansion : MonoBehaviour
         {
             Time.timeScale = 1f;
             Destroy(mainMus.gameObject);
-            SceneManager.LoadScene("MainMenu");
+            SceneManager.LoadScene("MenuLoader");
         }
         
         RaycastHit hit;

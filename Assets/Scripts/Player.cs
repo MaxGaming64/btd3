@@ -102,7 +102,7 @@ public class Player : MonoBehaviour
 
     void Sprint()
     {
-        if (Input.GetButton("Run") & stamina.value > 0f & controller.velocity != Vector3.zero)
+        if (Input.GetButton("Run") & stamina != null && stamina.value > 0f & controller.velocity != Vector3.zero)
         {
             currentSpeed = runSpeed;
             stamina.value -= 10f * Time.deltaTime;
@@ -112,7 +112,7 @@ public class Player : MonoBehaviour
         {
             currentSpeed = speed;
 
-            if (controller.velocity == Vector3.zero)
+            if (controller.velocity == Vector3.zero & stamina != null)
             {
                 stamina.value += 10f * Time.deltaTime;
             }

@@ -13,7 +13,7 @@ public class WarningScreenScript : MonoBehaviour
 	{
 		if (Input.anyKeyDown)
 		{
-			SceneManager.LoadScene("MainMenu");
+			SceneManager.LoadScene("MenuLoader");
 			Cursor.visible = true;
 			Cursor.lockState = CursorLockMode.None;
 		}
