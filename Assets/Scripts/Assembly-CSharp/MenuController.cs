@@ -39,6 +39,12 @@ public class MenuController : MonoBehaviour
 		Application.OpenURL("https://gamez-productions.itch.io/");
 	}
 
+	public void ResetGame()
+    {
+		PlayerPrefs.DeleteAll();
+		UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(0);
+    }
+
 	// Token: 0x04000082 RID: 130
 	public UIController uc;
 
