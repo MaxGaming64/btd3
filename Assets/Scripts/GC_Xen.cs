@@ -48,6 +48,12 @@ public class GC_Xen : MonoBehaviour
         else
         {
             mainMus = GameObject.FindGameObjectWithTag("MainMus").GetComponent<AudioSource>();
+
+            if (mainMus.clip != ambient)
+            {
+                mainMus.clip = ambient;
+                mainMus.Play();
+            }
         }
 
         mainMus.PlayOneShot(comes, 2f);
@@ -94,6 +100,11 @@ public class GC_Xen : MonoBehaviour
             SceneManager.LoadScene("MenuLoader");
         }
 
+        if (playerHealth > 100)
+        {
+            playerHealth = 100;
+        }
+        
         if (playerHealth <= 0f & !playerDead)
         {
             playerDead = true;
