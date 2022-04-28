@@ -59,7 +59,7 @@ public class GC_Xen : MonoBehaviour
         mainMus.PlayOneShot(comes, 2f);
         healthText.gameObject.SetActive(true);
 
-        chapter.GetComponent<TMPro.TextMeshProUGUI>().text = "Xen";
+        chapter.GetComponent<TextMeshProUGUI>().text = "Xen";
         chapter.GetComponent<Animator>().Play("NewChapter");
     }
 
