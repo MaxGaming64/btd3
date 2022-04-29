@@ -63,6 +63,11 @@ public class DialogueSystem : MonoBehaviour
         "What?? Is that Baldi?!", //5
         "HELP!!!!!!" //6
     };
+    private string[] dialogue08 = new string[2]
+    {
+        "I gotta get outta here soon...",
+        "And what was that alien?"
+    };
     private string[] dialogue99_0 = new string[3]
     {
         "I think so...",
@@ -186,6 +191,9 @@ public class DialogueSystem : MonoBehaviour
                             ChangeTextAndImageAndChar(dialogue07, dialogueNULLImages, 1);
                             anim_right.Play("Player");
                         }
+                        break;
+                    case 7:
+                        ChangeTextAndImageAndChar(dialogue08, dialogueNULLImages, 1);
                         break;
                     case 99:
                         if (slideCount == 2)
@@ -337,6 +345,12 @@ public class DialogueSystem : MonoBehaviour
                 player.enabled = true;
                 mainMus.clip = sfx_dlg6_ambient;
                 mainMus.Play();
+                break;
+            case 7:
+                ActivateRight();
+                anim_right.Play("Player");
+                text.text = "This place is creepy.";
+                slideCount = dialogue08.Length;
                 break;
             case 99:
                 ActivateRight();
