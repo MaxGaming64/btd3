@@ -5,6 +5,7 @@ public class MovingIsland : MonoBehaviour
 {
     private bool moving = true;
     private bool goBack;
+    public float speed;
     private AudioSource audioSource;
     public AudioClip stopSound;
     private Vector3 startPosition;
@@ -23,12 +24,12 @@ public class MovingIsland : MonoBehaviour
         {
             if (!goBack)
             {
-                transform.position = Vector3.Lerp(transform.position, endPosition, Time.deltaTime * 0.5f);
+                transform.position = Vector3.Lerp(transform.position, endPosition, Time.deltaTime * speed);
             }
 
             else
             {
-                transform.position = Vector3.Lerp(transform.position, startPosition, Time.deltaTime * 0.5f);
+                transform.position = Vector3.Lerp(transform.position, startPosition, Time.deltaTime * speed);
             }
 
             if (Vector3.Distance(transform.position, endPosition) <= 1f | Vector3.Distance(transform.position, startPosition) <= 1f)
