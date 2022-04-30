@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     private bool xen;
     private CharacterController controller;
     private Vector3 velocity;
+    public Vector3 extraVelocity;
     public LayerMask layerMask;
     public Transform Camera;
     public Slider stamina;
@@ -61,7 +62,7 @@ public class Player : MonoBehaviour
     {
         float x = Input.GetAxisRaw("Strafe");
         float z = Input.GetAxisRaw("Forward");
-        Vector3 move = transform.right * x + transform.forward * z;
+        Vector3 move = transform.right * x + transform.forward * z + extraVelocity;
 
         controller.Move(move * currentSpeed * Time.deltaTime);
 
