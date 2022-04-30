@@ -17,7 +17,7 @@ public class VoidTrigger : MonoBehaviour
     IEnumerator Die()
     {
         fade.Play("In");
-        yield return new WaitForSeconds(fade.GetCurrentAnimatorStateInfo(0).length);
+        yield return new WaitForSeconds(5f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
