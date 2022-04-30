@@ -24,6 +24,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Chapter2.unity
     guid: 1957eb4e4d82cbc49a0ce9c61d6aeeab
   - enabled: 1
+    path: Assets/Scenes/YTDemoEnd.unity
+    guid: 0fbcbdddee5bae847b2886ee13309eec
+  - enabled: 1
     path: Assets/Scenes/Finale.unity
     guid: aebbd5b344c82d64b80808eda0b473a9
   m_configObjects: {}

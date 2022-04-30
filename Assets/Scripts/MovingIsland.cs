@@ -18,18 +18,18 @@ public class MovingIsland : MonoBehaviour
         transform.position = new Vector3(startPosition.x, startPosition.y, startPosition.z + 1f);
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (moving)
         {
             if (!goBack)
             {
-                transform.position = Vector3.Lerp(transform.position, endPosition, Time.deltaTime * speed);
+                transform.Translate(transform.forward * speed * Time.deltaTime);
             }
 
             else
             {
-                transform.position = Vector3.Lerp(transform.position, startPosition, Time.deltaTime * speed);
+                transform.Translate(-transform.forward * speed * Time.deltaTime);
             }
 
             if (Vector3.Distance(transform.position, endPosition) <= 1f | Vector3.Distance(transform.position, startPosition) <= 1f)
