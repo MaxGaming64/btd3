@@ -19,7 +19,6 @@ public class XenEndingTrigger : MonoBehaviour
         anim.Play("In");
         mainMus.PlayOneShot(tpSound);
         yield return new WaitForSeconds(5f);
-        SceneManager.LoadScene("YTDemoEnd");
-        Destroy(mainMus.gameObject);
+        SceneManager.LoadScene("Chapter3");
     }
 }
