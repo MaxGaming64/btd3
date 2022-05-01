@@ -1468,23 +1468,23 @@ PrefabInstance:
     - target: {fileID: 9018453453470223114, guid: 64681e23d868cff478d3249c45f122e4,
         type: 3}
       propertyPath: wanderPoints.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9018453453470223114, guid: 64681e23d868cff478d3249c45f122e4,
         type: 3}
       propertyPath: wanderPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 1422292875}
+      objectReference: {fileID: 1210026932}
     - target: {fileID: 9018453453470223114, guid: 64681e23d868cff478d3249c45f122e4,
         type: 3}
       propertyPath: wanderPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 1223445564}
+      objectReference: {fileID: 811118961}
     - target: {fileID: 9018453453470223114, guid: 64681e23d868cff478d3249c45f122e4,
         type: 3}
       propertyPath: wanderPoints.Array.data[2]
       value: 
-      objectReference: {fileID: 1527276434}
+      objectReference: {fileID: 1937651405}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64681e23d868cff478d3249c45f122e4, type: 3}
 --- !u!4 &215831049 stripped
