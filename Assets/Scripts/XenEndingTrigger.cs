@@ -4,12 +4,17 @@ using UnityEngine.SceneManagement;
 
 public class XenEndingTrigger : MonoBehaviour
 {
+    private bool used;
     public Animator anim;
     public AudioClip tpSound;
     
     private void OnTriggerEnter(Collider other)
     {
-        StartCoroutine(Fade());
+        if (!used)
+        {
+            used = true;
+            StartCoroutine(Fade());
+        }
     }
 
     IEnumerator Fade()
