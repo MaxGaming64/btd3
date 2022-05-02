@@ -57,7 +57,7 @@ public class DialogueSystem : MonoBehaviour
     {
         "Don't worry, Baldi! I'll save you!", //0
         "BUT BE CAREFUL, THERE ARE DANGEROUS ALIENS THERE!", //1
-        "TO SAVE ME, YOU MUST GO TO PLANET XEN!", //2
+        "TO SAVE ME, YOU MUST GO THROUGH PLANET XEN!", //2
         "Oh no! How can I save you?!", //3
         "YES, AND I'M KIDNAPPED BY JOE!!!", //4
         "What?? Is that Baldi?!", //5
@@ -67,6 +67,25 @@ public class DialogueSystem : MonoBehaviour
     {
         "I gotta get outta here soon...",
         "And what was that alien?"
+    };
+    private string[] dialogue09 = new string[3]
+    {
+        "Speaking of Baldi, where is he?",
+        "And why does he even have this in the first place??",
+        "Why did Baldi never tell us about this?"
+    };
+    private string[] dialogue10 =
+    {
+        "I don't know...", //0
+        "Okay. But what if Joe finds us?", //1
+        "We have to go further, and escape out of here.", //2
+        "So what are we gonna go now?", //3
+        "I decided to check it out myself.", //4
+        "After you told me Baldi was gone...", //5
+        "But wait, Principal, what are you doing here?", //6
+        "I'm so glad you made it through Xen!", //7
+        "Player!", //8
+        "Principal?!", //9
     };
     private string[] dialogue99_0 = new string[3]
     {
@@ -101,6 +120,8 @@ public class DialogueSystem : MonoBehaviour
     public AudioClip sfx_dlg5_ambient;
     private GameObject efx_dlg5_player;
     public AudioClip sfx_dlg6_ambient;
+    public Follow mnb_dlg10_follow01;
+    public Follow mnb_dlg10_follow02;
 
     void Start()
     {
@@ -194,6 +215,34 @@ public class DialogueSystem : MonoBehaviour
                         break;
                     case 7:
                         ChangeTextAndImageAndChar(dialogue08, dialogueNULLImages, 1);
+                        break;
+                    case 8:
+                        ChangeTextAndImageAndChar(dialogue09, dialogueNULLImages, 1);
+                        break;
+                    case 9:
+                        if (slideCount == 9 | slideCount == 6 | slideCount == 3 | slideCount == 1)
+                        {
+                            ChangeTextAndImageAndChar(dialogue10, dialogueNULLImages, 1);
+                            anim_right.Play("Player");
+                        }
+
+                        else if (slideCount == 8 | slideCount == 7)
+                        {
+                            ChangeTextAndImageAndChar(dialogue10, dialogueNULLImages, 0);
+                            anim_left.Play("BAL_Happy");
+                        }
+
+                        else if (slideCount == 0)
+                        {
+                            ChangeTextAndImageAndChar(dialogue10, dialogueNULLImages, 0);
+                            anim_left.Play("BAL_Sad");
+                        }
+
+                        else if (slideCount == 5 | slideCount == 4 | slideCount == 2)
+                        {
+                            ChangeTextAndImageAndChar(dialogue10, dialogueNULLImages, 0);
+                            anim_left.Play("Pri_talk");
+                        }
                         break;
                     case 99:
                         if (slideCount == 2)
@@ -351,6 +400,20 @@ public class DialogueSystem : MonoBehaviour
                 anim_right.Play("Player");
                 text.text = "This place is creepy.";
                 slideCount = dialogue08.Length;
+                break;
+            case 8:
+                ActivateRight();
+                anim_right.Play("Player");
+                text.text = "This is weird...";
+                slideCount = dialogue09.Length;
+                break;
+            case 9:
+                ActivateRight();
+                anim_right.Play("Player");
+                text.text = "Baldi?!";
+                slideCount = dialogue10.Length;
+                mnb_dlg10_follow01.follow = true;
+                mnb_dlg10_follow02.follow = true;
                 break;
             case 99:
                 ActivateRight();
