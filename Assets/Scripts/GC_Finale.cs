@@ -60,11 +60,6 @@ public class GC_Finale : MonoBehaviour
             player.rotation = Quaternion.Euler(0f, 90f, 0f);
             PlayerPrefs.SetInt("respawn", 0);
         }
-
-        else
-        {
-            ds.StartDialoge(99);
-        }
     }
 
     private void Update()
