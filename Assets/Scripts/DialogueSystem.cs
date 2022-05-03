@@ -343,6 +343,7 @@ public class DialogueSystem : MonoBehaviour
                     dialogue = false;
                     dialogueImage.sprite = dialogueImage_null;
                     gameObject.SetActive(false);
+                    player.GetComponent<Player>().stamina.value = 100f;
 
                     if (SceneManager.GetActiveScene().name == "Finale")
                     {
