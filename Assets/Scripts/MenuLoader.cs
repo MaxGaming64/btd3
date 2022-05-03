@@ -10,6 +10,14 @@ public class MenuLoader : MonoBehaviour
             PlayerPrefs.SetInt("chapter", 1);
         }
 
-        SceneManager.LoadSceneAsync("Menu" + PlayerPrefs.GetInt("chapter"));
+        if (Application.CanStreamedLevelBeLoaded("Menu" + PlayerPrefs.GetInt("chapter")))
+        {
+            SceneManager.LoadSceneAsync("Menu" + PlayerPrefs.GetInt("chapter"));
+        }
+
+        else
+        {
+            SceneManager.LoadSceneAsync("Menu1");
+        }
     }
 }
