@@ -51,6 +51,8 @@ public class GC_Finale : MonoBehaviour
         else
         {
             mainMus = GameObject.FindGameObjectWithTag("MainMus").GetComponent<AudioSource>();
+            mainMus.clip = mus_finale;
+            mainMus.Play();
         }
 
         if (PlayerPrefs.GetInt("respawn") == 1)

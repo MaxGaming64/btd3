@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,8 +9,13 @@ public class GC_Tragic : MonoBehaviour
     private AudioSource mainMus;
     public DialogueSystem ds;
     public AudioClip ambient;
+    public AudioClip finale1_lp;
+    public AudioClip finale2;
+    public AudioClip finale2_lp;
     public Animator fade;
     public GameObject chapter;
+    public GameObject joe;
+    public TragicPortal portal;
 
     void Start()
     {
@@ -48,7 +54,7 @@ public class GC_Tragic : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Pause") & !ds.dialogue)
+        if (Input.GetButtonDown("Pause") & !ds.dialogue & !joe.GetComponent<TragicJoe>().killing & !portal.used)
         {
             if (paused)
             {
@@ -71,5 +77,28 @@ public class GC_Tragic : MonoBehaviour
             Destroy(mainMus.gameObject);
             SceneManager.LoadScene("MenuLoader");
         }
+
+        if (joe.activeSelf)
+        {
+            joe.transform.Translate(Vector3.forward * 10f * Time.deltaTime);
+        }
+    }
+
+    public void StartChaos()
+    {
+        joe.SetActive(true);
+        mainMus.clip = finale1_lp;
+        mainMus.Play();
+    }
+
+    public IEnumerator ContinueChaos()
+    {
+        mainMus.loop = false;
+        mainMus.clip = finale2;
+        mainMus.Play();
+        yield return new WaitForSecondsRealtime(finale2.length);
+        mainMus.loop = true;
+        mainMus.clip = finale2_lp;
+        mainMus.Play();
     }
 }
