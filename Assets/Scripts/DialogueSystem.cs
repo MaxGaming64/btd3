@@ -87,6 +87,21 @@ public class DialogueSystem : MonoBehaviour
         "Player!", //8
         "Principal?!", //9
     };
+    private string[] dialogue11 =
+    {
+        "RUN!!!", //0
+        "Correction: I'M going to kill ALL OF YOU!!!", //1
+        "I'M GONNA KILL YOU FOR THAT!!!", //2
+        "He stole it while I was in your brain.", //3
+        "Wait, are you slapping with MY ruler?!", //4
+        "Oh no... He found us!" //5
+    };
+    private string[] dialogue12 =
+    {
+        "NOOOOOO!",
+        "Go on without me! I'll survive!",
+        "We can't leave you here, Principal!"
+    };
     private string[] dialogue99_0 = new string[3]
     {
         "I think so...",
@@ -107,6 +122,7 @@ public class DialogueSystem : MonoBehaviour
     private GameObject hud;
     private CharacterController player;
     public Sprite[] dialogue01Images;
+    public Sprite[] dialogue11Images;
     public Sprite[] dialogueNULLImages;
     public Animator anim_left;
     public Animator anim_right;
@@ -244,20 +260,58 @@ public class DialogueSystem : MonoBehaviour
                             anim_left.Play("Pri_talk");
                         }
                         break;
-                    case 99:
-                        if (slideCount == 2)
+                    case 10:
+                        if (slideCount == 5 | slideCount == 3)
                         {
-                            ChangeTextAndImageAndChar(dialogue99_0, dialogueNULLImages, 0);
-                            anim_left.Play("Pri_talk");
+                            ChangeTextAndImageAndChar(dialogue11, dialogue11Images, 1);
+                            anim_right.Play("Player");
+                        }
+
+                        else if (slideCount == 4)
+                        {
+                            ChangeTextAndImageAndChar(dialogue11, dialogue11Images, 0);
+                            anim_left.Play("BAL_Angry");
+                        }
+                        
+                        else if (slideCount == 2)
+                        {
+                            ChangeTextAndImageAndChar(dialogue11, dialogue11Images, 0);
+                            anim_left.Play("BAL_Mad");
                         }
 
                         else if (slideCount == 1)
+                        {
+                            ChangeTextAndImageAndChar(dialogue11, dialogue11Images, 0);
+                            anim_left.Play("Joe");
+                        }
+
+                        else if (slideCount == 0)
+                        {
+                            ChangeTextAndImageAndChar(dialogue11, dialogue11Images, 0);
+                            anim_left.Play("Pri_talk");
+                        }
+                        break;
+                    case 11:
+                        if (slideCount == 1)
+                        {
+                            ChangeTextAndImageAndChar(dialogue12, dialogueNULLImages, 0);
+                            anim_left.Play("Pri_talk");
+                        }
+
+                        else
+                        {
+                            ChangeTextAndImageAndChar(dialogue12, dialogueNULLImages, 0);
+                            anim_left.Play("BAL_Sad");
+                        }
+                        break;
+                    case 99:
+                        if (slideCount == 1)
                         {
                             ChangeTextAndImageAndChar(dialogue99_0, dialogueNULLImages, 1);
                             anim_right.Play("Player");
                         }
 
-                        else if (slideCount == 0)
+                        else
                         {
                             ChangeTextAndImageAndChar(dialogue99_0, dialogueNULLImages, 0);
                             anim_left.Play("BAL_Sad");
@@ -299,6 +353,9 @@ public class DialogueSystem : MonoBehaviour
                     {
                         case 6:
                             SceneManager.LoadScene("Chapter2");
+                            break;
+                        case 10:
+                            GameObject.FindGameObjectWithTag("GameController").GetComponent<GC_Tragic>().StartCoroutine("ContinueChaos");
                             break;
                         case 100:
                             GameObject.FindGameObjectWithTag("GameController").GetComponent<GC_Finale>().StartCoroutine("StartBossIntro");
@@ -414,6 +471,20 @@ public class DialogueSystem : MonoBehaviour
                 slideCount = dialogue10.Length;
                 mnb_dlg10_follow01.follow = true;
                 mnb_dlg10_follow02.follow = true;
+                break;
+            case 10:
+                ActivateLeft();
+                anim_left.Play("Joe");
+                text.text = "Well well well!";
+                slideCount = dialogue11.Length;
+                GameObject.FindGameObjectWithTag("GameController").GetComponent<GC_Tragic>().StartChaos();
+                break;
+            case 11:
+                ActivateLeft();
+                anim_left.Play("Pri_talk");
+                text.text = "I'm too tired to run...";
+                slideCount = dialogue12.Length;
+                mnb_dlg10_follow02.follow = false;
                 break;
             case 99:
                 ActivateRight();
