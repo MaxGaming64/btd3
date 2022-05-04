@@ -119,8 +119,8 @@ public class DialogueSystem : MonoBehaviour
     };
     private AudioSource audioSource;
     private AudioSource mainMus;
-    private GameObject hud;
     private CharacterController player;
+    private GC_Finale gc_finale;
     public Sprite[] dialogue01Images;
     public Sprite[] dialogue11Images;
     public Sprite[] dialogueNULLImages;
@@ -149,7 +149,7 @@ public class DialogueSystem : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name == "Finale")
         {
-            hud = GameObject.Find("Hud");
+            gc_finale = GameObject.FindGameObjectWithTag("GameController").GetComponent<GC_Finale>();
         }
     }
 
@@ -347,7 +347,7 @@ public class DialogueSystem : MonoBehaviour
 
                     if (SceneManager.GetActiveScene().name == "Finale")
                     {
-                        hud.SetActive(true);
+                        gc_finale.hud.SetActive(true);
                     }
 
                     switch (dialogueType)
@@ -358,8 +358,12 @@ public class DialogueSystem : MonoBehaviour
                         case 10:
                             GameObject.FindGameObjectWithTag("GameController").GetComponent<GC_Tragic>().StartCoroutine("ContinueChaos");
                             break;
+                        case 99:
+                            gc_finale.chapter.GetComponent<TextMeshProUGUI>().text = "Finale";
+                            gc_finale.chapter.GetComponent<Animator>().Play("NewChapter");
+                            break;
                         case 100:
-                            GameObject.FindGameObjectWithTag("GameController").GetComponent<GC_Finale>().StartCoroutine("StartBossIntro");
+                            gc_finale.StartCoroutine("StartBossIntro");
                             break;
                     }
                 }
@@ -387,7 +391,7 @@ public class DialogueSystem : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name == "Finale")
         {
-            hud.SetActive(false);
+            gc_finale.hud.SetActive(false);
         }
 
         switch (dialogueType)
