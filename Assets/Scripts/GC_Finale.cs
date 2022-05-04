@@ -8,6 +8,7 @@ public class GC_Finale : MonoBehaviour
     public GameObject hud;
     public GameObject pauseCanvas;
     public GameObject chapter;
+    public GameObject dlg99;
     private AudioSource mainMus;
     public AudioClip mus_finale;
     public AudioClip mus_bossintro;
@@ -56,6 +57,7 @@ public class GC_Finale : MonoBehaviour
 
         if (PlayerPrefs.GetInt("respawn") == 1)
         {
+            dlg99.SetActive(false);
             player.GetComponent<Player>().enabled = false;
             player.position = new Vector3(15f, 10f, -270f);
             player.rotation = Quaternion.Euler(0f, 90f, 0f);

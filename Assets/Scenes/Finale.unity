@@ -31851,6 +31851,7 @@ MonoBehaviour:
   hud: {fileID: 1665046555}
   pauseCanvas: {fileID: 1712148408}
   chapter: {fileID: 1267641446}
+  dlg99: {fileID: 2141164952}
   mus_finale: {fileID: 8300000, guid: 5a6ab7cb92b08034987b190abd2ae305, type: 3}
   mus_bossintro: {fileID: 8300000, guid: d9b9ba7914059b54c8c2ca7f302018e7, type: 3}
   mus_bossmain1: {fileID: 8300000, guid: 6223c37154a727740b9e94e2b5a8e500, type: 3}
