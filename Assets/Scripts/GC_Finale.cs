@@ -54,6 +54,7 @@ public class GC_Finale : MonoBehaviour
         else
         {
             mainMus = GameObject.FindGameObjectWithTag("MainMus").GetComponent<AudioSource>();
+            mainMus.loop = true;
             mainMus.clip = mus_finale;
             mainMus.Play();
         }
