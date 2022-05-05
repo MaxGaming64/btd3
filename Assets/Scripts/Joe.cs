@@ -41,6 +41,7 @@ public class Joe : MonoBehaviour
             gc.player.GetComponent<Player>().enabled = false;
             gc.player.position = diePos.position;
             gc.player.rotation = diePos.rotation;
+            gc.player.GetComponent<Player>().Camera.localRotation = Quaternion.identity;
         }
     }
 
