@@ -108,14 +108,18 @@ public class DialogueSystem : MonoBehaviour
         "So do we just try to find him?",
         "I think this is where Joe lives."
     };
-    private string[] dialogue99_1 = new string[6]
+    private string[] dialogue99_1 =
     {
-        "Uh oh...", //0
-        "<color=red>EVERTHING GOES CRAZY!", //1
-        "When it's a finale...", //2
-        "This is the finale...", //3
-        "Because...", //4
-        "Why are your eyes blue?" //5
+        "Okay...", //0
+        "I believe in you!", //1
+        "I must stay back.", //2
+        "Listen, Player, I can't fight with you...", //3
+        "Uh oh...", //4
+        "<color=red>EVERTHING GOES CRAZY!", //5
+        "When it's a finale...", //6
+        "This is the finale...", //7
+        "Because...", //8
+        "Why are your eyes blue?" //9
     };
     private AudioSource audioSource;
     private AudioSource mainMus;
@@ -318,19 +322,19 @@ public class DialogueSystem : MonoBehaviour
                         }
                         break;
                     case 100:
-                        if (slideCount == 1 | slideCount == 2 | slideCount == 3 | slideCount == 4 | slideCount == 6)
-                        {
-                            ChangeTextAndImageAndChar(dialogue99_1, dialogueNULLImages, 0);
-                            anim_left.Play("Joe");
-                        }
-
-                        else if (slideCount == 5)
+                        if (slideCount == 9 | slideCount == 0)
                         {
                             ChangeTextAndImageAndChar(dialogue99_1, dialogueNULLImages, 1);
                             anim_right.Play("Player");
                         }
 
-                        else if (slideCount == 0)
+                        else if (slideCount == 8 | slideCount == 7 | slideCount == 6 | slideCount == 5)
+                        {
+                            ChangeTextAndImageAndChar(dialogue99_1, dialogueNULLImages, 0);
+                            anim_left.Play("Joe");
+                        }
+
+                        else if (slideCount == 4 | slideCount == 3 | slideCount == 2 | slideCount == 1)
                         {
                             ChangeTextAndImageAndChar(dialogue99_1, dialogueNULLImages, 0);
                             anim_left.Play("BAL_Sad");

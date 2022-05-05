@@ -28,6 +28,8 @@ public class GC_Finale : MonoBehaviour
     public Sprite joeBlueSprite;
     public Sprite joeNoneSprite;
     public GameObject barrier;
+    public GameObject aiBaldi;
+    public GameObject baldi;
     public Animator elev;
 
     private void Start()
@@ -128,6 +130,8 @@ public class GC_Finale : MonoBehaviour
         if (type == 0)
         {
             elev.enabled = true;
+            aiBaldi.SetActive(false);
+            baldi.SetActive(true);
             mainMus.clip = mus_bossmain1;
             mainMus.Play();
         }
