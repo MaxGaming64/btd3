@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -22,7 +23,7 @@ public class Player : MonoBehaviour
     {
         mouseSensitivity = PlayerPrefs.GetFloat("MouseSensitivity");
 
-        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Chapter2")
+        if (SceneManager.GetActiveScene().name == "Chapter2")
         {
             xen = true;
             gravity = Physics.gravity.y / 2;
@@ -65,7 +66,7 @@ public class Player : MonoBehaviour
 
         controller.Move(move * currentSpeed * Time.deltaTime);
 
-        if (Input.GetKeyDown(KeyCode.Space) & grounded & xen)
+        if (Input.GetKeyDown(KeyCode.Space) & grounded & (xen | SceneManager.GetActiveScene().name == "Finale"))
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
@@ -81,7 +82,7 @@ public class Player : MonoBehaviour
         XRotation -= mouseY;
         XRotation = Mathf.Clamp(XRotation, -90f, 90f);
 
-        if (xen)
+        if (xen | SceneManager.GetActiveScene().name == "Finale")
         {
             Camera.localRotation = Quaternion.Euler(XRotation, 0f, 0f);
         }

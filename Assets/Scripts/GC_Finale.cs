@@ -28,6 +28,7 @@ public class GC_Finale : MonoBehaviour
     public Sprite joeBlueSprite;
     public Sprite joeNoneSprite;
     public GameObject barrier;
+    public Animator elev;
 
     private void Start()
     {
@@ -99,8 +100,9 @@ public class GC_Finale : MonoBehaviour
             
             Quaternion rotation = Quaternion.Euler(new Vector3(0f, 90f, 0f));
             
-            player.transform.position = Vector3.Lerp(player.transform.position, new Vector3(15f, 10f, -270f), Time.deltaTime * 2f);
-            player.transform.rotation = Quaternion.Lerp(player.transform.rotation, rotation, Time.deltaTime * 2f);
+            player.position = Vector3.Lerp(player.transform.position, new Vector3(15f, 10f, -270f), Time.deltaTime * 2f);
+            player.rotation = Quaternion.Lerp(player.transform.rotation, rotation, Time.deltaTime * 2f);
+            playerScript.Camera.localRotation = Quaternion.identity;
         }
     }
 
@@ -125,6 +127,7 @@ public class GC_Finale : MonoBehaviour
         
         if (type == 0)
         {
+            elev.enabled = true;
             mainMus.clip = mus_bossmain1;
             mainMus.Play();
         }
