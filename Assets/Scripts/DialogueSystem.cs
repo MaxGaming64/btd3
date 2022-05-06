@@ -102,13 +102,13 @@ public class DialogueSystem : MonoBehaviour
         "Go on without me! I'll survive!",
         "We can't leave you here, Principal!"
     };
-    private string[] dialogue99_0 = new string[3]
+    private string[] dialogue99_0 = new string[3] //finale intro
     {
         "I think so...",
         "So do we just try to find him?",
         "I think this is where Joe lives."
     };
-    private string[] dialogue99_1 =
+    private string[] dialogue99_1 = //finale bossbattle intro
     {
         "Okay...", //0
         "I believe in you!", //1
@@ -121,6 +121,27 @@ public class DialogueSystem : MonoBehaviour
         "Because...", //8
         "Why are your eyes blue?" //9
     };
+    private string[] dialogue99_2 = //finale outro 1
+    {
+        "Let's check it out!", //baldi sad, 0
+        "It's coming from the top!", //player, 1
+        "Wait, what's that noise?", //baldi, 2
+        "<i>*sigh*</i>", //baldi sad, 3
+        "You're right.", //baldi sad, 4
+        "Baldi, we are about to die and you are <i>HAPPY?!</i>", //player, 5
+        "HA HA HA!!!", //baldi evil, 6
+        "No no no NO NO NO!!!!!!", //joe mad, 7
+        "No.", //joe mad, 8
+        "WAIT.", //joe mad, 9
+        "Wait.", //joe mad, 10
+        "Wait, but won't you die too?", //player, 11
+        "So you all DIE!!!", //joe happy, red, 12
+        "Good luck with that, I set up a bomb here!", //joe happy, 13
+        "We must escape from his deadly chainsaw!", //player, 14
+        "It's too early to celebrate!", //player, 15
+        "Ha-ha!", //baldi evil, 16
+    };
+
     private AudioSource audioSource;
     private AudioSource mainMus;
     private CharacterController player;
@@ -142,6 +163,7 @@ public class DialogueSystem : MonoBehaviour
     public AudioClip sfx_dlg6_ambient;
     public Follow mnb_dlg10_follow01;
     public Follow mnb_dlg10_follow02;
+    public GameObject efx_dlg99_2_baldi;
 
     void Start()
     {
@@ -340,6 +362,37 @@ public class DialogueSystem : MonoBehaviour
                             anim_left.Play("BAL_Sad");
                         }
                         break;
+                    case 101:
+                        if (slideCount == 10 | slideCount == 9 | slideCount == 8 | slideCount == 7) //joe mad
+                        {
+                            ChangeTextAndImageAndChar(dialogue99_2, dialogueNULLImages, 0);
+                            anim_left.Play("Joe_Angry");
+                        }
+
+                        else if (slideCount == 16 | slideCount == 6) //baldi evil
+                        {
+                            ChangeTextAndImageAndChar(dialogue99_2, dialogueNULLImages, 0);
+                            anim_left.Play("BAL_HappyEvil");
+                        }
+
+                        else if (slideCount == 15 | slideCount == 14 | slideCount == 11 | slideCount == 5 | slideCount == 1) //player
+                        {
+                            ChangeTextAndImageAndChar(dialogue99_2, dialogueNULLImages, 1);
+                            anim_right.Play("Player");
+                        }
+
+                        else if (slideCount == 13 | slideCount == 12) //joe happy
+                        {
+                            ChangeTextAndImageAndChar(dialogue99_2, dialogueNULLImages, 0);
+                            anim_left.Play("Joe");
+                        }
+
+                        else if (slideCount == 4 | slideCount == 3 | slideCount == 2 | slideCount == 0) //baldi sad
+                        {
+                            ChangeTextAndImageAndChar(dialogue99_2, dialogueNULLImages, 0);
+                            anim_left.Play("BAL_Sad");
+                        }
+                        break;
                 }
 
                 if (slideCount < 0)
@@ -515,6 +568,13 @@ public class DialogueSystem : MonoBehaviour
                     mainMus.Play();
                     break;
                 }
+            case 101:
+                ActivateLeft();
+                anim_left.Play("Joe_Angry");
+                text.text = "UGH!!!";
+                slideCount = dialogue99_2.Length;
+                efx_dlg99_2_baldi.SetActive(true);
+                break;
         }
     }
 
