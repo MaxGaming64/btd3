@@ -5,6 +5,8 @@ public class GC_Finale : MonoBehaviour
 {
     private bool bossPause;
     public bool paused;
+    public bool knockout;
+    public int stage;
     public GameObject hud;
     public GameObject pauseCanvas;
     public GameObject chapter;
@@ -105,7 +107,28 @@ public class GC_Finale : MonoBehaviour
             
             player.position = Vector3.Lerp(player.transform.position, new Vector3(15f, 10f, -270f), Time.deltaTime * 2f);
             player.rotation = Quaternion.Lerp(player.transform.rotation, rotation, Time.deltaTime * 2f);
-            playerScript.Camera.localRotation = Quaternion.identity;
+            playerScript.Camera.localRotation = Quaternion.Lerp(playerScript.Camera.localRotation, Quaternion.identity, Time.deltaTime * 2f);
+
+            if (!knockout)
+            {
+                joe.transform.position = Vector3.Lerp(joe.transform.position, new Vector3(75f, 10f, -270f), Time.deltaTime * 2f);
+            }
+
+            else
+            {
+                joe.transform.position = Vector3.Lerp(joe.transform.position, new Vector3(25f, 10f, -270f), Time.deltaTime * 2f);
+                joeSprite.transform.rotation = Quaternion.Lerp(joeSprite.transform.rotation, Quaternion.Euler(new Vector3(0f, 90f, 1f)), Time.deltaTime * 0.1f);
+
+                if (joeSprite.transform.rotation.eulerAngles.x <= 10f)
+                {
+                    StartCoroutine(Prepare());
+                }
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            Knockout();
         }
     }
 
@@ -116,57 +139,66 @@ public class GC_Finale : MonoBehaviour
         mainMus.volume = 0.5f;
         mainMus.Play();
         yield return new WaitForSeconds(16f);
-        StartMainBattle(0);
-        joeSprite.sprite = joeRedSprite;
+        StartMainBattle();
         barrier.SetActive(true);
     }
     
-    private void StartMainBattle(int type)
+    private void StartMainBattle()
     {
         bossPause = false;
         player.GetComponent<Player>().enabled = true;
         joe.attacking = true;
         joeSprite.sprite = joeRedSprite;
-        
-        if (type == 0)
+
+        switch (stage)
         {
-            elev.enabled = true;
-            aiBaldi.SetActive(false);
-            baldi.SetActive(true);
-            mainMus.clip = mus_bossmain1;
-            mainMus.Play();
+            case 0:
+                elev.enabled = true;
+                aiBaldi.SetActive(false);
+                baldi.SetActive(true);
+                mainMus.clip = mus_bossmain1;
+                mainMus.Play();
+                break;
+            case 1:
+                mainMus.clip = mus_bossmain2;
+                mainMus.Play();
+                break;
+            case 2:
+                mainMus.clip = mus_bossmain3;
+                mainMus.Play();
+                break;
+            case 3:
+                mainMus.clip = mus_bossfinale1;
+                mainMus.Play();
+                ds.StartDialoge(101);
+                break;
         }
 
-        else if (type == 1)
-        {
-            mainMus.clip = mus_bossmain2;
-            mainMus.Play();
-        }
-
-        else if (type == 2)
-        {
-            mainMus.clip = mus_bossmain3;
-            mainMus.Play();
-        }
+        stage++;
     }
 
     private void Knockout()
     {
-        player.GetComponent<Player>().enabled = false;
+        knockout = true;
+        bossPause = true;
         mainMus.clip = mus_bossknockout;
         mainMus.Play();
+        joe.attacking = false;
+        joe.transform.rotation = Quaternion.identity;
+        joeSprite.GetComponent<BillboardY>().enabled = false;
+        joeSprite.transform.rotation = Quaternion.Euler(90f, 90f, 0f);
         joeSprite.sprite = joeNoneSprite;
-        joe.GetComponent<Billboard>().enabled = false;
     }
 
-    private IEnumerator Prepare(int forWhat)
+    private IEnumerator Prepare()
     {
+        knockout = false;
         bossPause = true;
         mainMus.clip = mus_bossprepare;
         mainMus.Play();
         joeSprite.sprite = joeBlueSprite;
-        joe.GetComponent<Billboard>().enabled = false;
+        joeSprite.GetComponent<BillboardY>().enabled = true;
         yield return new WaitForSeconds(mus_bossprepare.length);
-        StartMainBattle(forWhat);
+        StartMainBattle();
     }
 }

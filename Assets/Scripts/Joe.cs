@@ -21,19 +21,27 @@ public class Joe : MonoBehaviour
 
     private void Update()
     {
-        if (attacking & !killing)
+        if (attacking)
         {
-            if (Vector3.Distance(transform.position, gc.player.position) > 5f)
+            if (!killing)
             {
-                agent.speed = 70f;
-            }
+                if (Vector3.Distance(transform.position, gc.player.position) > 5f)
+                {
+                    agent.speed = 70f;
+                }
 
-            else
-            {
-                agent.speed = 5f;
-            }
+                else
+                {
+                    agent.speed = 5f;
+                }
 
-            agent.SetDestination(gc.player.position);
+                agent.SetDestination(gc.player.position);
+            }
+        }
+
+        else
+        {
+            agent.ResetPath();
         }
 
         if (killing)
