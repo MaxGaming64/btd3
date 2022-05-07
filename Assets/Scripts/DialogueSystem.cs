@@ -141,6 +141,22 @@ public class DialogueSystem : MonoBehaviour
         "It's too early to celebrate!", //player, 15
         "Ha-ha!", //baldi evil, 16
     };
+    private string[] dialogue99_3 = //finale outro 2
+    {
+        "Get in, quick, before Joe gets you!", //playtime, 0
+        "NO!!!", //joe mad, 1
+        "Just in time!", //baldi happy, 2
+        "Principal told me about the whole thing, and I decided to come rescue you!", //playime, 3
+        "Player! Baldi! I finally found you!", //playtime, 4
+        "Playtime?!" //player, 5
+    };
+    private string[] outroDialogue =
+    {
+        "Imma head back home. It's 12:00 in the morning already!",
+        "This was even crazier than going into Baldi's brain!",
+        "It's so amazing that Joe is finally gone!",
+        "School sweet school!"
+    };
 
     private AudioSource audioSource;
     private AudioSource mainMus;
@@ -163,7 +179,7 @@ public class DialogueSystem : MonoBehaviour
     public AudioClip sfx_dlg6_ambient;
     public Follow mnb_dlg10_follow01;
     public Follow mnb_dlg10_follow02;
-    public GameObject efx_dlg99_2_baldi;
+    public GameObject efx_dlg99_2_helicopter;
 
     void Start()
     {
@@ -392,6 +408,39 @@ public class DialogueSystem : MonoBehaviour
                             ChangeTextAndImageAndChar(dialogue99_2, dialogueNULLImages, 0);
                             anim_left.Play("BAL_Sad");
                         }
+
+                        if (slideCount == 2)
+                        {
+                            efx_dlg99_2_helicopter.SetActive(true);
+                        }
+                        break;
+                    case 102:
+                        if (slideCount == 5) //player
+                        {
+                            ChangeTextAndImageAndChar(dialogue99_3, dialogueNULLImages, 1);
+                            anim_right.Play("Player");
+                        }
+
+                        else if (slideCount == 4 | slideCount == 3 | slideCount == 0) //playtime
+                        {
+                            ChangeTextAndImageAndChar(dialogue99_3, dialogueNULLImages, 0);
+                            anim_left.Play("Playtime_talk");
+                        }
+
+                        else if (slideCount == 2) //baldi happy
+                        {
+                            ChangeTextAndImageAndChar(dialogue99_3, dialogueNULLImages, 0);
+                            anim_left.Play("BAL_Happy");
+                        }
+
+                        else if (slideCount == 1) //joe mad
+                        {
+                            ChangeTextAndImageAndChar(dialogue99_3, dialogueNULLImages, 0);
+                            anim_left.Play("Joe_Angry");
+                        }
+                        break;
+                    case 103:
+                        ChangeTextAndImageAndChar(outroDialogue, dialogueNULLImages, 1);
                         break;
                 }
 
@@ -420,7 +469,19 @@ public class DialogueSystem : MonoBehaviour
                             gc_finale.chapter.GetComponent<Animator>().Play("NewChapter");
                             break;
                         case 100:
-                            gc_finale.StartCoroutine("StartBossIntro");
+                            gc_finale.StartCoroutine(gc_finale.StartBossIntro());
+                            break;
+                        case 101:
+                            mainMus.clip = gc_finale.mus_bossfinale2;
+                            mainMus.Play();
+                            break;
+                        case 102:
+                            mainMus.clip = gc_finale.mus_bossfinale3;
+                            mainMus.Play();
+                            break;
+                        case 103:
+                            SceneManager.LoadScene("MenuOutro");
+                            Destroy(mainMus.gameObject);
                             break;
                     }
                 }
@@ -573,7 +634,18 @@ public class DialogueSystem : MonoBehaviour
                 anim_left.Play("Joe_Angry");
                 text.text = "UGH!!!";
                 slideCount = dialogue99_2.Length;
-                efx_dlg99_2_baldi.SetActive(true);
+                break;
+            case 102:
+                ActivateLeft();
+                anim_left.Play("Playtime_talk");
+                text.text = "Hey there!";
+                slideCount = dialogue99_3.Length;
+                break;
+            case 103:
+                ActivateRight();
+                anim_right.Play("Player");
+                text.text = "Ahh!";
+                slideCount = outroDialogue.Length;
                 break;
         }
     }

@@ -32,4 +32,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Finale.unity
     guid: aebbd5b344c82d64b80808eda0b473a9
+  - enabled: 1
+    path: Assets/Scenes/Outro.unity
+    guid: 242471ed12556b143980617ca39a5496
+  - enabled: 1
+    path: Assets/Scenes/MenuOutro.unity
+    guid: ad1ebebec29b364488ea4160ae3fce83
   m_configObjects: {}

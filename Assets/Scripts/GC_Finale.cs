@@ -29,9 +29,11 @@ public class GC_Finale : MonoBehaviour
     public Sprite joeRedSprite;
     public Sprite joeBlueSprite;
     public Sprite joeNoneSprite;
+    public Sprite joeAngrySprite;
     public GameObject barrier;
     public GameObject aiBaldi;
     public GameObject baldi;
+    public GameObject finaleBaldi;
     public Animator elev;
 
     private void Start()
@@ -121,7 +123,16 @@ public class GC_Finale : MonoBehaviour
 
                 if (joeSprite.transform.rotation.eulerAngles.x <= 10f)
                 {
-                    StartCoroutine(Prepare());
+                    if (stage == 3)
+                    {
+                        StartMainBattle();
+                        joeSprite.GetComponent<BillboardY>().enabled = true;
+                    }
+
+                    else
+                    {
+                        StartCoroutine(Prepare());
+                    }
                 }
             }
         }
@@ -132,7 +143,7 @@ public class GC_Finale : MonoBehaviour
         }
     }
 
-    private IEnumerator StartBossIntro()
+    public IEnumerator StartBossIntro()
     {
         bossPause = true;
         mainMus.clip = mus_bossintro;
@@ -168,6 +179,9 @@ public class GC_Finale : MonoBehaviour
                 mainMus.Play();
                 break;
             case 3:
+                baldi.SetActive(false);
+                finaleBaldi.SetActive(true);
+                joeSprite.sprite = joeAngrySprite;
                 mainMus.clip = mus_bossfinale1;
                 mainMus.Play();
                 ds.StartDialoge(101);
