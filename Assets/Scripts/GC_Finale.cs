@@ -136,11 +136,6 @@ public class GC_Finale : MonoBehaviour
                 }
             }
         }
-
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            Knockout();
-        }
     }
 
     public IEnumerator StartBossIntro()
@@ -191,7 +186,7 @@ public class GC_Finale : MonoBehaviour
         stage++;
     }
 
-    private void Knockout()
+    public void Knockout()
     {
         knockout = true;
         bossPause = true;
