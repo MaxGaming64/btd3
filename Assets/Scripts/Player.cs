@@ -13,20 +13,29 @@ public class Player : MonoBehaviour
     private float gravity = Physics.gravity.y;
     private bool grounded;
     private bool xen;
+    private bool finale;
     private CharacterController controller;
     private Vector3 velocity;
     public LayerMask layerMask;
+    public LayerMask layerMaskGel;
     public Transform Camera;
     public Slider stamina;
+    private JumpHighTrigger jumpHigh;
 
     void Start()
     {
         mouseSensitivity = PlayerPrefs.GetFloat("MouseSensitivity");
 
-        if (SceneManager.GetActiveScene().name == "Chapter2")
+        switch (SceneManager.GetActiveScene().name)
         {
-            xen = true;
-            gravity = Physics.gravity.y / 2;
+            case "Chapter2":
+                xen = true;
+                gravity = Physics.gravity.y / 2;
+                break;
+            case "Finale":
+                finale = true;
+                jumpHigh = GameObject.Find("JumpHighTrigger").GetComponent<JumpHighTrigger>();
+                break;
         }
 
         controller = GetComponent<CharacterController>();
@@ -38,9 +47,18 @@ public class Player : MonoBehaviour
     {
         grounded = Physics.CheckSphere(transform.position, -0.2f, layerMask);
 
-        if (grounded & velocity.y < 0f)
+        if (grounded)
         {
-            velocity.y = 0f;
+            if (velocity.y < 0f)
+            {
+                velocity.y = 0f;
+            }
+
+            if (finale)
+            {
+                jumpHigh.jumpHigh = false;
+                jumpHigh.knockoutTrigger.allowKnockout = false;
+            }
         }
 
         if (Time.timeScale > 0f)
@@ -56,6 +74,19 @@ public class Player : MonoBehaviour
 
             controller.Move(velocity * Time.deltaTime);
         }
+
+        if (Physics.CheckSphere(transform.position, -0.2f, layerMaskGel) & finale)
+        {
+            if (jumpHigh.jumpHigh)
+            {
+                velocity.y = Mathf.Sqrt(50f * -2f * gravity);
+            }
+
+            else
+            {
+                velocity.y = Mathf.Sqrt(5f * -2f * gravity);
+            }
+        }
     }
 
     void Move()
@@ -66,7 +97,7 @@ public class Player : MonoBehaviour
 
         controller.Move(move * currentSpeed * Time.deltaTime);
 
-        if (Input.GetKeyDown(KeyCode.Space) & grounded & (xen | SceneManager.GetActiveScene().name == "Finale"))
+        if (Input.GetKeyDown(KeyCode.Space) & grounded & (xen | finale))
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
@@ -82,7 +113,7 @@ public class Player : MonoBehaviour
         XRotation -= mouseY;
         XRotation = Mathf.Clamp(XRotation, -90f, 90f);
 
-        if (xen | SceneManager.GetActiveScene().name == "Finale")
+        if (xen | finale)
         {
             Camera.localRotation = Quaternion.Euler(XRotation, 0f, 0f);
         }
