@@ -119,7 +119,7 @@ public class DialogueSystem : MonoBehaviour
         "When it's a finale...", //6
         "This is the finale...", //7
         "Because...", //8
-        "Why are your eyes blue?" //9
+        "Why is your face blue?" //9
     };
     private string[] dialogue99_2 = //finale outro 1
     {
