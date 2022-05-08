@@ -43866,6 +43866,11 @@ MonoBehaviour:
   Camera: {fileID: 439402802}
   creepyHigh: {fileID: 8300000, guid: d29a0ab065b2bff49978592c053ee36e, type: 3}
   ambient: {fileID: 8300000, guid: 6735a081110e8c746981d414f216f266, type: 3}
+  restLevel:
+  - {fileID: 950299675}
+  - {fileID: 2145850432}
+  - {fileID: 1104659614}
+  - {fileID: 1218480730}
 --- !u!1 &1961114052
 GameObject:
   m_ObjectHideFlags: 0
