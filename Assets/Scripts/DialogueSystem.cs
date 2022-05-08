@@ -180,6 +180,8 @@ public class DialogueSystem : MonoBehaviour
     public Follow mnb_dlg10_follow01;
     public Follow mnb_dlg10_follow02;
     public GameObject efx_dlg99_2_helicopter;
+    public GameObject trg_dlg99_2_heli;
+    public GameObject trg_dlg99_2_playtime;
 
     void Start()
     {
@@ -634,6 +636,8 @@ public class DialogueSystem : MonoBehaviour
                 anim_left.Play("Joe_Angry");
                 text.text = "UGH!!!";
                 slideCount = dialogue99_2.Length;
+                trg_dlg99_2_heli.SetActive(true);
+                trg_dlg99_2_playtime.SetActive(true);
                 break;
             case 102:
                 ActivateLeft();

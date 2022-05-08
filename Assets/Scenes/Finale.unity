@@ -1292,7 +1292,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &69342225
 Transform:
   m_ObjectHideFlags: 0
@@ -9124,7 +9124,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &613968122
 Transform:
   m_ObjectHideFlags: 0
@@ -18173,6 +18173,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2385325390740277298, guid: 7618656325727c547b5e46c507bfb8d6,
+        type: 3}
+      propertyPath: trg_dlg99_2_heli
+      value: 
+      objectReference: {fileID: 613968121}
+    - target: {fileID: 2385325390740277298, guid: 7618656325727c547b5e46c507bfb8d6,
+        type: 3}
+      propertyPath: trg_dlg99_2_playtime
+      value: 
+      objectReference: {fileID: 69342224}
     - target: {fileID: 2385325390740277298, guid: 7618656325727c547b5e46c507bfb8d6,
         type: 3}
       propertyPath: efx_dlg99_2_helicopter
