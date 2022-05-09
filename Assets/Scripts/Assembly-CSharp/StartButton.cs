@@ -21,7 +21,7 @@ public class StartButton : MonoBehaviour
 
         if (chapter > PlayerPrefs.GetInt("chapter"))
         {
-            GetComponent<Button>().interactable = false;
+            button.interactable = false;
             GetComponentInChildren<TextMeshProUGUI>().color = Color.grey;
         }
     }
