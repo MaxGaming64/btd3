@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class StartButton : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class StartButton : MonoBehaviour
         if (chapter > PlayerPrefs.GetInt("chapter"))
         {
             GetComponent<Button>().interactable = false;
+            GetComponentInChildren<TextMeshProUGUI>().color = Color.grey;
         }
     }
 
