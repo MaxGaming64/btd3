@@ -146,8 +146,8 @@ public class DialogueSystem : MonoBehaviour
         "Get in, quick, before Joe gets you!", //playtime, 0
         "NO!!!", //joe mad, 1
         "Just in time!", //baldi happy, 2
-        "Principal told me about the whole thing, and I decided to come rescue you!", //playime, 3
-        "Player! Baldi! I finally found you!", //playtime, 4
+        "Principal told me about the whole thing!", //playime, 3
+        "Yes, I have come to rescue you!", //playtime, 4
         "Playtime?!" //player, 5
     };
     private string[] outroDialogue =
