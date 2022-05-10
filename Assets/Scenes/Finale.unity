@@ -1157,7 +1157,7 @@ GameObject:
   - component: {fileID: 69342225}
   - component: {fileID: 69342226}
   - component: {fileID: 69342227}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PlaytimeTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8666,7 +8666,7 @@ GameObject:
   - component: {fileID: 613968122}
   - component: {fileID: 613968124}
   - component: {fileID: 613968123}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: HelicopterTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
