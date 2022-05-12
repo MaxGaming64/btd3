@@ -146,7 +146,7 @@ public class Player : MonoBehaviour
 
             if (controller.velocity == Vector3.zero & stamina != null)
             {
-                stamina.value += 10f * Time.deltaTime;
+                stamina.value += 20f * Time.deltaTime;
             }
         }
     }
