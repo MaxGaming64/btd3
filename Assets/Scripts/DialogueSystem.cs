@@ -79,7 +79,7 @@ public class DialogueSystem : MonoBehaviour
         "I don't know...", //0
         "Okay. But what if Joe finds us?", //1
         "We have to go further, and escape out of here.", //2
-        "So what are we gonna go now?", //3
+        "So what are we gonna do now?", //3
         "I decided to check it out myself.", //4
         "After you told me Baldi was gone...", //5
         "But wait, Principal, what are you doing here?", //6
