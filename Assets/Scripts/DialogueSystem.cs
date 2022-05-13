@@ -503,7 +503,7 @@ public class DialogueSystem : MonoBehaviour
         }
     }
 
-    public void StartDialoge(int DialogueType)
+    public void StartDialogue(int DialogueType)
     {
         dialogue = true;
         dialogueType = DialogueType;

@@ -11,7 +11,7 @@ public class DialogueTrigger : MonoBehaviour
         if (other.CompareTag("Player") & !used)
         {
             used = true;
-            dialogeSystem.StartDialoge(dialogeType);
+            dialogeSystem.StartDialogue(dialogeType);
         }
     }
 }

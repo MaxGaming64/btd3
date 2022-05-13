@@ -179,7 +179,7 @@ public class GC_Finale : MonoBehaviour
                 joeSprite.sprite = joeAngrySprite;
                 mainMus.clip = mus_bossfinale1;
                 mainMus.Play();
-                ds.StartDialoge(101);
+                ds.StartDialogue(101);
                 break;
         }
 

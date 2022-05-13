@@ -26,7 +26,7 @@ public class GC_Mansion : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         mainMus = GameObject.FindGameObjectWithTag("MainMus").GetComponent<AudioSource>();
         DontDestroyOnLoad(mainMus);
-        dialogeSystem.StartDialoge(-1);
+        dialogeSystem.StartDialogue(-1);
     }
 
     private void Update()
@@ -74,7 +74,7 @@ public class GC_Mansion : MonoBehaviour
                     Hover hover = hit.transform.GetComponent<Hover>();
                     hover.MouseExit();
                     Destroy(hover);
-                    dialogeSystem.StartDialoge(1);
+                    dialogeSystem.StartDialogue(1);
                 }
             }
         }
