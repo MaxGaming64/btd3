@@ -8,7 +8,7 @@ public class DialogueSystem : MonoBehaviour
     private int slideCount;
     private int dialogueType;
     public bool dialogue;
-    private string[] introDialogue = new string[5]
+    private string[] introDialogue =
     {
         "...and you went to his house.",
         "Principal told you his address,",
@@ -16,18 +16,18 @@ public class DialogueSystem : MonoBehaviour
         "You search for him, and no luck...",
         "But then, you realize that Baldi is not there."
     };
-    private string[] dialogue01 = new string[2]
+    private string[] dialogue01 =
     {
         "But I think I need to find the key to the door first...",
         "Oh, wait! There's a locked door there!"
     };
     private string[] dialogue02 = { "Let me get a closer look..." };
-    private string[] dialogue03 = new string[2]
+    private string[] dialogue03 =
     {
         "I think I'm in some kind of vent...",
         "I've gotta get the hell outta here!"
     };
-    private string[] dialogue04 = new string[5]
+    private string[] dialogue04 =
     {
         "Off you go into the secret, unknown place.",
         "Wait a minute, what's that sound?!",
@@ -35,7 +35,7 @@ public class DialogueSystem : MonoBehaviour
         "Wait, there's an opening here; how did I not notice it?",
         "Let's see if there's a way to get outta here."
     };
-    private string[] dialogue05 = new string[10]
+    private string[] dialogue05 =
     {
         "<i>Hmm, it's gonna take him a long time, huh? Then, let's escape!", //0
         "Let me think... I gotta make up a really huge plan...", //1
@@ -48,12 +48,12 @@ public class DialogueSystem : MonoBehaviour
         "Ready for a deadly chainsaw?", //8
         "Hold on, who--" //9
     };
-    private string[] dialogue06 = new string[2]
+    private string[] dialogue06 =
     {
         "I need to find some food, though... I'm starving...",
         "Well, I won't see Joe for a long time, that's for sure!"
     };
-    private string[] dialogue07 = new string[7]
+    private string[] dialogue07 =
     {
         "Don't worry, Baldi! I'll save you!", //0
         "BUT BE CAREFUL, THERE ARE DANGEROUS ALIENS THERE!", //1
@@ -63,12 +63,12 @@ public class DialogueSystem : MonoBehaviour
         "What?? Is that Baldi?!", //5
         "HELP!!!!!!" //6
     };
-    private string[] dialogue08 = new string[2]
+    private string[] dialogue08 =
     {
         "I gotta get outta here soon...",
         "And what was that alien?"
     };
-    private string[] dialogue09 = new string[3]
+    private string[] dialogue09 =
     {
         "Speaking of Baldi, where is he?",
         "And why does he even have this in the first place??",
@@ -102,7 +102,7 @@ public class DialogueSystem : MonoBehaviour
         "Go on without me! I'll survive!",
         "We can't leave you here, Principal!"
     };
-    private string[] dialogue99_0 = new string[3] //finale intro
+    private string[] dialogue99_0 = //finale intro
     {
         "I think so...",
         "So do we just try to find him?",
