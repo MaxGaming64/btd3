@@ -5115,10 +5115,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e738c28a8dbf77f4b9c230d89ccbadd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  extraVelocity: {x: 0, y: 0, z: 0}
-  layerMask:
+  layerMaskGel:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 0
   Camera: {fileID: 2067066487}
   stamina: {fileID: 872398339}
 --- !u!1 &499264539
@@ -7883,7 +7882,7 @@ GameObject:
   - component: {fileID: 762080364}
   - component: {fileID: 762080366}
   - component: {fileID: 762080365}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: WhereTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11842,7 +11841,7 @@ GameObject:
   - component: {fileID: 1110149518}
   - component: {fileID: 1110149520}
   - component: {fileID: 1110149519}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: FirstTimeTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}

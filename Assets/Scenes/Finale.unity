@@ -1157,7 +1157,7 @@ GameObject:
   - component: {fileID: 69342225}
   - component: {fileID: 69342226}
   - component: {fileID: 69342227}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: PlaytimeTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1217,7 +1217,7 @@ GameObject:
   - component: {fileID: 70385852}
   - component: {fileID: 70385854}
   - component: {fileID: 70385851}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: JumpTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8393,7 +8393,7 @@ GameObject:
   - component: {fileID: 597864216}
   - component: {fileID: 597864218}
   - component: {fileID: 597864217}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8666,7 +8666,7 @@ GameObject:
   - component: {fileID: 613968122}
   - component: {fileID: 613968124}
   - component: {fileID: 613968123}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: HelicopterTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9279,7 +9279,7 @@ GameObject:
   - component: {fileID: 645135856}
   - component: {fileID: 645135858}
   - component: {fileID: 645135857}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: KnockoutTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11484,7 +11484,7 @@ GameObject:
   - component: {fileID: 774695458}
   - component: {fileID: 774695459}
   - component: {fileID: 774695460}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: SoftlockFixTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12233,12 +12233,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e738c28a8dbf77f4b9c230d89ccbadd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 1
   layerMaskGel:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 8
   Camera: {fileID: 2140485964}
   stamina: {fileID: 2005408868}
 --- !u!143 &808395844
@@ -13436,7 +13433,7 @@ GameObject:
   - component: {fileID: 916573035}
   - component: {fileID: 916573036}
   - component: {fileID: 916573037}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: BattleTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25628,7 +25625,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh867238
+  m_Name: pb_Mesh148568
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -27907,7 +27904,7 @@ GameObject:
   - component: {fileID: 1737583750}
   - component: {fileID: 1737583749}
   - component: {fileID: 1737583748}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Gel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33451,7 +33448,7 @@ GameObject:
   - component: {fileID: 2069304653}
   - component: {fileID: 2069304654}
   - component: {fileID: 2069304655}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: JumpHighTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34266,7 +34263,7 @@ GameObject:
   - component: {fileID: 2141164953}
   - component: {fileID: 2141164955}
   - component: {fileID: 2141164954}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: WhatTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
