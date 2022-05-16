@@ -16,11 +16,15 @@ public class Player : MonoBehaviour
     private bool finale;
     private CharacterController controller;
     private Vector3 velocity;
-    public LayerMask layerMask;
     public LayerMask layerMaskGel;
     public Transform Camera;
     public Slider stamina;
     private JumpHighTrigger jumpHigh;
+
+    private void OnEnable()
+    {
+        XRotation = 0f;
+    }
 
     void Start()
     {
@@ -45,7 +49,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        grounded = Physics.CheckSphere(transform.position, -0.2f, layerMask);
+        grounded = Physics.CheckSphere(transform.position, -0.1f);
 
         if (grounded)
         {
@@ -75,7 +79,7 @@ public class Player : MonoBehaviour
             controller.Move(velocity * Time.deltaTime);
         }
 
-        if (Physics.CheckSphere(transform.position, -0.2f, layerMaskGel) & finale)
+        if (Physics.CheckSphere(transform.position, -0.1f, layerMaskGel) & finale)
         {
             if (jumpHigh.jumpHigh)
             {

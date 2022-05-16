@@ -1544,9 +1544,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e738c28a8dbf77f4b9c230d89ccbadd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layerMask:
+  layerMaskGel:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 0
   Camera: {fileID: 730876431}
   stamina: {fileID: 705150699}
 --- !u!143 &224666279
@@ -1905,7 +1905,7 @@ GameObject:
   - component: {fileID: 434884390}
   - component: {fileID: 434884392}
   - component: {fileID: 434884391}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: WhatTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2846,7 +2846,7 @@ GameObject:
   - component: {fileID: 935684798}
   - component: {fileID: 935684800}
   - component: {fileID: 935684799}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: StartMusTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3009,7 +3009,7 @@ GameObject:
   - component: {fileID: 996491311}
   - component: {fileID: 996491312}
   - component: {fileID: 996491313}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: VoidTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3803,7 +3803,7 @@ GameObject:
   - component: {fileID: 1223445565}
   - component: {fileID: 1223445567}
   - component: {fileID: 1223445566}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: 02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4334,7 +4334,7 @@ GameObject:
   - component: {fileID: 1422292876}
   - component: {fileID: 1422292877}
   - component: {fileID: 1422292878}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: 01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4396,7 +4396,7 @@ GameObject:
   - component: {fileID: 1423827252}
   - component: {fileID: 1423827253}
   - component: {fileID: 1423827254}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Island
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5150,7 +5150,7 @@ GameObject:
   - component: {fileID: 1621092954}
   - component: {fileID: 1621092956}
   - component: {fileID: 1621092957}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Island
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6630,7 +6630,7 @@ GameObject:
   - component: {fileID: 2046512490}
   - component: {fileID: 2046512489}
   - component: {fileID: 2046512491}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: EndPortal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7263,7 +7263,7 @@ GameObject:
   - component: {fileID: 6938647447812754406}
   - component: {fileID: 2949506612632338771}
   - component: {fileID: 2050362643523568576}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: OtherMusTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7669,7 +7669,7 @@ GameObject:
   - component: {fileID: 5748501565220777420}
   - component: {fileID: 5748501565220777418}
   - component: {fileID: 5748501565220777421}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: MovingIsland
   m_TagString: Untagged
   m_Icon: {fileID: 0}
