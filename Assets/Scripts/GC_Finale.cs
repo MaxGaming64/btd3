@@ -45,20 +45,14 @@ public class GC_Finale : MonoBehaviour
 
         if (GameObject.FindGameObjectWithTag("MainMus") == null)
         {
-            mainMus = new GameObject().AddComponent<AudioSource>();
-            mainMus.gameObject.name = "MainMus";
-            mainMus.gameObject.tag = "MainMus";
-            mainMus.volume = 0.7f;
-            mainMus.loop = true;
-            mainMus.clip = mus_finale;
-            mainMus.Play();
-            DontDestroyOnLoad(mainMus);
+            mainMus = GameControllerScript.CreateMainMus(mus_finale, 0.7f);
         }
 
         else
         {
             mainMus = GameObject.FindGameObjectWithTag("MainMus").GetComponent<AudioSource>();
             mainMus.loop = true;
+            mainMus.volume = 0.7f;
             mainMus.clip = mus_finale;
             mainMus.Play();
         }

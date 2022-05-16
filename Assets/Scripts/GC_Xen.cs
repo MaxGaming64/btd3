@@ -34,14 +34,7 @@ public class GC_Xen : MonoBehaviour
 
         if (GameObject.FindGameObjectWithTag("MainMus") == null)
         {
-            mainMus = new GameObject().AddComponent<AudioSource>();
-            mainMus.gameObject.name = "MainMus";
-            mainMus.gameObject.tag = "MainMus";
-            mainMus.loop = true;
-            mainMus.clip = ambient;
-            mainMus.Play();
-            DontDestroyOnLoad(mainMus);
-
+            mainMus = GameControllerScript.CreateMainMus(ambient);
             fade.Play("Out");
         }
 
