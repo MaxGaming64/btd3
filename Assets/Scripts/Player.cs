@@ -49,7 +49,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        grounded = Physics.CheckSphere(transform.position, -0.1f);
+        grounded = Physics.CheckSphere(transform.position, -0.1f, Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore);
 
         if (grounded)
         {
