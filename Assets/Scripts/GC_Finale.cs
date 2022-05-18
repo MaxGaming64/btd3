@@ -171,6 +171,7 @@ public class GC_Finale : MonoBehaviour
                 baldi.SetActive(false);
                 finaleBaldi.SetActive(true);
                 joeSprite.sprite = joeAngrySprite;
+                mainMus.volume = 0.7f;
                 mainMus.clip = mus_bossfinale1;
                 mainMus.Play();
                 ds.StartDialogue(101);
