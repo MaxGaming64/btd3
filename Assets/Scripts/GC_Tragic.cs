@@ -91,6 +91,7 @@ public class GC_Tragic : MonoBehaviour
         mainMus.clip = finale2;
         mainMus.Play();
         yield return new WaitForSecondsRealtime(finale2.length);
+        if (!mainMus.isPlaying) yield break;
         mainMus.loop = true;
         mainMus.clip = finale2_lp;
         mainMus.Play();
