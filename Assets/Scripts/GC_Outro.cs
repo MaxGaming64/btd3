@@ -20,6 +20,7 @@ public class GC_Outro : MonoBehaviour
         {
             mainMus = GameObject.FindGameObjectWithTag("MainMus").GetComponent<AudioSource>();
             mainMus.loop = true;
+            mainMus.volume = 1f;
 
             if (mainMus.clip != ambient)
             {
