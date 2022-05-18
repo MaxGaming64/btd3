@@ -575,13 +575,14 @@ public class GameControllerScript : MonoBehaviour
 		Camera.main.GetComponent<CameraScript>().offset = new Vector3(0f, -1f, 0f);
 	}
 
-	public static AudioSource CreateMainMus(AudioClip clip, float volume = 1f, bool loop = true)
+	public static AudioSource CreateMainMus(AudioClip clip, float volume = 1f, float pitch = 1f, bool loop = true)
     {
 		AudioSource mainMus = new GameObject().AddComponent<AudioSource>();
 		mainMus.name = "MainMus";
 		mainMus.tag = "MainMus";
 		mainMus.loop = loop;
 		mainMus.volume = volume;
+		mainMus.pitch = pitch;
 		mainMus.clip = clip;
 		mainMus.Play();
 		DontDestroyOnLoad(mainMus.gameObject);
