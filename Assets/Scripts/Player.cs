@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     private float XRotation;
     private float gravity = Physics.gravity.y;
     private bool grounded;
-    private bool xen;
+    public bool advancedMovement;
     private bool finale;
     private CharacterController controller;
     private Vector3 velocity;
@@ -33,7 +33,6 @@ public class Player : MonoBehaviour
         switch (SceneManager.GetActiveScene().name)
         {
             case "Chapter2":
-                xen = true;
                 gravity = Physics.gravity.y / 2;
                 break;
             case "Finale":
@@ -101,7 +100,7 @@ public class Player : MonoBehaviour
 
         controller.Move(move * currentSpeed * Time.deltaTime);
 
-        if (Input.GetKeyDown(KeyCode.Space) & grounded & (xen | finale))
+        if (Input.GetKeyDown(KeyCode.Space) & grounded & advancedMovement)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
@@ -117,7 +116,7 @@ public class Player : MonoBehaviour
         XRotation -= mouseY;
         XRotation = Mathf.Clamp(XRotation, -90f, 90f);
 
-        if (xen | finale)
+        if (advancedMovement)
         {
             Camera.localRotation = Quaternion.Euler(XRotation, 0f, 0f);
         }
