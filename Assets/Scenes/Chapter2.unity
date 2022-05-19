@@ -7727,6 +7727,7 @@ MonoBehaviour:
   speed: 5
   stopSound: {fileID: 8300000, guid: 3b610cea7c5a8344d8e68e697374f66b, type: 3}
   endPosition: {x: 37, y: 20, z: 161}
+  startDirection: {x: 0, y: 0, z: 1}
 --- !u!82 &5748501565220777419
 AudioSource:
   m_ObjectHideFlags: 0
