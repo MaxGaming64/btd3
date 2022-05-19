@@ -11841,7 +11841,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layerMaskGel:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 64
   Camera: {fileID: 2140485964}
   stamina: {fileID: 2005408868}
 --- !u!143 &808395844
@@ -24559,7 +24559,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh201002
+  m_Name: pb_Mesh159228
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -26839,7 +26839,7 @@ GameObject:
   - component: {fileID: 1737583750}
   - component: {fileID: 1737583749}
   - component: {fileID: 1737583748}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Gel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
