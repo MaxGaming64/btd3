@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class MovingIsland : MonoBehaviour
+public class MovingPlatform : MonoBehaviour
 {
     private bool moving = true;
     private bool goBack;
@@ -10,12 +10,13 @@ public class MovingIsland : MonoBehaviour
     public AudioClip stopSound;
     private Vector3 startPosition;
     public Vector3 endPosition;
+    public Vector3 startDirection;
     
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
         startPosition = transform.position;
-        transform.position = new Vector3(startPosition.x, startPosition.y, startPosition.z + 1f);
+        transform.position = transform.position + startDirection;
     }
 
     void FixedUpdate()
@@ -24,12 +25,12 @@ public class MovingIsland : MonoBehaviour
         {
             if (!goBack)
             {
-                transform.Translate(transform.forward * speed * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, endPosition, speed * Time.deltaTime);
             }
 
             else
             {
-                transform.Translate(-transform.forward * speed * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, startPosition, speed * Time.deltaTime);
             }
 
             if (Vector3.Distance(transform.position, endPosition) <= 1f | Vector3.Distance(transform.position, startPosition) <= 1f)
