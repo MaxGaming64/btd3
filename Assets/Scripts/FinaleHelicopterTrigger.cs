@@ -38,14 +38,8 @@ public class FinaleHelicopterTrigger : MonoBehaviour
             joe.SetActive(false);
             fakeJoe.SetActive(true);
             baldi.SetActive(false);
-
-            var ui = FindObjectsOfType<Canvas>();
-
-            foreach (var component in ui)
-            {
-                component.enabled = false;
-            }
-
+            GameObject.Find("Reticle").SetActive(false);
+            player.GetComponent<Player>().stamina.transform.parent.gameObject.SetActive(false);
             StartCoroutine(Fade());
         }
     }
