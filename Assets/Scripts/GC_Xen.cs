@@ -13,6 +13,7 @@ public class GC_Xen : MonoBehaviour
     public GameObject pauseCanvas;
     private AudioSource mainMus;
     public DialogueSystem ds;
+    public GameObject[] hudItems;
     public AudioClip ambient;
     public AudioClip comes;
     public AudioClip alien_squit;
@@ -102,14 +103,16 @@ public class GC_Xen : MonoBehaviour
         {
             playerDead = true;
 
-            var ui = FindObjectsOfType<Canvas>();
-
-            foreach (var component in ui)
+            foreach (var component in hudItems)
             {
-                component.enabled = false;
+                component.SetActive(false);
             }
 
-            deathCameraRoot.position = player.position + Vector3.up * 0.4f;
+            Transform playerCamera = player.GetComponent<Player>().Camera;
+
+            deathCameraRoot.position = playerCamera.position;
+            deathCameraRoot.rotation = player.rotation;
+            XRotation = playerCamera.eulerAngles.x;
             deathCameraRoot.gameObject.SetActive(true);
             player.gameObject.SetActive(false);
         }
@@ -120,6 +123,11 @@ public class GC_Xen : MonoBehaviour
             float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
 
             deathCameraRoot.Rotate(Vector3.up * mouseX);
+
+            if (XRotation >= 270f)
+            {
+                XRotation -= 360f;
+            }
 
             XRotation -= mouseY;
             XRotation = Mathf.Clamp(XRotation, -90f, 90f);
