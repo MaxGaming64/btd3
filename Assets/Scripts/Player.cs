@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     private float speed = 10f;
     private float runSpeed = 16f;
     private float mouseSensitivity;
-    private float jumpHeight = 5f;
+    private float jumpHeight = 1.75f;
     private float XRotation;
     private float gravity = Physics.gravity.y;
     private bool grounded;
@@ -24,6 +24,12 @@ public class Player : MonoBehaviour
     private void OnEnable()
     {
         XRotation = 0f;
+        XRotation = Camera.eulerAngles.x;
+
+        if (XRotation >= 270f)
+        {
+            XRotation -= 360f;
+        }
     }
 
     void Start()
@@ -33,7 +39,8 @@ public class Player : MonoBehaviour
         switch (SceneManager.GetActiveScene().name)
         {
             case "Chapter2":
-                gravity = Physics.gravity.y / 2;
+                jumpHeight = 5f;
+                gravity = Physics.gravity.y / 2f;
                 break;
             case "Finale":
                 finale = true;
@@ -48,7 +55,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        grounded = Physics.CheckSphere(transform.position, -0.1f, Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore);
+        grounded = Physics.CheckSphere(transform.position, 0.1f, ~LayerMask.GetMask("Player"), QueryTriggerInteraction.Ignore);
 
         if (grounded)
         {
@@ -78,7 +85,7 @@ public class Player : MonoBehaviour
             controller.Move(velocity * Time.deltaTime);
         }
 
-        if (Physics.CheckSphere(transform.position, -0.1f, layerMaskGel) & finale)
+        if (Physics.CheckSphere(transform.position, 0.1f, layerMaskGel) & finale)
         {
             if (jumpHigh.jumpHigh)
             {
