@@ -213,7 +213,7 @@ MonoBehaviour:
   efx_dlg6_trigger: {fileID: 0}
   sfx_dlg4_eerie: {fileID: 8300000, guid: b0b7201e3f0004741bee69803a86ef3e, type: 3}
   sfx_dlg5_ambient: {fileID: 8300000, guid: 7d9688385c911324eb62d9acc4a414d1, type: 3}
-  sfx_dlg6_ambient: {fileID: 8300000, guid: ca8509eab88a5014b94578b7431e898a, type: 3}
+  sfx_dlg6_ambient: {fileID: 8300000, guid: 95ac4a8fe9d1d884394efde66b9b5417, type: 3}
   mnb_dlg10_follow01: {fileID: 0}
   mnb_dlg10_follow02: {fileID: 0}
 --- !u!82 &2385325390740277297
