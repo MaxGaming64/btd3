@@ -50,7 +50,7 @@ public class MovingPlatform : MonoBehaviour
         moving = false;
         audioSource.Stop();
         audioSource.PlayOneShot(stopSound);
-        yield return new WaitForSecondsRealtime(stopSound.length);
+        yield return new WaitForSeconds(stopSound.length);
         moving = true;
         goBack = !goBack;
     }
