@@ -25,7 +25,7 @@ public class TragicPortal : MonoBehaviour
         anim.Play("In");
         mainMus.PlayOneShot(tpSound);
         yield return new WaitForSecondsRealtime(5f);
-        SceneManager.LoadScene("Finale");
+        SceneManager.LoadScene("FinaleChecker");
         Time.timeScale = 1f;
     }
 }

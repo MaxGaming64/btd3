@@ -13285,7 +13285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chapter: 4
-  custom: Finale
+  custom: FinaleChecker
 --- !u!114 &283287605432738010
 MonoBehaviour:
   m_ObjectHideFlags: 0

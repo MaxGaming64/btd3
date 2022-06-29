@@ -27,7 +27,15 @@ public class Joe : MonoBehaviour
             {
                 if (Vector3.Distance(transform.position, gc.player.position) > 5f)
                 {
-                    agent.speed = 70f;
+                    if (PlayerPrefs.GetInt("finaleFix") == 0)
+                    {
+                        agent.speed = 70f;
+                    }
+
+                    else
+                    {
+                        agent.speed = 20f;
+                    }
                 }
 
                 else
