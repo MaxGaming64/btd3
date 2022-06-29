@@ -119,20 +119,23 @@ public class GC_Xen : MonoBehaviour
 
         if (playerDead)
         {
-            float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
-            float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
-
-            deathCameraRoot.Rotate(Vector3.up * mouseX);
-
-            if (XRotation >= 270f)
+            if (Time.timeScale > 0)
             {
-                XRotation -= 360f;
+                float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
+                float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
+
+                deathCameraRoot.Rotate(Vector3.up * mouseX);
+
+                if (XRotation >= 270f)
+                {
+                    XRotation -= 360f;
+                }
+
+                XRotation -= mouseY;
+                XRotation = Mathf.Clamp(XRotation, -90f, 90f);
+
+                deathCamera.localRotation = Quaternion.Euler(XRotation, 0f, 0f);
             }
-
-            XRotation -= mouseY;
-            XRotation = Mathf.Clamp(XRotation, -90f, 90f);
-
-            deathCamera.localRotation = Quaternion.Euler(XRotation, 0f, 0f);
 
             if (Input.GetMouseButtonDown(0) | Input.GetMouseButtonDown(1))
             {
