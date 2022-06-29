@@ -18956,8 +18956,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0178bb88fcf9ea64ab69ccdabc3fab33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paused: 0
-  pauseCanvas: {fileID: 1376339316}
   ds: {fileID: 917981466}
   ambient: {fileID: 8300000, guid: 6735a081110e8c746981d414f216f266, type: 3}
   finale1_lp: {fileID: 8300000, guid: aba8c475d3c367b44a3449024275b467, type: 3}
@@ -31177,12 +31175,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1368315527}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1376339316 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7356228714318851992, guid: e734f3e0cd7efb049820384e8e1bff13,
-    type: 3}
-  m_PrefabInstance: {fileID: 685057886}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1378131411
 GameObject:
   m_ObjectHideFlags: 0

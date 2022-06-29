@@ -1,17 +1,14 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GC_Mansion : MonoBehaviour
 {
     private float timeToEnablePlayer;
-    public bool paused;
     public bool lockDoor01_open;
     private AudioSource audioSource;
     private AudioSource mainMus;
     public AudioClip mus_school;
     public AudioClip tube_suck;
     public AudioClip sfx_falldown;
-    public GameObject pauseCanvas;
     public MeshRenderer lockDoor01;
     public Material SwingDoor60;
     public Material button_click;
@@ -31,30 +28,8 @@ public class GC_Mansion : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Pause") & !dialogeSystem.dialogue)
-        {
-            if (paused)
-            {
-                paused = false;
-                Time.timeScale = 1f;
-                pauseCanvas.SetActive(false);
-            }
+        FindObjectOfType<PauseManager>().allowPause = !dialogeSystem.dialogue;
 
-            else
-            {
-                paused = true;
-                Time.timeScale = 0f;
-                pauseCanvas.SetActive(true);
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.Q) & paused)
-        {
-            Time.timeScale = 1f;
-            Destroy(mainMus.gameObject);
-            SceneManager.LoadScene("MenuLoader");
-        }
-        
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 

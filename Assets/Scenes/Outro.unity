@@ -17749,8 +17749,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8de495278e0e68b48a68ed0d5941d4ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paused: 0
-  pauseCanvas: {fileID: 7356228713928865613}
   ds: {fileID: 585638337}
   ambient: {fileID: 8300000, guid: 1fe478f5e9c3905429371666de9503f6, type: 3}
 --- !u!1 &1377665079
@@ -29392,11 +29390,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseUI
       objectReference: {fileID: 0}
+    - target: {fileID: 8539531274256730185, guid: e734f3e0cd7efb049820384e8e1bff13,
+        type: 3}
+      propertyPath: menuScene
+      value: MenuOutro
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e734f3e0cd7efb049820384e8e1bff13, type: 3}
---- !u!1 &7356228713928865613 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7356228714318851992, guid: e734f3e0cd7efb049820384e8e1bff13,
-    type: 3}
-  m_PrefabInstance: {fileID: 7356228713928865612}
-  m_PrefabAsset: {fileID: 0}

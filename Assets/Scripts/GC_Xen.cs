@@ -4,13 +4,11 @@ using TMPro;
 
 public class GC_Xen : MonoBehaviour
 {
-    public bool paused;
     public bool playerDead;
     private float mouseSensitivity;
     private float timeToRandomAmb = -1f;
     private float XRotation;
     public int playerHealth;
-    public GameObject pauseCanvas;
     private AudioSource mainMus;
     public DialogueSystem ds;
     public GameObject[] hudItems;
@@ -69,30 +67,8 @@ public class GC_Xen : MonoBehaviour
         {
             timeToRandomAmb -= Time.deltaTime;
         }
-        
-        if (Input.GetButtonDown("Pause") & !ds.dialogue)
-        {
-            if (paused)
-            {
-                paused = false;
-                Time.timeScale = 1f;
-                pauseCanvas.SetActive(false);
-            }
 
-            else
-            {
-                paused = true;
-                Time.timeScale = 0f;
-                pauseCanvas.SetActive(true);
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.Q) & paused)
-        {
-            Time.timeScale = 1f;
-            Destroy(mainMus.gameObject);
-            SceneManager.LoadScene("MenuLoader");
-        }
+        FindObjectOfType<PauseManager>().allowPause = !ds.dialogue;
 
         if (playerHealth > 100)
         {
