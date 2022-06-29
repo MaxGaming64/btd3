@@ -4,11 +4,9 @@ using UnityEngine;
 public class GC_Finale : MonoBehaviour
 {
     private bool bossPause;
-    public bool paused;
     public bool knockout;
     public int stage;
     public GameObject hud;
-    public GameObject pauseCanvas;
     public GameObject chapter;
     public GameObject dlg99;
     private AudioSource mainMus;
@@ -69,29 +67,7 @@ public class GC_Finale : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Pause") & !ds.dialogue & !joe.killing)
-        {
-            if (paused)
-            {
-                paused = false;
-                Time.timeScale = 1f;
-                pauseCanvas.SetActive(false);
-            }
-
-            else
-            {
-                paused = true;
-                Time.timeScale = 0f;
-                pauseCanvas.SetActive(true);
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.Q) & paused)
-        {
-            Time.timeScale = 1f;
-            Destroy(mainMus.gameObject);
-            UnityEngine.SceneManagement.SceneManager.LoadScene("MenuLoader");
-        }
+        FindObjectOfType<PauseManager>().allowPause = !ds.dialogue & !joe.killing;
 
         Player playerScript = player.GetComponent<Player>();
         

@@ -1,11 +1,8 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GC_Tragic : MonoBehaviour
 {
-    public bool paused;
-    public GameObject pauseCanvas;
     private AudioSource mainMus;
     public DialogueSystem ds;
     public AudioClip ambient;
@@ -48,29 +45,7 @@ public class GC_Tragic : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Pause") & !ds.dialogue & !joe.GetComponent<TragicJoe>().killing & !portal.used)
-        {
-            if (paused)
-            {
-                paused = false;
-                Time.timeScale = 1f;
-                pauseCanvas.SetActive(false);
-            }
-
-            else
-            {
-                paused = true;
-                Time.timeScale = 0f;
-                pauseCanvas.SetActive(true);
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.Q) & paused)
-        {
-            Time.timeScale = 1f;
-            Destroy(mainMus.gameObject);
-            SceneManager.LoadScene("MenuLoader");
-        }
+        FindObjectOfType<PauseManager>().allowPause = !ds.dialogue & !joe.GetComponent<TragicJoe>().killing & !portal.used;
 
         if (joe.activeSelf)
         {

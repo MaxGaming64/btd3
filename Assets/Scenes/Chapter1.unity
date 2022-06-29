@@ -11669,12 +11669,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogeType: 0
   dialogeSystem: {fileID: 585638337}
---- !u!1 &1069734100 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7356228714318851992, guid: e734f3e0cd7efb049820384e8e1bff13,
-    type: 3}
-  m_PrefabInstance: {fileID: 7356228713928865612}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1074974037
 GameObject:
   m_ObjectHideFlags: 0
@@ -14952,12 +14946,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32ff9f73bf3184347b00ba6e971ab993, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paused: 0
   lockDoor01_open: 0
   mus_school: {fileID: 8300000, guid: 5a5bf3e81ec8eea4dae5c6e6b63c350f, type: 3}
   tube_suck: {fileID: 8300000, guid: 57073dfef5bed314190ddfd97c381680, type: 3}
   sfx_falldown: {fileID: 8300000, guid: b1afc731f8fbbae4aac5314ae405e6e0, type: 3}
-  pauseCanvas: {fileID: 1069734100}
   lockDoor01: {fileID: 953340900}
   SwingDoor60: {fileID: 2100000, guid: 1cc5d653459dd2545821877f611a8094, type: 2}
   button_click: {fileID: 2100000, guid: 3380523fb7264db4ca9e1281ef8c5f6f, type: 2}

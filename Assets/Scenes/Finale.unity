@@ -26275,12 +26275,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1711167356}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1712148408 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7356228714318851992, guid: e734f3e0cd7efb049820384e8e1bff13,
-    type: 3}
-  m_PrefabInstance: {fileID: 309680042}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1720247522
 GameObject:
   m_ObjectHideFlags: 0
@@ -30005,11 +29999,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4752a3ca3cd52e24abece16898c9a0b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paused: 0
   knockout: 0
   stage: 0
   hud: {fileID: 1665046555}
-  pauseCanvas: {fileID: 1712148408}
   chapter: {fileID: 1267641446}
   dlg99: {fileID: 2141164952}
   mus_finale: {fileID: 8300000, guid: 5a6ab7cb92b08034987b190abd2ae305, type: 3}

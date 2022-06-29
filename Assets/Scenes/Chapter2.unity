@@ -5148,10 +5148,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6683111def5fa6841836667c72e7d2fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paused: 0
   playerDead: 0
   playerHealth: 100
-  pauseCanvas: {fileID: 1833037055}
   ds: {fileID: 1869366497}
   hudItems:
   - {fileID: 308910037}
@@ -5955,12 +5953,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1828788704}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1833037055 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7356228714318851992, guid: e734f3e0cd7efb049820384e8e1bff13,
-    type: 3}
-  m_PrefabInstance: {fileID: 184064846}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1869366497 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2385325390740277298, guid: 7618656325727c547b5e46c507bfb8d6,
