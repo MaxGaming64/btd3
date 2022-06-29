@@ -6,6 +6,8 @@ Library
 Logs
 obj
 Packages/packages-lock.json
+ProjectSettings/Packages/com.unity.probuilder/Settings.json
+ProjectSettings/Packages/com.unity.progrids/Settings.json
 Temp
 UserSettings
 Assembly-CSharp.csproj
