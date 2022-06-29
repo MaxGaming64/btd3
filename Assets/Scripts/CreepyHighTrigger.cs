@@ -33,12 +33,14 @@ public class CreepyHighTrigger : MonoBehaviour
         mainMus.loop = false;
         mainMus.clip = creepyHigh;
         mainMus.Play();
+        mainMus.gameObject.AddComponent<PauseAudio>();
         yield return new WaitForSeconds(creepyHigh.length);
         player.SetActive(true);
         Camera.SetActive(false);
         mainMus.loop = true;
         mainMus.clip = ambient;
         mainMus.Play();
+        Destroy(mainMus.gameObject.GetComponent<PauseAudio>());
 
         foreach (var Object in restLevel)
         {
