@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class FinaleHelicopterTrigger : MonoBehaviour
 {
+    private bool playerRescued;
     private Animator anim;
     private AudioSource mainMus;
     public GameObject player;
@@ -22,7 +23,7 @@ public class FinaleHelicopterTrigger : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!mainMus.isPlaying)
+        if (!mainMus.isPlaying & playerRescued)
         {
             SceneManager.LoadScene("Outro");
         }
@@ -32,6 +33,7 @@ public class FinaleHelicopterTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            playerRescued = true;
             anim.Play("Outro");
             player.SetActive(false);
             cutsceneCam.SetActive(true);
