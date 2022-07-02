@@ -2658,7 +2658,7 @@ GameObject:
   - component: {fileID: 131369442}
   - component: {fileID: 131369444}
   - component: {fileID: 131369443}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27831,7 +27831,7 @@ GameObject:
   - component: {fileID: 1218480734}
   - component: {fileID: 1218480731}
   - component: {fileID: 1218480732}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Baldi
   m_TagString: NPC
   m_Icon: {fileID: 0}
@@ -28475,7 +28475,7 @@ GameObject:
   - component: {fileID: 1250505499}
   - component: {fileID: 1250505494}
   - component: {fileID: 1250505490}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Principal
   m_TagString: NPC
   m_Icon: {fileID: 0}
@@ -36142,7 +36142,7 @@ GameObject:
   - component: {fileID: 1584788848}
   - component: {fileID: 1584788851}
   - component: {fileID: 1584788850}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
