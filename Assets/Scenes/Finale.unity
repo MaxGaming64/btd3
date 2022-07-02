@@ -13746,7 +13746,7 @@ GameObject:
   - component: {fileID: 750091576}
   - component: {fileID: 750091575}
   - component: {fileID: 750091574}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Baldi
   m_TagString: NPC
   m_Icon: {fileID: 0}
@@ -16550,7 +16550,7 @@ GameObject:
   - component: {fileID: 916370912}
   - component: {fileID: 916370914}
   - component: {fileID: 916370913}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
