@@ -55,6 +55,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         grounded = controller.isGrounded;
+        bool groundedOnGel = Physics.CheckSphere(transform.position, 0.1f, layerMaskGel);
 
         if (grounded)
         {
@@ -63,7 +64,7 @@ public class Player : MonoBehaviour
                 velocity.y = -2f;
             }
 
-            if (finale)
+            if (!groundedOnGel & finale)
             {
                 jumpHigh.jumpHigh = false;
                 jumpHigh.knockoutTrigger.allowKnockout = false;
@@ -84,7 +85,7 @@ public class Player : MonoBehaviour
             controller.Move(velocity * Time.deltaTime);
         }
 
-        if (Physics.CheckSphere(transform.position, 0.1f, layerMaskGel) & finale)
+        if (groundedOnGel & finale)
         {
             if (jumpHigh.jumpHigh)
             {
