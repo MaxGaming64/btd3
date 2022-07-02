@@ -107,6 +107,11 @@ public class GC_Finale : MonoBehaviour
                 }
             }
         }
+
+        if (joe.killing & joeSprite.sprite != joeRedSprite)
+        {
+            joeSprite.sprite = joeRedSprite;
+        }
     }
 
     public IEnumerator StartBossIntro()
