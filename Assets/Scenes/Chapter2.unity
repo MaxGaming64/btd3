@@ -752,7 +752,7 @@ GameObject:
   m_Component:
   - component: {fileID: 122587465}
   - component: {fileID: 122587466}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: backcollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -869,7 +869,7 @@ GameObject:
   - component: {fileID: 166863260}
   - component: {fileID: 166863259}
   - component: {fileID: 166863256}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: bg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
