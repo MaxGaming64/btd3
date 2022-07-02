@@ -23,7 +23,6 @@ public class Player : MonoBehaviour
 
     private void OnEnable()
     {
-        XRotation = 0f;
         XRotation = Camera.eulerAngles.x;
 
         if (XRotation >= 270f)
