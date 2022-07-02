@@ -10,14 +10,17 @@ public class JumpHighTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (!jumpHigh)
+            if (jumpHigh)
+            {
+                if (gc.stage != 4)
+                {
+                    knockoutTrigger.allowKnockout = true;
+                }
+            }
+            
+            else
             {
                 jumpHigh = true;
-            }
-
-            if (gc.stage != 4)
-            {
-                knockoutTrigger.allowKnockout = true;
             }
         }
     }
