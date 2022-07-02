@@ -54,13 +54,13 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        grounded = Physics.CheckSphere(transform.position, 0.1f, ~LayerMask.GetMask("Player"), QueryTriggerInteraction.Ignore);
+        grounded = controller.isGrounded;
 
         if (grounded)
         {
             if (velocity.y < 0f)
             {
-                velocity.y = 0f;
+                velocity.y = -2f;
             }
 
             if (finale)
