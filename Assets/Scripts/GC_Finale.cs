@@ -89,7 +89,8 @@ public class GC_Finale : MonoBehaviour
             else
             {
                 joe.transform.position = Vector3.Lerp(joe.transform.position, new Vector3(25f, 10f, -270f), Time.deltaTime * 2f);
-                joeSprite.transform.rotation = Quaternion.Lerp(joeSprite.transform.rotation, Quaternion.Euler(new Vector3(0f, 90f, 1f)), Time.deltaTime * 0.1f);
+                //joeSprite.transform.rotation = Quaternion.Lerp(joeSprite.transform.rotation, Quaternion.Euler(new Vector3(0f, 90f, 1f)), Time.deltaTime * 0.1f);
+                joeSprite.transform.rotation = Quaternion.RotateTowards(joeSprite.transform.rotation, Quaternion.Euler(new Vector3(0f, 90f, 1f)), Time.deltaTime * 5f);
 
                 if (joeSprite.transform.rotation.eulerAngles.x <= 10f)
                 {
