@@ -92,7 +92,7 @@ public class GC_Finale : MonoBehaviour
                 //joeSprite.transform.rotation = Quaternion.Lerp(joeSprite.transform.rotation, Quaternion.Euler(new Vector3(0f, 90f, 1f)), Time.deltaTime * 0.1f);
                 joeSprite.transform.rotation = Quaternion.RotateTowards(joeSprite.transform.rotation, Quaternion.Euler(new Vector3(0f, 90f, 1f)), Time.deltaTime * 5f);
 
-                if (joeSprite.transform.rotation.eulerAngles.x <= 10f)
+                if (joeSprite.transform.rotation.eulerAngles.x <= 0f)
                 {
                     if (stage == 3)
                     {
