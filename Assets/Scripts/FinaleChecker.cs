@@ -37,7 +37,8 @@ public class FinaleChecker : MonoBehaviour
         if (timer <= 0 & !loadFinale)
         {
             loadFinale = true;
-            PlayerPrefs.SetInt("hasEverCheckedFinale", 1);
+            //PlayerPrefs.SetInt("hasEverCheckedFinale", 1);
+            PlayerPrefs.SetInt("finaleFix", 0);
             SceneManager.LoadSceneAsync("Finale");
         }
 
