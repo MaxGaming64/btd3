@@ -55,7 +55,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         grounded = controller.isGrounded;
-        bool groundedOnGel = Physics.CheckSphere(transform.position, 0.1f, layerMaskGel);
+        bool groundedOnGel = Physics.Raycast(transform.position, Vector3.down, 0.1f, layerMaskGel);
 
         if (grounded)
         {
@@ -96,6 +96,8 @@ public class Player : MonoBehaviour
             {
                 velocity.y = Mathf.Sqrt(5f * -2f * gravity);
             }
+
+            jumpHigh.gelAudio.Play();
         }
     }
 
