@@ -5,6 +5,7 @@ public class JumpHighTrigger : MonoBehaviour
     public bool jumpHigh;
     public KnockoutTrigger knockoutTrigger;
     public GC_Finale gc;
+    public AudioSource gelAudio;
     
     private void OnTriggerEnter(Collider other)
     {
