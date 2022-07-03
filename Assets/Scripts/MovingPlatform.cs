@@ -19,7 +19,7 @@ public class MovingPlatform : MonoBehaviour
         transform.position = transform.position + startDirection;
     }
 
-    void FixedUpdate()
+    void Update()
     {
         if (moving)
         {
