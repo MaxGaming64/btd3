@@ -10,13 +10,11 @@ public class MovingPlatform : MonoBehaviour
     public AudioClip stopSound;
     private Vector3 startPosition;
     public Vector3 endPosition;
-    public Vector3 startDirection;
     
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
         startPosition = transform.position;
-        transform.position = transform.position + startDirection;
     }
 
     void Update()
@@ -33,7 +31,7 @@ public class MovingPlatform : MonoBehaviour
                 transform.position = Vector3.MoveTowards(transform.position, startPosition, speed * Time.deltaTime);
             }
 
-            if (Vector3.Distance(transform.position, endPosition) <= 1f | Vector3.Distance(transform.position, startPosition) <= 1f)
+            if (Vector3.Distance(transform.position, endPosition) <= 0.1f & !goBack | Vector3.Distance(transform.position, startPosition) <= 0.1f & goBack)
             {
                 StartCoroutine(ReachEnd());
             }
