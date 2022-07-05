@@ -84,7 +84,7 @@ public class GC_Xen : MonoBehaviour
                 component.SetActive(false);
             }
 
-            Transform playerCamera = player.GetComponent<Player>().Camera;
+            Transform playerCamera = player.GetComponent<Player>().cameraScript.transform;
 
             deathCameraRoot.position = playerCamera.position;
             deathCameraRoot.rotation = player.rotation;

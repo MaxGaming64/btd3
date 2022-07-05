@@ -79,7 +79,7 @@ public class GC_Finale : MonoBehaviour
             
             player.position = Vector3.Lerp(player.transform.position, new Vector3(15f, 10f, -270f), Time.deltaTime * 2f);
             player.rotation = Quaternion.Lerp(player.transform.rotation, rotation, Time.deltaTime * 2f);
-            playerScript.Camera.localRotation = Quaternion.Lerp(playerScript.Camera.localRotation, Quaternion.identity, Time.deltaTime * 2f);
+            playerScript.cameraScript.transform.localRotation = Quaternion.Lerp(playerScript.cameraScript.transform.localRotation, Quaternion.identity, Time.deltaTime * 2f);
 
             if (!knockout)
             {
