@@ -4878,7 +4878,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7032a9919f660946bd7c3c0940607f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skyScale: 5
+  skyScale: 16
 --- !u!20 &683051064
 Camera:
   m_ObjectHideFlags: 0
