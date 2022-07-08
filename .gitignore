@@ -10,6 +10,5 @@ ProjectSettings/Packages/com.unity.probuilder/Settings.json
 ProjectSettings/Packages/com.unity.progrids/Settings.json
 Temp
 UserSettings
-Assembly-CSharp.csproj
-Assembly-CSharp-firstpass.csproj
-btd3.sln
+*.csproj
+*.sln
