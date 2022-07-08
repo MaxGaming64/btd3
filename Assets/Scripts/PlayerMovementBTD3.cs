@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -81,7 +82,7 @@ public class PlayerMovementBTD3 : MonoBehaviour
                 velocity.y = Mathf.Sqrt(5f * -2f * gravity);
             }
 
-            jumpHigh.gelAudio.Play();
+            StartCoroutine(JumpHigh(jumpHigh.gelAudio));
         }
     }
 
@@ -116,5 +117,13 @@ public class PlayerMovementBTD3 : MonoBehaviour
                 stamina.value += 20f * Time.deltaTime;
             }
         }
+    }
+
+    IEnumerator JumpHigh(AudioSource gelAudio)
+    {
+        jumpHigh.gelAudio.time = 0.1f;
+        jumpHigh.gelAudio.Play();
+        yield return new WaitForSecondsRealtime(1.4f);
+        gelAudio.Stop();
     }
 }
