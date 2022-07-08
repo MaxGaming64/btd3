@@ -6,45 +6,45 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Logo.unity
+    path: Assets/Scenes/BTD3/Logo.unity
     guid: 6fe84de426d5dcc47b2d52f2f22d4a02
   - enabled: 1
-    path: Assets/Scenes/Warning.unity
+    path: Assets/Scenes/BTD3/Warning.unity
     guid: 32d5bccae6fc0f246ac3457abd8a565d
   - enabled: 1
-    path: Assets/Scenes/MenuLoader.unity
+    path: Assets/Scenes/BTD3/MenuLoader.unity
     guid: 14644207a46a6af4c83ca8a25003778f
   - enabled: 1
-    path: Assets/Scenes/Menu1.unity
+    path: Assets/Scenes/BTD3/Menu1.unity
     guid: da0f19cc6cae4084f92d528da9ed562c
   - enabled: 1
-    path: Assets/Scenes/Menu2.unity
+    path: Assets/Scenes/BTD3/Menu2.unity
     guid: da8a37558c43c024e8f576877b29ed02
   - enabled: 1
-    path: Assets/Scenes/Menu3.unity
+    path: Assets/Scenes/BTD3/Menu3.unity
     guid: 1cfc5fbef57b967458bed327b5622fca
   - enabled: 1
-    path: Assets/Scenes/Menu4.unity
+    path: Assets/Scenes/BTD3/Menu4.unity
     guid: ebf4290c18337a84ba57e1f910543ada
   - enabled: 1
-    path: Assets/Scenes/Chapter1.unity
+    path: Assets/Scenes/BTD3/Chapter1.unity
     guid: 2757fcd32b4423849a60a6a73d248817
   - enabled: 1
-    path: Assets/Scenes/Chapter2.unity
+    path: Assets/Scenes/BTD3/Chapter2.unity
     guid: 1957eb4e4d82cbc49a0ce9c61d6aeeab
   - enabled: 1
-    path: Assets/Scenes/Chapter3.unity
+    path: Assets/Scenes/BTD3/Chapter3.unity
     guid: ad85e737b004c1549b8057b0a743c367
   - enabled: 1
-    path: Assets/Scenes/FinaleChecker.unity
+    path: Assets/Scenes/BTD3/FinaleChecker.unity
     guid: dc48716abe6719446a2a39f12352b888
   - enabled: 1
-    path: Assets/Scenes/Finale.unity
+    path: Assets/Scenes/BTD3/Finale.unity
     guid: aebbd5b344c82d64b80808eda0b473a9
   - enabled: 1
-    path: Assets/Scenes/Outro.unity
+    path: Assets/Scenes/BTD3/Outro.unity
     guid: 242471ed12556b143980617ca39a5496
   - enabled: 1
-    path: Assets/Scenes/MenuOutro.unity
+    path: Assets/Scenes/BTD3/MenuOutro.unity
     guid: ad1ebebec29b364488ea4160ae3fce83
   m_configObjects: {}
