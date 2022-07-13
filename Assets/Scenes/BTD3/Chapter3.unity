@@ -25289,10 +25289,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1104659614}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e117feeb981b5714cbbbbad54371d204, type: 3}
+  m_Script: {fileID: 11500000, guid: 72f353e13355a064ba661c1e8b17dfd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   used: 0
+  tpWhilePaused: 1
+  changeTimeScale: 1
+  newTimeScale: 0
+  newScene: Finale
   anim: {fileID: 1191314524}
   tpSound: {fileID: 8300000, guid: 033b8c0111137f341895e6aede2762fa, type: 3}
 --- !u!82 &1104659620
