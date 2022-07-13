@@ -8,6 +8,7 @@ public class PlayerMovementBTD3 : MonoBehaviour
     private float currentSpeed;
     private float speed = 10f;
     private float runSpeed = 16f;
+    private float speedMultiplier = 1f;
     private float jumpHeight = 1.75f;
     private float gravity = Physics.gravity.y;
     private bool grounded;
@@ -92,7 +93,7 @@ public class PlayerMovementBTD3 : MonoBehaviour
         float z = Input.GetAxisRaw("Forward");
         Vector3 move = transform.right * x + transform.forward * z;
 
-        controller.Move(move * currentSpeed * Time.deltaTime);
+        controller.Move(move * currentSpeed * speedMultiplier * Time.deltaTime);
 
         if (Input.GetKeyDown(KeyCode.Space) & grounded & player.advancedMovement)
         {
@@ -117,6 +118,11 @@ public class PlayerMovementBTD3 : MonoBehaviour
                 stamina.value += 20f * Time.deltaTime;
             }
         }
+    }
+
+    public void SetSpeedMultiplier(float speedMultiplier)
+    {
+        this.speedMultiplier = speedMultiplier;
     }
 
     IEnumerator JumpHigh(AudioSource gelAudio)
