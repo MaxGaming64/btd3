@@ -6951,6 +6951,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72f353e13355a064ba661c1e8b17dfd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  used: 0
+  newScene: Chapter3
+  changeTimeScale: 0
+  newTimeScale: 0
   anim: {fileID: 24524695}
   tpSound: {fileID: 8300000, guid: 033b8c0111137f341895e6aede2762fa, type: 3}
 --- !u!1 &2070254348

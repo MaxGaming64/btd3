@@ -12,7 +12,7 @@ public class GC_Tragic : MonoBehaviour
     public Animator fade;
     public GameObject chapter;
     public GameObject joe;
-    public TragicPortal portal;
+    public PortalTrigger portal;
 
     void Start()
     {

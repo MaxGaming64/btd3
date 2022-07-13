@@ -2,12 +2,16 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TragicPortal : MonoBehaviour
+public class PortalTrigger : MonoBehaviour
 {
     public bool used;
+    public bool tpWhilePaused;
+    public bool changeTimeScale;
+    public float newTimeScale;
+    public string newScene;
     public Animator anim;
     public AudioClip tpSound;
-
+    
     private void OnTriggerEnter(Collider other)
     {
         if (!used)
@@ -21,11 +25,25 @@ public class TragicPortal : MonoBehaviour
     {
         AudioSource mainMus = GameObject.FindGameObjectWithTag("MainMus").GetComponent<AudioSource>();
 
-        Time.timeScale = 0f;
+        if (changeTimeScale)
+        {
+            Time.timeScale = newTimeScale;
+        }
+
         anim.Play("In");
         mainMus.PlayOneShot(tpSound);
-        yield return new WaitForSecondsRealtime(5f);
-        SceneManager.LoadScene("FinaleChecker");
+        
+        if (tpWhilePaused)
+        {
+            yield return new WaitForSecondsRealtime(5f);
+        }
+
+        else
+        {
+            yield return new WaitForSeconds(5f);
+        }
+
+        SceneManager.LoadScene(newScene);
         Time.timeScale = 1f;
     }
 }
