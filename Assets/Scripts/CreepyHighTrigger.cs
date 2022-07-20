@@ -8,7 +8,6 @@ public class CreepyHighTrigger : MonoBehaviour
     public GameObject Camera;
     public AudioClip creepyHigh;
     public AudioClip ambient;
-    public GameObject[] restLevel;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -23,11 +22,6 @@ public class CreepyHighTrigger : MonoBehaviour
     {
         AudioSource mainMus = GameObject.FindGameObjectWithTag("MainMus").GetComponent<AudioSource>();
 
-        foreach (var Object in restLevel)
-        {
-            Object.SetActive(false);
-        }
-
         player.SetActive(false);
         Camera.SetActive(true);
         mainMus.loop = false;
@@ -41,10 +35,5 @@ public class CreepyHighTrigger : MonoBehaviour
         mainMus.clip = ambient;
         mainMus.Play();
         Destroy(mainMus.gameObject.GetComponent<PauseAudio>());
-
-        foreach (var Object in restLevel)
-        {
-            Object.SetActive(true);
-        }
     }
 }

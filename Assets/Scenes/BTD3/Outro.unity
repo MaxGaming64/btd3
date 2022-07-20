@@ -11557,11 +11557,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6088146393818890981, guid: d841c12cdab6c5244a9bdb58a1c5c15c,
-        type: 3}
-      propertyPath: m_ClearFlags
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 7335394905207194066, guid: d841c12cdab6c5244a9bdb58a1c5c15c,
         type: 3}
       propertyPath: stamina
