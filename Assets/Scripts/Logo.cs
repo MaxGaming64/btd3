@@ -22,7 +22,7 @@ public class Logo : MonoBehaviour
             if (i >= logos.Length - 1)
             {
                 yield return new WaitForSeconds(2f);
-                SceneManager.LoadScene("MenuLoader");
+                SceneManager.LoadScene("FinaleChecker");
             }
         }
     }
