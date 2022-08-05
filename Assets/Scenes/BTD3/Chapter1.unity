@@ -1266,6 +1266,7 @@ MonoBehaviour:
   barrier: {fileID: 1234790263}
   ambient: {fileID: 8300000, guid: 5cef57a2bc4cc4143a8ff838b825c103, type: 3}
   xenSky: {fileID: 2100000, guid: 27e3d290aa0be6e4fa35c0251299be09, type: 2}
+  skyCam: {fileID: 1867273159}
 --- !u!1 &160453534
 GameObject:
   m_ObjectHideFlags: 0
