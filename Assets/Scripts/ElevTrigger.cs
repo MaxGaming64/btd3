@@ -8,6 +8,7 @@ public class ElevTrigger : MonoBehaviour
     public GameObject trigger;
     public GameObject barrier;
     public AudioClip ambient;
+    public Material xenSky;
     
     private void OnTriggerEnter(Collider other)
     {
@@ -16,6 +17,7 @@ public class ElevTrigger : MonoBehaviour
             used = true;
             barrier.SetActive(true);
             GetComponent<Animator>().Play(animName);
+            RenderSettings.skybox = xenSky;
             StartCoroutine(Audio());
         }
     }
