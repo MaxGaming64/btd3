@@ -8,7 +8,6 @@ public class GC_Tragic : MonoBehaviour
     public AudioClip ambient;
     public AudioClip finale1_lp;
     public AudioClip finale2;
-    public AudioClip finale2_lp;
     public Animator fade;
     public GameObject chapter;
     public GameObject joe;
@@ -62,13 +61,9 @@ public class GC_Tragic : MonoBehaviour
 
     public IEnumerator ContinueChaos()
     {
-        mainMus.loop = false;
-        mainMus.clip = finale2;
-        mainMus.Play();
-        yield return new WaitForSecondsRealtime(finale2.length);
-        if (!mainMus.isPlaying) yield break;
+        yield return new WaitForSecondsRealtime(finale1_lp.length - mainMus.time);
         mainMus.loop = true;
-        mainMus.clip = finale2_lp;
+        mainMus.clip = finale2;
         mainMus.Play();
     }
 }
