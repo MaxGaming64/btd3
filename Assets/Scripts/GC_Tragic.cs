@@ -37,7 +37,7 @@ public class GC_Tragic : MonoBehaviour
 
         fade.Play("Out");
 
-        chapter.GetComponent<TMPro.TextMeshProUGUI>().text = "The Unition";
+        chapter.GetComponent<TMPro.TextMeshProUGUI>().text = "The Union";
         chapter.GetComponent<Animator>().Play("NewChapter");
     }
 
