@@ -25391,7 +25391,7 @@ MonoBehaviour:
   tpWhilePaused: 1
   changeTimeScale: 1
   newTimeScale: 0
-  newScene: Finale
+  newScene: FinaleChecker
   anim: {fileID: 1191314524}
   tpSound: {fileID: 8300000, guid: 033b8c0111137f341895e6aede2762fa, type: 3}
 --- !u!82 &1104659620
