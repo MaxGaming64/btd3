@@ -33,9 +33,9 @@ public class TestJoe : MonoBehaviour
         if (other.CompareTag("Player") & !killing)
         {
             killing = true;
-            PlayerPrefs.SetInt("hasEverCheckedFinale", 1);
+            //PlayerPrefs.SetInt("hasEverCheckedFinale", 1);
             PlayerPrefs.SetInt("finaleFix", 1);
-            SceneManager.LoadSceneAsync("Finale");
+            SceneManager.LoadSceneAsync("Warning");
         }
     }
 }

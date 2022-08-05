@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/BTD3/Logo.unity
     guid: 6fe84de426d5dcc47b2d52f2f22d4a02
   - enabled: 1
+    path: Assets/Scenes/BTD3/FinaleChecker.unity
+    guid: dc48716abe6719446a2a39f12352b888
+  - enabled: 1
     path: Assets/Scenes/BTD3/Warning.unity
     guid: 32d5bccae6fc0f246ac3457abd8a565d
   - enabled: 1
@@ -35,9 +38,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BTD3/Chapter3.unity
     guid: ad85e737b004c1549b8057b0a743c367
-  - enabled: 1
-    path: Assets/Scenes/BTD3/FinaleChecker.unity
-    guid: dc48716abe6719446a2a39f12352b888
   - enabled: 1
     path: Assets/Scenes/BTD3/Finale.unity
     guid: aebbd5b344c82d64b80808eda0b473a9
