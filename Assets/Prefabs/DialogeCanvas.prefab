@@ -216,6 +216,11 @@ MonoBehaviour:
   sfx_dlg6_ambient: {fileID: 8300000, guid: 95ac4a8fe9d1d884394efde66b9b5417, type: 3}
   mnb_dlg10_follow01: {fileID: 0}
   mnb_dlg10_follow02: {fileID: 0}
+  rfx_dlg10_sky: {fileID: 2100000, guid: 82b660520bdecce4daf45d270ec93fe4, type: 2}
+  efx_dlg10_barrier: {fileID: 0}
+  efx_dlg99_2_helicopter: {fileID: 0}
+  trg_dlg99_2_heli: {fileID: 0}
+  trg_dlg99_2_playtime: {fileID: 0}
 --- !u!82 &2385325390740277297
 AudioSource:
   m_ObjectHideFlags: 0

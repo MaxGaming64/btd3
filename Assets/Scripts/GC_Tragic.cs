@@ -11,7 +11,6 @@ public class GC_Tragic : MonoBehaviour
     public Animator fade;
     public GameObject chapter;
     public GameObject joe;
-    public PortalTrigger portal;
 
     void Start()
     {
@@ -44,7 +43,7 @@ public class GC_Tragic : MonoBehaviour
 
     void Update()
     {
-        FindObjectOfType<PauseManager>().allowPause = !ds.dialogue & !joe.GetComponent<TragicJoe>().killing & !portal.used;
+        FindObjectOfType<PauseManager>().allowPause = !ds.dialogue & !joe.GetComponent<TragicJoe>().killing;
 
         if (joe.activeSelf)
         {

@@ -179,6 +179,8 @@ public class DialogueSystem : MonoBehaviour
     public AudioClip sfx_dlg6_ambient;
     public Follow mnb_dlg10_follow01;
     public Follow mnb_dlg10_follow02;
+    public Material rfx_dlg10_sky;
+    public GameObject efx_dlg10_barrier;
     public GameObject efx_dlg99_2_helicopter;
     public GameObject trg_dlg99_2_heli;
     public GameObject trg_dlg99_2_playtime;
@@ -596,6 +598,8 @@ public class DialogueSystem : MonoBehaviour
                 slideCount = dialogue10.Length;
                 mnb_dlg10_follow01.follow = true;
                 mnb_dlg10_follow02.follow = true;
+                efx_dlg10_barrier.SetActive(true);
+                RenderSettings.skybox = rfx_dlg10_sky;
                 break;
             case 10:
                 ActivateLeft();
