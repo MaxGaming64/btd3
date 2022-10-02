@@ -12,7 +12,7 @@ public class StaminaSlider : MonoBehaviour
 
     void Update()
     {
-        if (!player.enabled | !player.gameObject.activeSelf)
+        if (!player.movementScript.enabled | !player.gameObject.activeSelf)
         {
             GetComponent<Slider>().value += 20f * Time.deltaTime;
         }
