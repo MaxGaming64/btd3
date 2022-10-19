@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using TMPro;
 
 public class DialogueSystem : MonoBehaviour
@@ -26,6 +25,7 @@ public class DialogueSystem : MonoBehaviour
         gameObject.SetActive(false);
         audioSource = GetComponent<AudioSource>();
         dialogueImage_null = dialogueImage.sprite;
+        player = FindObjectOfType<Player>().GetComponent<CharacterController>();
     }
 
     public virtual void Update()
@@ -76,7 +76,7 @@ public class DialogueSystem : MonoBehaviour
     public virtual void NextSlide() { }
     public virtual void OnDialogueEnd() { }
 
-    protected void ChangeTextAndImageAndChar(string[] dialogueNum, Sprite[] dialogueImageNum, int side)
+    protected void ChangeTextAndImageAndChar(string[] dialogueNum, Sprite[] dialogueImageNum, int side, string anim = "Player", string anim2 = "Joe")
     {
         if (slideCount >= 0)
         {
@@ -90,33 +90,37 @@ public class DialogueSystem : MonoBehaviour
                 DeactiveAll();
                 break;
             case 0:
-                ActivateLeft();
+                ActivateLeft(anim);
                 break;
             case 1:
-                ActivateRight();
+                ActivateRight(anim);
                 break;
             case 4:
-                ActivateBoth();
+                ActivateBoth(anim, anim2);
                 break;
         }
     }
 
-    protected void ActivateLeft()
+    protected void ActivateLeft(string anim = "Joe")
     {
         anim_left.gameObject.SetActive(true);
         anim_right.gameObject.SetActive(false);
+        anim_left.Play(anim);
     }
 
-    protected void ActivateRight()
+    protected void ActivateRight(string anim = "Player")
     {
         anim_left.gameObject.SetActive(false);
         anim_right.gameObject.SetActive(true);
+        anim_right.Play(anim);
     }
 
-    protected void ActivateBoth()
+    protected void ActivateBoth(string anim, string anim2)
     {
         anim_left.gameObject.SetActive(true);
         anim_right.gameObject.SetActive(true);
+        anim_left.Play(anim2);
+        anim_right.Play(anim);
     }
 
     protected void DeactiveAll()

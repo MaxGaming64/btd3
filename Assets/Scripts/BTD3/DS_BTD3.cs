@@ -158,7 +158,6 @@ public class DS_BTD3 : DialogueSystem
     public GameObject efx_dlg6_trigger;
     public AudioClip sfx_dlg4_eerie;
     public AudioClip sfx_dlg5_ambient;
-    private GameObject efx_dlg5_player;
     public AudioClip sfx_dlg6_ambient;
     public Follow mnb_dlg10_follow01;
     public Follow mnb_dlg10_follow02;
@@ -168,13 +167,6 @@ public class DS_BTD3 : DialogueSystem
     public GameObject efx_dlg99_2_helicopter;
     public GameObject trg_dlg99_2_heli;
     public GameObject trg_dlg99_2_playtime;
-
-    public override void Start()
-    {
-        base.Start();
-        efx_dlg5_player = GameObject.FindGameObjectWithTag("Player");
-        player = efx_dlg5_player.GetComponent<CharacterController>();
-    }
 
     public override void StartDialogue(int DialogueType)
     {
@@ -224,8 +216,8 @@ public class DS_BTD3 : DialogueSystem
                 text.text = "I think I found Baldi's kitchen!";
                 slideCount = dialogue06.Length;
                 player.enabled = false;
-                efx_dlg5_player.transform.position = new Vector3(-15f, -110f, 75f);
-                efx_dlg5_player.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+                player.transform.position = new Vector3(-15f, -110f, 75f);
+                player.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
                 player.enabled = true;
                 mainMus.clip = sfx_dlg5_ambient;
                 mainMus.volume = 0.5f;
@@ -237,8 +229,8 @@ public class DS_BTD3 : DialogueSystem
                 text.text = "Woah! What is this...";
                 slideCount = dialogue07.Length;
                 player.enabled = false;
-                efx_dlg5_player.transform.position = new Vector3(-45f, -80f, 45f);
-                efx_dlg5_player.transform.rotation = Quaternion.identity;
+                player.transform.position = new Vector3(-45f, -80f, 45f);
+                player.transform.rotation = Quaternion.identity;
                 player.enabled = true;
                 mainMus.clip = sfx_dlg6_ambient;
                 mainMus.Play();
