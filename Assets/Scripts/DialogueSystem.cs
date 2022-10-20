@@ -90,7 +90,7 @@ public class DialogueSystem : MonoBehaviour
                 DeactiveAll();
                 break;
             case 0:
-                ActivateLeft(anim);
+                ActivateLeft(anim2);
                 break;
             case 1:
                 ActivateRight(anim);
