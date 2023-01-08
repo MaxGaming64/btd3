@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Logo : MonoBehaviour
 {
+    public bool checkFinale;
     public Image logo;
     public Sprite[] logos;
 
@@ -22,7 +23,16 @@ public class Logo : MonoBehaviour
             if (i >= logos.Length - 1)
             {
                 yield return new WaitForSeconds(2f);
-                SceneManager.LoadScene("FinaleChecker");
+
+                if (checkFinale)
+                {
+                    SceneManager.LoadScene("FinaleChecker");
+                }
+
+                else
+                {
+                    SceneManager.LoadScene("Warning");
+                }
             }
         }
     }

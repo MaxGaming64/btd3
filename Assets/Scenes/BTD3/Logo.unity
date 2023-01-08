@@ -438,6 +438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d6d3cc5cf619ad4f8527deb0db178c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkFinale: 1
   logo: {fileID: 1197982184}
   logos:
   - {fileID: 21300000, guid: fd3d6f305017a06419ffe44863b3638e, type: 3}
