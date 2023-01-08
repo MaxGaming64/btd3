@@ -11,7 +11,7 @@ public class Landmark : MonoBehaviour
         {
             player.position += keeper.pos;
             player.rotation = Quaternion.Euler(transform.eulerAngles + keeper.rot);
-            Destroy(keeper);
+            Destroy(keeper.gameObject);
         }
     }
 }

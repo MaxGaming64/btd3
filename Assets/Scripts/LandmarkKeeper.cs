@@ -7,7 +7,7 @@ public class LandmarkKeeper : MonoBehaviour
 
     public static LandmarkKeeper CreateLandmarkKeeper(Vector3 pos, Vector3 rot)
     {
-        var keeper = new GameObject().AddComponent<LandmarkKeeper>();
+        var keeper = new GameObject("LandmarkKeeper").AddComponent<LandmarkKeeper>();
 
         keeper.pos = pos;
         keeper.rot = rot;
