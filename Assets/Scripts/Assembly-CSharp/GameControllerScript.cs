@@ -589,8 +589,16 @@ public class GameControllerScript : MonoBehaviour
 		return mainMus;
 	}
 
-	// Token: 0x040005F7 RID: 1527
-	public CursorControllerScript cursorController;
+    public static void ButtonClick(RaycastHit hit)
+    {
+        hit.transform.GetComponent<MeshRenderer>().material = (Material)Resources.Load("materials/ButtonPressed");
+        Hover hover = hit.transform.GetComponent<Hover>();
+        hover.MouseExit();
+        Destroy(hover);
+    }
+
+    // Token: 0x040005F7 RID: 1527
+    public CursorControllerScript cursorController;
 
 	// Token: 0x040005F8 RID: 1528
 	public PlayerScript player;

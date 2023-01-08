@@ -45,11 +45,8 @@ public class GC_Mansion : MonoBehaviour
                     mat[1] = lockDoor01.materials[1];
                     mat[2] = SwingDoor60;
                     lockDoor01.materials = mat;
-                    hit.transform.GetComponent<MeshRenderer>().material = button_click;
-                    Hover hover = hit.transform.GetComponent<Hover>();
-                    hover.MouseExit();
-                    Destroy(hover);
                     dialogeSystem.StartDialogue(1);
+                    GameControllerScript.ButtonClick(hit);
                 }
             }
         }
