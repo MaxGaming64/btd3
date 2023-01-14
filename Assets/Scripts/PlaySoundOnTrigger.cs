@@ -23,5 +23,10 @@ public class PlaySoundOnTrigger : MonoBehaviour
                 audioSource.PlayOneShot(clip, volume);
             }
         }
+
+        if (destroyOnTrigger)
+        {
+            Destroy(gameObject);
+        }
     }
 }
