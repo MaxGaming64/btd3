@@ -589,6 +589,11 @@ public class GameControllerScript : MonoBehaviour
 		return mainMus;
 	}
 
+	public static AudioSource GetMainMus()
+	{
+        return GameObject.FindGameObjectWithTag("MainMus").GetComponent<AudioSource>();
+    }
+
     public static void ButtonClick(RaycastHit hit)
     {
         hit.transform.GetComponent<MeshRenderer>().material = (Material)Resources.Load("materials/ButtonPressed");
