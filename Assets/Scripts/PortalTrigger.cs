@@ -9,9 +9,14 @@ public class PortalTrigger : MonoBehaviour
     public bool changeTimeScale;
     public float newTimeScale;
     public string newScene;
+    private AudioSource audioSource;
     public Animator anim;
-    public AudioClip tpSound;
-    
+
+    private void Start()
+    {
+        audioSource = gameObject.AddComponent<AudioSource>();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (!used)
@@ -23,27 +28,34 @@ public class PortalTrigger : MonoBehaviour
 
     IEnumerator Fade()
     {
-        AudioSource mainMus = GameObject.FindGameObjectWithTag("MainMus").GetComponent<AudioSource>();
-
         if (changeTimeScale)
         {
             Time.timeScale = newTimeScale;
         }
 
         anim.Play("In");
-        mainMus.PlayOneShot(tpSound);
+        audioSource.PlayOneShot((AudioClip)Resources.Load("sounds/beamstart10"));
         
         if (tpWhilePaused)
         {
-            yield return new WaitForSecondsRealtime(5f);
+            yield return new WaitForSecondsRealtime(1.5f);
+            PlaySuckSound();
+            yield return new WaitForSecondsRealtime(3.5f);
         }
 
         else
         {
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(1.5f);
+            PlaySuckSound();
+            yield return new WaitForSeconds(3.5f);
         }
 
         SceneManager.LoadScene(newScene);
         Time.timeScale = 1f;
+    }
+
+    void PlaySuckSound()
+    {
+        audioSource.PlayOneShot((AudioClip)Resources.Load("sounds/port_suckout1"), 3f);
     }
 }
