@@ -32,7 +32,7 @@ public class DialogueSystem : MonoBehaviour
     {
         if (mainMus == null)
         {
-            mainMus = GameObject.FindGameObjectWithTag("MainMus").GetComponent<AudioSource>();
+            mainMus = GameControllerScript.GetMainMus();
         }
 
         if (Input.GetMouseButtonDown(0) | Input.GetMouseButtonDown(1))
@@ -76,7 +76,7 @@ public class DialogueSystem : MonoBehaviour
     public virtual void NextSlide() { }
     public virtual void OnDialogueEnd() { }
 
-    protected void ChangeTextAndImageAndChar(string[] dialogueNum, Sprite[] dialogueImageNum, int side, string anim = "Player", string anim2 = "Joe")
+    protected void ChangeTextAndImageAndChar(string[] dialogueNum, Sprite[] dialogueImageNum, int side, string left = "Joe", string right = "Player")
     {
         if (slideCount >= 0)
         {
@@ -90,13 +90,13 @@ public class DialogueSystem : MonoBehaviour
                 DeactiveAll();
                 break;
             case 0:
-                ActivateLeft(anim2);
+                ActivateLeft(left);
                 break;
             case 1:
-                ActivateRight(anim);
+                ActivateRight(right);
                 break;
             case 4:
-                ActivateBoth(anim, anim2);
+                ActivateBoth(left, right);
                 break;
         }
     }
@@ -115,12 +115,12 @@ public class DialogueSystem : MonoBehaviour
         anim_right.Play(anim);
     }
 
-    protected void ActivateBoth(string anim, string anim2)
+    protected void ActivateBoth(string anim = "Joe", string anim2 = "Player")
     {
         anim_left.gameObject.SetActive(true);
         anim_right.gameObject.SetActive(true);
-        anim_left.Play(anim2);
-        anim_right.Play(anim);
+        anim_left.Play(anim);
+        anim_right.Play(anim2);
     }
 
     protected void DeactiveAll()
