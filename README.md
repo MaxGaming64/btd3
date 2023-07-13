@@ -10,5 +10,5 @@ Unity 2020.3.36f1
 Visual Studio/VS Code
 
 ## Compiling
-1. Go to File>Build Settings, then select your target platform.
+1. Go to File > Build Settings, then select your target platform.
 2. Click "Build", select the folder where you want your project to compile, then run it. If everything works, congrats!
