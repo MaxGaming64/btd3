@@ -4563,6 +4563,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 3353758111269382252, guid: bbb6e3106289f334ea54a4b93d364f64,
+        type: 3}
+      propertyPath: m_ClearFlags
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5735360934456349649, guid: bbb6e3106289f334ea54a4b93d364f64,
         type: 3}
       propertyPath: m_RootOrder
