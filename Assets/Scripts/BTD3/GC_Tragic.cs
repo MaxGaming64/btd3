@@ -43,7 +43,7 @@ public class GC_Tragic : MonoBehaviour
 
     void Update()
     {
-        FindObjectOfType<PauseManager>().allowPause = !ds.dialogue & !joe.GetComponent<TragicJoe>().killing;
+        FindObjectOfType<PauseManager>().allowPause = !ds.dialogue && !joe.GetComponent<TragicJoe>().killing;
 
         if (joe.activeSelf)
         {

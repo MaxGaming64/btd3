@@ -52,12 +52,12 @@ public class AlienSlave : MonoBehaviour
             alertSoundPlayed = false;
         }
 
-        if (agent.remainingDistance < 1 & !playerSeen)
+        if (agent.remainingDistance < 1 && !playerSeen)
         {
             agent.SetDestination(wanderPoints[Random.Range(0, wanderPoints.Length)].transform.position);
         }
 
-        if (playerSeen & !attacking)
+        if (playerSeen && !attacking)
         {
             StartCoroutine(Attack());
         }

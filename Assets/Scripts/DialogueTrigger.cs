@@ -8,7 +8,7 @@ public class DialogueTrigger : MonoBehaviour
     
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") & !used)
+        if (other.CompareTag("Player") && !used)
         {
             used = true;
             dialogeSystem.StartDialogue(dialogeType);

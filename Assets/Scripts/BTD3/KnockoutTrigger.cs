@@ -7,7 +7,7 @@ public class KnockoutTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") & allowKnockout)
+        if (other.CompareTag("Player") && allowKnockout)
         {
             allowKnockout = false;
             gc.Knockout();

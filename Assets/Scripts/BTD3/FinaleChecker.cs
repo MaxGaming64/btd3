@@ -10,7 +10,7 @@ public class FinaleChecker : MonoBehaviour
     
     void Start()
     {
-        /*if (PlayerPrefs.GetInt("hasEverCheckedFinale") == 1 & !loadFinale)
+        /*if (PlayerPrefs.GetInt("hasEverCheckedFinale") == 1 && !loadFinale)
         {
             loadFinale = true;
             SceneManager.LoadSceneAsync("Finale");

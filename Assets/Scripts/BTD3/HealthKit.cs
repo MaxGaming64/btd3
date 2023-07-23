@@ -12,7 +12,7 @@ public class HealthKit : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") & gc.playerHealth < 100)
+        if (other.CompareTag("Player") && gc.playerHealth < 100)
         {
             gc.playerHealth += 20;
             GameObject.FindGameObjectWithTag("MainMus").GetComponent<AudioSource>().PlayOneShot(heal, 2f);

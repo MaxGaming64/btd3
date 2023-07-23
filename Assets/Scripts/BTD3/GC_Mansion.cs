@@ -37,7 +37,7 @@ public class GC_Mansion : MonoBehaviour
         {
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.transform.name == "Button_opendoor01" & Vector3.Distance(player.position, hit.transform.position) < 10f & !lockDoor01_open)
+                if (hit.transform.name == "Button_opendoor01" && Vector3.Distance(player.position, hit.transform.position) < 10f && !lockDoor01_open)
                 {
                     lockDoor01_open = true;
                     Material[] mat = new Material[3];
@@ -56,7 +56,7 @@ public class GC_Mansion : MonoBehaviour
             timeToEnablePlayer -= Time.deltaTime;
         }
 
-        if (timeToEnablePlayer < 0f & !player.gameObject.activeSelf)
+        if (timeToEnablePlayer < 0f && !player.gameObject.activeSelf)
         {
             cutsceneCam.SetActive(false);
             player.gameObject.SetActive(true);

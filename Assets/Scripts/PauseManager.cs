@@ -16,7 +16,7 @@ public class PauseManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Pause") & allowPause)
+        if (Input.GetButtonDown("Pause") && allowPause)
         {
             if (paused)
             {

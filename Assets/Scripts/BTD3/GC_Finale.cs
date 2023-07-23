@@ -67,7 +67,7 @@ public class GC_Finale : MonoBehaviour
 
     private void Update()
     {
-        FindObjectOfType<PauseManager>().allowPause = !ds.dialogue & !joe.killing;
+        FindObjectOfType<PauseManager>().allowPause = !ds.dialogue && !joe.killing;
 
         Player playerScript = player.GetComponent<Player>();
         
@@ -107,7 +107,7 @@ public class GC_Finale : MonoBehaviour
             }
         }
 
-        if (joe.killing & joeSprite.sprite != joeRedSprite)
+        if (joe.killing && joeSprite.sprite != joeRedSprite)
         {
             joeSprite.sprite = joeRedSprite;
         }

@@ -51,7 +51,7 @@ public class PlayerMovementBTD3 : MonoBehaviour
                 velocity.y = -2f;
             }
 
-            if (!groundedOnGel & finale)
+            if (!groundedOnGel && finale)
             {
                 jumpHigh.jumpHigh = false;
                 jumpHigh.knockoutTrigger.allowKnockout = false;
@@ -71,7 +71,7 @@ public class PlayerMovementBTD3 : MonoBehaviour
             controller.Move(velocity * Time.deltaTime);
         }
 
-        if (groundedOnGel & finale)
+        if (groundedOnGel && finale)
         {
             if (jumpHigh.jumpHigh)
             {
@@ -95,7 +95,7 @@ public class PlayerMovementBTD3 : MonoBehaviour
 
         controller.Move(move * currentSpeed * speedMultiplier * Time.deltaTime);
 
-        if (Input.GetKeyDown(KeyCode.Space) & grounded & player.advancedMovement)
+        if (Input.GetKeyDown(KeyCode.Space) && grounded && player.advancedMovement)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
@@ -103,7 +103,7 @@ public class PlayerMovementBTD3 : MonoBehaviour
 
     void Sprint()
     {
-        if (Input.GetButton("Run") & stamina != null && stamina.value > 0f & controller.velocity != Vector3.zero)
+        if (Input.GetButton("Run") && stamina != null && stamina.value > 0f && controller.velocity != Vector3.zero)
         {
             currentSpeed = runSpeed;
             stamina.value -= 10f * Time.deltaTime;
@@ -113,7 +113,7 @@ public class PlayerMovementBTD3 : MonoBehaviour
         {
             currentSpeed = speed;
 
-            if (controller.velocity == Vector3.zero & stamina != null)
+            if (controller.velocity == Vector3.zero && stamina != null)
             {
                 stamina.value += 20f * Time.deltaTime;
             }

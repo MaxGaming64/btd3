@@ -23,7 +23,7 @@ public class FinaleHelicopterTrigger : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!mainMus.isPlaying & playerRescued)
+        if (!mainMus.isPlaying && playerRescued)
         {
             SceneManager.LoadScene("Outro");
         }

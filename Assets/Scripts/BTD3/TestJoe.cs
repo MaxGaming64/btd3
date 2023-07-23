@@ -30,7 +30,7 @@ public class TestJoe : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") & !killing)
+        if (other.CompareTag("Player") && !killing)
         {
             killing = true;
             //PlayerPrefs.SetInt("hasEverCheckedFinale", 1);

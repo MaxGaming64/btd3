@@ -24,7 +24,7 @@ public class Hover : MonoBehaviour
             distance = 10f;
         }
         
-        if (Vector3.Distance(GameObject.FindGameObjectWithTag("Player").transform.position, transform.position) < distance & Time.timeScale > 0f)
+        if (Vector3.Distance(GameObject.FindGameObjectWithTag("Player").transform.position, transform.position) < distance && Time.timeScale > 0f)
         {
             reticle_hover.color = new Color(255, 255, 255, 255);
         }

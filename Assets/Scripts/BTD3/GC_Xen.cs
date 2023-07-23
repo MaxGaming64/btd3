@@ -75,7 +75,7 @@ public class GC_Xen : MonoBehaviour
             playerHealth = 100;
         }
         
-        if (playerHealth <= 0f & !playerDead)
+        if (playerHealth <= 0f && !playerDead)
         {
             playerDead = true;
 
@@ -113,7 +113,7 @@ public class GC_Xen : MonoBehaviour
                 deathCamera.localRotation = Quaternion.Euler(XRotation, 0f, 0f);
             }
 
-            if (Input.GetMouseButtonDown(0) | Input.GetMouseButtonDown(1))
+            if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }

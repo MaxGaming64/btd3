@@ -63,7 +63,7 @@ public class Joe : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player" & attacking)
+        if (other.tag == "Player" && attacking)
         {
             killing = true;
             AudioSource mainMus = GameObject.FindGameObjectWithTag("MainMus").GetComponent<AudioSource>();

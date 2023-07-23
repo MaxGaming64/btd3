@@ -352,13 +352,13 @@ public class DS_BTD3 : DialogueSystem
                 }
                 break;
             case 4:
-                if (slideCount == 9 | slideCount == 7 | slideCount == 5 | slideCount == 3 | slideCount == 0)
+                if (slideCount == 9 || slideCount == 7 || slideCount == 5 || slideCount == 3 || slideCount == 0)
                 {
                     ChangeTextAndImageAndChar(dialogue05, dialogueNULLImages, 1);
                     anim_right.Play("Player");
                 }
 
-                else if (slideCount == 6 | slideCount == 4 | slideCount == 2 | slideCount == 1)
+                else if (slideCount == 6 || slideCount == 4 || slideCount == 2 || slideCount == 1)
                 {
                     ChangeTextAndImageAndChar(dialogue05, dialogueNULLImages, 0);
                     anim_left.Play("Joe");
@@ -373,12 +373,12 @@ public class DS_BTD3 : DialogueSystem
                 ChangeTextAndImageAndChar(dialogue06, dialogueNULLImages, 1);
                 break;
             case 6:
-                if (slideCount == 6 | slideCount == 4 | slideCount == 2 | slideCount == 1)
+                if (slideCount == 6 || slideCount == 4 || slideCount == 2 || slideCount == 1)
                 {
                     ChangeTextAndImageAndChar(dialogue07, dialogueNULLImages, -1);
                 }
 
-                else if (slideCount == 5 | slideCount == 3 | slideCount == 0)
+                else if (slideCount == 5 || slideCount == 3 || slideCount == 0)
                 {
                     ChangeTextAndImageAndChar(dialogue07, dialogueNULLImages, 1);
                     anim_right.Play("Player");
@@ -391,13 +391,13 @@ public class DS_BTD3 : DialogueSystem
                 ChangeTextAndImageAndChar(dialogue09, dialogueNULLImages, 1);
                 break;
             case 9:
-                if (slideCount == 9 | slideCount == 6 | slideCount == 3 | slideCount == 1)
+                if (slideCount == 9 || slideCount == 6 || slideCount == 3 || slideCount == 1)
                 {
                     ChangeTextAndImageAndChar(dialogue10, dialogueNULLImages, 1);
                     anim_right.Play("Player");
                 }
 
-                else if (slideCount == 8 | slideCount == 7)
+                else if (slideCount == 8 || slideCount == 7)
                 {
                     ChangeTextAndImageAndChar(dialogue10, dialogueNULLImages, 0);
                     anim_left.Play("BAL_Happy");
@@ -409,14 +409,14 @@ public class DS_BTD3 : DialogueSystem
                     anim_left.Play("BAL_Sad");
                 }
 
-                else if (slideCount == 5 | slideCount == 4 | slideCount == 2)
+                else if (slideCount == 5 || slideCount == 4 || slideCount == 2)
                 {
                     ChangeTextAndImageAndChar(dialogue10, dialogueNULLImages, 0);
                     anim_left.Play("Pri_talk");
                 }
                 break;
             case 10:
-                if (slideCount == 5 | slideCount == 3)
+                if (slideCount == 5 || slideCount == 3)
                 {
                     ChangeTextAndImageAndChar(dialogue11, dialogue11Images, 1);
                     anim_right.Play("Player");
@@ -473,50 +473,50 @@ public class DS_BTD3 : DialogueSystem
                 }
                 break;
             case 100:
-                if (slideCount == 9 | slideCount == 0)
+                if (slideCount == 9 || slideCount == 0)
                 {
                     ChangeTextAndImageAndChar(dialogue99_1, dialogueNULLImages, 1);
                     anim_right.Play("Player");
                 }
 
-                else if (slideCount == 8 | slideCount == 7 | slideCount == 6 | slideCount == 5)
+                else if (slideCount == 8 || slideCount == 7 || slideCount == 6 || slideCount == 5)
                 {
                     ChangeTextAndImageAndChar(dialogue99_1, dialogueNULLImages, 0);
                     anim_left.Play("Joe");
                 }
 
-                else if (slideCount == 4 | slideCount == 3 | slideCount == 2 | slideCount == 1)
+                else if (slideCount == 4 || slideCount == 3 || slideCount == 2 || slideCount == 1)
                 {
                     ChangeTextAndImageAndChar(dialogue99_1, dialogueNULLImages, 0);
                     anim_left.Play("BAL_Sad");
                 }
                 break;
             case 101:
-                if (slideCount == 10 | slideCount == 9 | slideCount == 8 | slideCount == 7) //joe mad
+                if (slideCount == 10 || slideCount == 9 || slideCount == 8 || slideCount == 7) //joe mad
                 {
                     ChangeTextAndImageAndChar(dialogue99_2, dialogueNULLImages, 0);
                     anim_left.Play("Joe_Angry");
                 }
 
-                else if (slideCount == 16 | slideCount == 6) //baldi evil
+                else if (slideCount == 16 || slideCount == 6) //baldi evil
                 {
                     ChangeTextAndImageAndChar(dialogue99_2, dialogueNULLImages, 0);
                     anim_left.Play("BAL_HappyEvil");
                 }
 
-                else if (slideCount == 15 | slideCount == 14 | slideCount == 11 | slideCount == 5 | slideCount == 1) //player
+                else if (slideCount == 15 || slideCount == 14 || slideCount == 11 || slideCount == 5 || slideCount == 1) //player
                 {
                     ChangeTextAndImageAndChar(dialogue99_2, dialogueNULLImages, 1);
                     anim_right.Play("Player");
                 }
 
-                else if (slideCount == 13 | slideCount == 12) //joe happy
+                else if (slideCount == 13 || slideCount == 12) //joe happy
                 {
                     ChangeTextAndImageAndChar(dialogue99_2, dialogueNULLImages, 0);
                     anim_left.Play("Joe");
                 }
 
-                else if (slideCount == 4 | slideCount == 3 | slideCount == 2 | slideCount == 0) //baldi sad
+                else if (slideCount == 4 || slideCount == 3 || slideCount == 2 || slideCount == 0) //baldi sad
                 {
                     ChangeTextAndImageAndChar(dialogue99_2, dialogueNULLImages, 0);
                     anim_left.Play("BAL_Sad");
@@ -534,7 +534,7 @@ public class DS_BTD3 : DialogueSystem
                     anim_right.Play("Player");
                 }
 
-                else if (slideCount == 4 | slideCount == 3 | slideCount == 0) //playtime
+                else if (slideCount == 4 || slideCount == 3 || slideCount == 0) //playtime
                 {
                     ChangeTextAndImageAndChar(dialogue99_3, dialogueNULLImages, 0);
                     anim_left.Play("Playtime_talk");

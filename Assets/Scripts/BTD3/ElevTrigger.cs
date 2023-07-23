@@ -13,7 +13,7 @@ public class ElevTrigger : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") & !used)
+        if (other.CompareTag("Player") && !used)
         {
             used = true;
             barrier.SetActive(true);

@@ -17,7 +17,7 @@ public class IntroText : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) | Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
         {
             if (slideCount >= 0)
             {
