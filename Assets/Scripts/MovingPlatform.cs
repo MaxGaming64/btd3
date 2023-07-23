@@ -31,7 +31,7 @@ public class MovingPlatform : MonoBehaviour
                 transform.position = Vector3.MoveTowards(transform.position, startPosition, speed * Time.deltaTime);
             }
 
-            if (Vector3.Distance(transform.position, endPosition) <= 0.1f & !goBack | Vector3.Distance(transform.position, startPosition) <= 0.1f & goBack)
+            if (Vector3.Distance(transform.position, endPosition) <= 0f & !goBack | Vector3.Distance(transform.position, startPosition) <= 0f & goBack)
             {
                 StartCoroutine(ReachEnd());
             }
