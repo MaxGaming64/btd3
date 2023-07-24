@@ -55681,6 +55681,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scene: Finale
+  async: 1
   landmark: {fileID: 1160833724}
 --- !u!1 &1913388597
 GameObject:
