@@ -1,8 +1,9 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using BTD3Framework;
 
-public class GC_Xen : MonoBehaviour
+public class GC_Xen : BaseGameController
 {
     public bool playerDead;
     private float mouseSensitivity;
@@ -10,7 +11,6 @@ public class GC_Xen : MonoBehaviour
     private float XRotation;
     public int playerHealth;
     private AudioSource mainMus;
-    public DialogueSystem ds;
     public GameObject[] hudItems;
     public AudioClip ambient;
     public AudioClip comes;
@@ -18,45 +18,31 @@ public class GC_Xen : MonoBehaviour
     public Animator fade;
     public GameObject chapter;
     public TextMeshProUGUI healthText;
-    public Transform player;
     public Transform deathCameraRoot;
     public Transform deathCamera;
 
     void Start()
     {
-        if (PlayerPrefs.GetInt("chapter") < 2)
+        if (MainMus.GetMainMus() == null)
         {
-            PlayerPrefs.SetInt("chapter", 2);
-        }
-
-        mouseSensitivity = PlayerPrefs.GetFloat("MouseSensitivity");
-
-        if (GameObject.FindGameObjectWithTag("MainMus") == null)
-        {
-            mainMus = GameControllerScript.CreateMainMus(ambient);
-            fade.Play("Out");
+            Init(2, chapter, "Xen", fade);
         }
 
         else
         {
-            mainMus = GameObject.FindGameObjectWithTag("MainMus").GetComponent<AudioSource>();
-
-            if (mainMus.clip != ambient)
-            {
-                mainMus.clip = ambient;
-                mainMus.Play();
-            }
+            Init(2, chapter, "Xen");
         }
 
+        mainMus = InitMainMus(ambient);
         mainMus.PlayOneShot(comes, 2f);
         healthText.gameObject.SetActive(true);
-
-        chapter.GetComponent<TextMeshProUGUI>().text = "Xen";
-        chapter.GetComponent<Animator>().Play("NewChapter");
+        mouseSensitivity = PlayerPrefs.GetFloat("MouseSensitivity");
     }
 
     void Update()
     {
+        pm.allowPause = !ds.dialogue;
+
         if (timeToRandomAmb < 0f)
         {
             timeToRandomAmb = Random.Range(alien_squit.length, 30);
@@ -67,8 +53,6 @@ public class GC_Xen : MonoBehaviour
         {
             timeToRandomAmb -= Time.deltaTime;
         }
-
-        FindObjectOfType<PauseManager>().allowPause = !ds.dialogue;
 
         if (playerHealth > 100)
         {

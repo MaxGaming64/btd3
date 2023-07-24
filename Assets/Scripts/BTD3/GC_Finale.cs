@@ -1,7 +1,8 @@
 using System.Collections;
 using UnityEngine;
+using BTD3Framework;
 
-public class GC_Finale : MonoBehaviour
+public class GC_Finale : BaseGameController
 {
     private bool bossPause;
     public bool knockout;
@@ -9,7 +10,6 @@ public class GC_Finale : MonoBehaviour
     public GameObject hud;
     public GameObject chapter;
     public GameObject dlg99;
-    private AudioSource mainMus;
     public AudioClip mus_finale;
     public AudioClip mus_bossintro;
     public AudioClip mus_bossmain1;
@@ -20,8 +20,6 @@ public class GC_Finale : MonoBehaviour
     public AudioClip mus_bossfinale1;
     public AudioClip mus_bossfinale2;
     public AudioClip mus_bossfinale3;
-    public DialogueSystem ds;
-    public Transform player;
     public Joe joe;
     public SpriteRenderer joeSprite;
     public Sprite joeRedSprite;
@@ -36,24 +34,8 @@ public class GC_Finale : MonoBehaviour
 
     private void Start()
     {
-        if (PlayerPrefs.GetInt("chapter") < 4)
-        {
-            PlayerPrefs.SetInt("chapter", 4);
-        }
-
-        if (GameObject.FindGameObjectWithTag("MainMus") == null)
-        {
-            mainMus = GameControllerScript.CreateMainMus(mus_finale, 0.7f);
-        }
-
-        else
-        {
-            mainMus = GameObject.FindGameObjectWithTag("MainMus").GetComponent<AudioSource>();
-            mainMus.loop = true;
-            mainMus.volume = 0.7f;
-            mainMus.clip = mus_finale;
-            mainMus.Play();
-        }
+        Init(4);
+        InitMainMus(mus_finale, 0.7f);
 
         if (PlayerPrefs.GetInt("respawn") == 1)
         {
@@ -67,7 +49,7 @@ public class GC_Finale : MonoBehaviour
 
     private void Update()
     {
-        FindObjectOfType<PauseManager>().allowPause = !ds.dialogue && !joe.killing;
+        pm.allowPause = !ds.dialogue && !joe.killing;
 
         Player playerScript = player.GetComponent<Player>();
         
@@ -77,8 +59,8 @@ public class GC_Finale : MonoBehaviour
             
             Quaternion rotation = Quaternion.Euler(new Vector3(0f, 90f, 0f));
             
-            player.position = Vector3.Lerp(player.transform.position, new Vector3(15f, 10f, -270f), Time.deltaTime * 2f);
-            player.rotation = Quaternion.Lerp(player.transform.rotation, rotation, Time.deltaTime * 2f);
+            player.position = Vector3.Lerp(player.position, new Vector3(15f, 10f, -270f), Time.deltaTime * 2f);
+            player.rotation = Quaternion.Lerp(player.rotation, rotation, Time.deltaTime * 2f);
             playerScript.cameraScript.transform.localRotation = Quaternion.Lerp(playerScript.cameraScript.transform.localRotation, Quaternion.identity, Time.deltaTime * 2f);
 
             if (!knockout)
@@ -116,9 +98,7 @@ public class GC_Finale : MonoBehaviour
     public IEnumerator StartBossIntro()
     {
         bossPause = true;
-        mainMus.clip = mus_bossintro;
-        mainMus.volume = 0.5f;
-        mainMus.Play();
+        MainMus.SetMainMus(mus_bossintro, 0.7f);
         yield return new WaitForSeconds(16f);
         StartMainBattle();
         barrier.SetActive(true);
@@ -137,24 +117,19 @@ public class GC_Finale : MonoBehaviour
                 elev.enabled = true;
                 aiBaldi.SetActive(false);
                 baldi.SetActive(true);
-                mainMus.clip = mus_bossmain1;
-                mainMus.Play();
+                MainMus.SetMainMus(mus_bossmain1);
                 break;
             case 1:
-                mainMus.clip = mus_bossmain2;
-                mainMus.Play();
+                MainMus.SetMainMus(mus_bossmain2);
                 break;
             case 2:
-                mainMus.clip = mus_bossmain3;
-                mainMus.Play();
+                MainMus.SetMainMus(mus_bossmain3);
                 break;
             case 3:
                 baldi.SetActive(false);
                 finaleBaldi.SetActive(true);
                 joeSprite.sprite = joeAngrySprite;
-                mainMus.volume = 0.7f;
-                mainMus.clip = mus_bossfinale1;
-                mainMus.Play();
+                MainMus.SetMainMus(mus_bossfinale1, 0.7f);
                 ds.StartDialogue(101);
                 break;
         }
@@ -166,8 +141,7 @@ public class GC_Finale : MonoBehaviour
     {
         knockout = true;
         bossPause = true;
-        mainMus.clip = mus_bossknockout;
-        mainMus.Play();
+        MainMus.SetMainMus(mus_bossknockout);
         joe.attacking = false;
         joe.transform.rotation = Quaternion.identity;
         joeSprite.GetComponent<BillboardY>().enabled = false;
@@ -179,8 +153,7 @@ public class GC_Finale : MonoBehaviour
     {
         knockout = false;
         bossPause = true;
-        mainMus.clip = mus_bossprepare;
-        mainMus.Play();
+        MainMus.SetMainMus(mus_bossprepare);
         joeSprite.sprite = joeBlueSprite;
         joeSprite.GetComponent<BillboardY>().enabled = true;
         yield return new WaitForSeconds(mus_bossprepare.length);

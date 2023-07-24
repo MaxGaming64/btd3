@@ -8,6 +8,7 @@ public class Joe : MonoBehaviour
     public bool attacking;
     public bool killing;
     private GC_Finale gc;
+    private Transform player;
     private NavMeshAgent agent;
     public AudioClip die;
     public Transform diePos;
@@ -16,6 +17,7 @@ public class Joe : MonoBehaviour
     private void Start()
     {
         gc = GameObject.FindGameObjectWithTag("GameController").GetComponent<GC_Finale>();
+        player = GameObject.FindWithTag("Player").transform;
         agent = GetComponent<NavMeshAgent>();
     }
 
@@ -25,7 +27,7 @@ public class Joe : MonoBehaviour
         {
             if (!killing)
             {
-                if (Vector3.Distance(transform.position, gc.player.position) > 5f)
+                if (Vector3.Distance(transform.position, player.position) > 5f)
                 {
                     if (PlayerPrefs.GetInt("finaleFix") == 0)
                     {
@@ -43,7 +45,7 @@ public class Joe : MonoBehaviour
                     agent.speed = 5f;
                 }
 
-                agent.SetDestination(gc.player.position);
+                agent.SetDestination(player.position);
             }
         }
 
@@ -54,10 +56,10 @@ public class Joe : MonoBehaviour
 
         if (killing)
         {
-            gc.player.GetComponent<Player>().enabled = false;
-            gc.player.position = diePos.position;
-            gc.player.rotation = diePos.rotation;
-            gc.player.GetComponent<Player>().cameraScript.transform.localRotation = Quaternion.identity;
+            player.GetComponent<Player>().enabled = false;
+            player.position = diePos.position;
+            player.rotation = diePos.rotation;
+            player.GetComponent<Player>().cameraScript.transform.localRotation = Quaternion.identity;
         }
     }
 

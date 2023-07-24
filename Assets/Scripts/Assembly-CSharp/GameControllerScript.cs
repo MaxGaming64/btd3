@@ -575,35 +575,8 @@ public class GameControllerScript : MonoBehaviour
 		Camera.main.GetComponent<CameraScript>().offset = new Vector3(0f, -1f, 0f);
 	}
 
-	public static AudioSource CreateMainMus(AudioClip clip, float volume = 1f, float pitch = 1f, bool loop = true)
-    {
-		AudioSource mainMus = new GameObject().AddComponent<AudioSource>();
-		mainMus.name = "MainMus";
-		mainMus.tag = "MainMus";
-		mainMus.loop = loop;
-		mainMus.volume = volume;
-		mainMus.pitch = pitch;
-		mainMus.clip = clip;
-		mainMus.Play();
-		DontDestroyOnLoad(mainMus.gameObject);
-		return mainMus;
-	}
-
-	public static AudioSource GetMainMus()
-	{
-        return GameObject.FindGameObjectWithTag("MainMus").GetComponent<AudioSource>();
-    }
-
-    public static void ButtonClick(RaycastHit hit)
-    {
-        hit.transform.GetComponent<MeshRenderer>().material = (Material)Resources.Load("materials/ButtonPressed");
-        Hover hover = hit.transform.GetComponent<Hover>();
-        hover.MouseExit();
-        Destroy(hover);
-    }
-
-    // Token: 0x040005F7 RID: 1527
-    public CursorControllerScript cursorController;
+	// Token: 0x040005F7 RID: 1527
+	public CursorControllerScript cursorController;
 
 	// Token: 0x040005F8 RID: 1528
 	public PlayerScript player;

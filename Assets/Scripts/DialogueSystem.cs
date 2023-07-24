@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using BTD3Framework;
 
 public class DialogueSystem : MonoBehaviour
 {
@@ -32,7 +33,7 @@ public class DialogueSystem : MonoBehaviour
     {
         if (mainMus == null)
         {
-            mainMus = GameControllerScript.GetMainMus();
+            mainMus = MainMus.GetMainMus();
         }
 
         if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))

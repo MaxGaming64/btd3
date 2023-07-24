@@ -23949,9 +23949,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0178bb88fcf9ea64ab69ccdabc3fab33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ds: {fileID: 917981466}
   ambient: {fileID: 8300000, guid: 6735a081110e8c746981d414f216f266, type: 3}
-  finale1_lp: {fileID: 8300000, guid: aba8c475d3c367b44a3449024275b467, type: 3}
+  finale1: {fileID: 8300000, guid: aba8c475d3c367b44a3449024275b467, type: 3}
   finale2: {fileID: 8300000, guid: 6f0858cb55204ce4e90d951172a5e0ad, type: 3}
   fade: {fileID: 1191314524}
   chapter: {fileID: 1867563946}

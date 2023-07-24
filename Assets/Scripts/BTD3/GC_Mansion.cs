@@ -1,10 +1,10 @@
 using UnityEngine;
+using BTD3Framework;
 
-public class GC_Mansion : MonoBehaviour
+public class GC_Mansion : BaseGameController
 {
     private float timeToEnablePlayer;
     public bool lockDoor01_open;
-    private AudioSource audioSource;
     private AudioSource mainMus;
     public AudioClip mus_school;
     public AudioClip tube_suck;
@@ -12,23 +12,19 @@ public class GC_Mansion : MonoBehaviour
     public MeshRenderer lockDoor01;
     public Material SwingDoor60;
     public Material button_click;
-    public DialogueSystem dialogeSystem;
-    private Transform player;
     public GameObject cutsceneCam;
     public Animator fallFloorAnim;
 
     private void Start()
     {
-        audioSource = GetComponent<AudioSource>();
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        mainMus = GameObject.FindGameObjectWithTag("MainMus").GetComponent<AudioSource>();
-        DontDestroyOnLoad(mainMus);
-        dialogeSystem.StartDialogue(-1);
+        Init();
+        mainMus = MainMus.CreateMainMus(mus_school, 0.7f, 0.1f);
+        ds.StartDialogue(-1);
     }
 
     private void Update()
     {
-        FindObjectOfType<PauseManager>().allowPause = !dialogeSystem.dialogue;
+        pm.allowPause = !ds.dialogue;
 
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -45,8 +41,8 @@ public class GC_Mansion : MonoBehaviour
                     mat[1] = lockDoor01.materials[1];
                     mat[2] = SwingDoor60;
                     lockDoor01.materials = mat;
-                    dialogeSystem.StartDialogue(1);
-                    GameControllerScript.ButtonClick(hit);
+                    ds.StartDialogue(1);
+                    WorldFunctions.ButtonClick(hit);
                 }
             }
         }
@@ -71,10 +67,7 @@ public class GC_Mansion : MonoBehaviour
         player.position = new Vector3(5f, -5f, 45f);
         player.rotation = Quaternion.identity;
         fallFloorAnim.enabled = true;
-        mainMus.clip = tube_suck;
-        mainMus.pitch = 1f;
-        mainMus.volume = 1f;
-        mainMus.Play();
-        audioSource.PlayOneShot(sfx_falldown, 0.2f);
+        MainMus.SetMainMus(tube_suck);
+        mainMus.PlayOneShot(sfx_falldown, 0.2f);
     }
 }
