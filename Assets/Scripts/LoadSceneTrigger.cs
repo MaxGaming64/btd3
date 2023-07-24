@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class LoadSceneTrigger : MonoBehaviour
 {
     public string scene;
+    public bool async;
     public Transform landmark;
 
     private void OnTriggerEnter(Collider other)
@@ -11,9 +12,17 @@ public class LoadSceneTrigger : MonoBehaviour
         if (landmark != null)
         {
             Transform player = FindObjectOfType<Player>().transform;
-
             LandmarkKeeper.CreateLandmarkKeeper(landmark.position - player.position, player.eulerAngles);
-            SceneManager.LoadScene(scene);
+            
+            if (async)
+            {
+                SceneManager.LoadSceneAsync(scene);
+            }
+
+            else
+            {
+                SceneManager.LoadScene(scene);
+            }
         }
     }
 }
