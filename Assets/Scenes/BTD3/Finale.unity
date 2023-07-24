@@ -35678,6 +35678,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1360772194}
+  - component: {fileID: 1360772195}
   m_Layer: 0
   m_Name: Tragic
   m_TagString: Untagged
@@ -35704,6 +35705,25 @@ Transform:
   - {fileID: 445715992}
   m_Father: {fileID: 1818990203}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &1360772195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1360772193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 0
+  m_Area: 0
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 1
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1 &1362060702
 GameObject:
   m_ObjectHideFlags: 0
@@ -50123,8 +50143,6 @@ MonoBehaviour:
   mus_bossfinale1: {fileID: 8300000, guid: 7b97ab97958e19a419a63f4f4df0f265, type: 3}
   mus_bossfinale2: {fileID: 8300000, guid: 4019065a3cad6dc4ab308155bdcb3469, type: 3}
   mus_bossfinale3: {fileID: 8300000, guid: 0c0809d737897f1409e80b5e9afb07ac, type: 3}
-  ds: {fileID: 644772422}
-  player: {fileID: 808395845}
   joe: {fileID: 1768758582}
   joeSprite: {fileID: 477564779}
   joeRedSprite: {fileID: 21300000, guid: 21b999d572cc4ae4cb1bb0407a693cd5, type: 3}
