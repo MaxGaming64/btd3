@@ -83,7 +83,7 @@ namespace BTD3Framework
             }
         }
 
-        protected AudioSource InitMainMus(AudioClip clip, float volume = 1f, float pitch = 1f, bool loop = true)
+        protected AudioSource InitMainMus(AudioClip clip = null, float volume = 1f, float pitch = 1f, bool loop = true)
         {
             AudioSource mainMus;
 
