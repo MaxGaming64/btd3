@@ -35,15 +35,20 @@ public class GC_Finale : BaseGameController
     private void Start()
     {
         Init(4);
-        InitMainMus(mus_finale, 0.7f);
 
         if (PlayerPrefs.GetInt("respawn") == 1)
         {
+            InitMainMus();
             dlg99.SetActive(false);
             player.GetComponent<Player>().enabled = false;
             player.position = new Vector3(15f, 10f, -270f);
             player.rotation = Quaternion.Euler(0f, 90f, 0f);
             PlayerPrefs.SetInt("respawn", 0);
+        }
+
+        else
+        {
+            InitMainMus(mus_finale, 0.7f);
         }
     }
 
