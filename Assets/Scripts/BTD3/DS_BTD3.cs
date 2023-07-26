@@ -2,6 +2,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using BTD3Framework;
 
 public class DS_BTD3 : DialogueSystem
 {
@@ -216,9 +217,7 @@ public class DS_BTD3 : DialogueSystem
                 player.transform.position = new Vector3(-15f, -110f, 75f);
                 player.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
                 player.enabled = true;
-                mainMus.clip = sfx_dlg5_ambient;
-                mainMus.volume = 0.5f;
-                mainMus.Play();
+                MainMus.SetMainMus(sfx_dlg5_ambient, 0.5f);
                 break;
             case 6:
                 ActivateRight();
@@ -229,8 +228,7 @@ public class DS_BTD3 : DialogueSystem
                 player.transform.position = new Vector3(-45f, -80f, 45f);
                 player.transform.rotation = Quaternion.identity;
                 player.enabled = true;
-                mainMus.clip = sfx_dlg6_ambient;
-                mainMus.Play();
+                MainMus.SetMainMus(sfx_dlg6_ambient);
                 break;
             case 7:
                 ActivateRight();
@@ -275,19 +273,12 @@ public class DS_BTD3 : DialogueSystem
                 slideCount = dialogue99_0.Length;
                 break;
             case 100:
-                {
-                    ActivateLeft();
-                    anim_left.Play("Joe");
-                    text.text = "Well, I guess you idiots somehow found me!";
-                    slideCount = dialogue99_1.Length;
-
-                    AudioSource mainMus = GameObject.FindGameObjectWithTag("MainMus").GetComponent<AudioSource>();
-
-                    mainMus.clip = GameObject.FindGameObjectWithTag("GameController").GetComponent<GC_Finale>().mus_bossfinale2;
-                    mainMus.volume = 0.1f;
-                    mainMus.Play();
-                    break;
-                }
+                ActivateLeft();
+                anim_left.Play("Joe");
+                text.text = "Well, I guess you idiots somehow found me!";
+                slideCount = dialogue99_1.Length;
+                MainMus.SetMainMus(gc_finale.mus_bossfinale2, 0.1f);
+                break;
             case 101:
                 ActivateLeft();
                 anim_left.Play("Joe_Angry");
@@ -576,12 +567,10 @@ public class DS_BTD3 : DialogueSystem
                 gc_finale.StartCoroutine(gc_finale.StartBossIntro());
                 break;
             case 101:
-                mainMus.clip = gc_finale.mus_bossfinale2;
-                mainMus.Play();
+                MainMus.SetMainMus(gc_finale.mus_bossfinale2);
                 break;
             case 102:
-                mainMus.clip = gc_finale.mus_bossfinale3;
-                mainMus.Play();
+                MainMus.SetMainMus(gc_finale.mus_bossfinale3);
                 break;
             case 103:
                 SceneManager.LoadScene("MenuOutro");
