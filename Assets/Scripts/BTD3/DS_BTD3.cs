@@ -39,7 +39,7 @@ public class DS_BTD3 : DialogueSystem
         "So what are you gonna do to me?", //3
         "<color=red>Oh yes!", //4
         "Oh no...", //5
-        "Well yes, of course, idiot!", //6
+        "Why yes, of course, idiot!", //6
         "Is that... Joe?", //7
         "Ready for a deadly chainsaw?", //8
         "Hold on, who--" //9
