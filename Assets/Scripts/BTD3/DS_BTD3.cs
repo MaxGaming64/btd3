@@ -179,25 +179,21 @@ public class DS_BTD3 : DialogueSystem
                 break;
             case 0:
                 ActivateRight();
-                anim_right.Play("Player");
                 text.text = "What the hell happened to this place?";
                 slideCount = dialogue01.Length;
                 break;
             case 1:
                 ActivateRight();
-                anim_right.Play("Player");
                 text.text = "What?! The door is unlocked but there is a wooden wall blocking my way!";
                 slideCount = dialogue02.Length;
                 break;
             case 2:
                 ActivateRight();
-                anim_right.Play("Player");
                 text.text = "WHAT THE HELL?!";
                 slideCount = dialogue03.Length;
                 break;
             case 3:
                 ActivateRight();
-                anim_right.Play("Player");
                 text.text = "Dead end.";
                 slideCount = dialogue04.Length;
                 break;
@@ -210,7 +206,6 @@ public class DS_BTD3 : DialogueSystem
                 break;
             case 5:
                 ActivateRight();
-                anim_right.Play("Player");
                 text.text = "I think I found Baldi's kitchen!";
                 slideCount = dialogue06.Length;
                 player.enabled = false;
@@ -221,7 +216,6 @@ public class DS_BTD3 : DialogueSystem
                 break;
             case 6:
                 ActivateRight();
-                anim_right.Play("Player");
                 text.text = "Woah! What is this...";
                 slideCount = dialogue07.Length;
                 player.enabled = false;
@@ -232,19 +226,16 @@ public class DS_BTD3 : DialogueSystem
                 break;
             case 7:
                 ActivateRight();
-                anim_right.Play("Player");
                 text.text = "This place is creepy.";
                 slideCount = dialogue08.Length;
                 break;
             case 8:
                 ActivateRight();
-                anim_right.Play("Player");
                 text.text = "This is weird...";
                 slideCount = dialogue09.Length;
                 break;
             case 9:
                 ActivateRight();
-                anim_right.Play("Player");
                 text.text = "Baldi?!";
                 slideCount = dialogue10.Length;
                 mnb_dlg10_follow01.follow = true;
@@ -254,48 +245,41 @@ public class DS_BTD3 : DialogueSystem
                 break;
             case 10:
                 ActivateLeft();
-                anim_left.Play("Joe");
                 text.text = "Well well well!";
                 slideCount = dialogue11.Length;
                 GameObject.FindGameObjectWithTag("GameController").GetComponent<GC_Tragic>().StartChaos();
                 break;
             case 11:
-                ActivateLeft();
-                anim_left.Play("Pri_talk");
+                ActivateLeft("Pri_talk");
                 text.text = "I'm too tired to run...";
                 slideCount = dialogue12.Length;
                 mnb_dlg10_follow02.follow = false;
                 break;
             case 99:
                 ActivateRight();
-                anim_right.Play("Player");
                 text.text = "What is this place...?";
                 slideCount = dialogue99_0.Length;
                 break;
             case 100:
                 ActivateLeft();
-                anim_left.Play("Joe");
                 text.text = "Well, I guess you idiots somehow found me!";
                 slideCount = dialogue99_1.Length;
                 MainMus.SetMainMus(gc_finale.mus_bossfinale2, 0.1f);
                 break;
             case 101:
-                ActivateLeft();
-                anim_left.Play("Joe_Angry");
+                ActivateLeft("Joe_Angry");
                 text.text = "UGH!!!";
                 slideCount = dialogue99_2.Length;
                 trg_dlg99_2_heli.SetActive(true);
                 trg_dlg99_2_playtime.SetActive(true);
                 break;
             case 102:
-                ActivateLeft();
-                anim_left.Play("Playtime_talk");
+                ActivateLeft("Playtime_talk");
                 text.text = "Hey there!";
                 slideCount = dialogue99_3.Length;
                 break;
             case 103:
                 ActivateRight();
-                anim_right.Play("Player");
                 text.text = "Ahh!";
                 slideCount = outroDialogue.Length;
                 break;
