@@ -351,14 +351,17 @@ public class DS_BTD3 : DialogueSystem
                 ChangeTextAndImageAndChar(dialogue06, dialogueNULLImages, 1);
                 break;
             case 6:
-                if (slideCount == 6 || slideCount == 4 || slideCount == 2 || slideCount == 1)
+                switch (slideCount)
                 {
-                    ChangeTextAndImageAndChar(dialogue07, dialogueNULLImages, -1);
-                }
-
-                else
-                {
-                    ChangeTextAndImageAndChar(dialogue07, dialogueNULLImages, 1);
+                    case 6:
+                    case 4:
+                    case 2:
+                    case 1:
+                        ChangeTextAndImageAndChar(dialogue07, dialogueNULLImages, -1);
+                        break;
+                    default:
+                        ChangeTextAndImageAndChar(dialogue07, dialogueNULLImages, 1);
+                        break;
                 }
                 break;
             case 7:
