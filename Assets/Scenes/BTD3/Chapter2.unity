@@ -8977,7 +8977,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  stopSound: {fileID: 8300000, guid: 3b610cea7c5a8344d8e68e697374f66b, type: 3}
+  stopSound: {fileID: 8300000, guid: 599340c37c668f74c9f04843553ed23e, type: 3}
   endPosition: {x: 37, y: 20, z: 161}
 --- !u!82 &5748501565220777419
 AudioSource:
