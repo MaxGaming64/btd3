@@ -26,9 +26,7 @@ public class DS_BTD3 : DialogueSystem
     };
     string[] dialogue04 =
     {
-        "Off you go into the secret, unknown place.",
-        "Wait a minute, what's that sound?!",
-        "Alright, let's try going there.",
+        "Alright, let's go in.",
         "Wait, there's an opening here; how did I not notice it?",
         "Let's see if there's a way to get outta here."
     };
@@ -156,7 +154,6 @@ public class DS_BTD3 : DialogueSystem
     };
     public GameObject efx_dlg5_joe;
     public GameObject efx_dlg6_trigger;
-    public AudioClip sfx_dlg4_eerie;
     public AudioClip sfx_dlg5_ambient;
     public AudioClip sfx_dlg6_ambient;
     public Follow mnb_dlg10_follow01;
@@ -336,20 +333,7 @@ public class DS_BTD3 : DialogueSystem
                 ChangeTextAndImageAndChar(dialogue03, dialogueNULLImages, 1);
                 break;
             case 3:
-                if (slideCount != 0)
-                {
-                    ChangeTextAndImageAndChar(dialogue04, dialogueNULLImages, 1);
-                }
-
-                else
-                {
-                    ChangeTextAndImageAndChar(dialogue04, dialogueNULLImages, -1);
-                }
-
-                if (slideCount == 1)
-                {
-                    audioSource.PlayOneShot(sfx_dlg4_eerie);
-                }
+                ChangeTextAndImageAndChar(dialogue04, dialogueNULLImages, 1);
                 break;
             case 4:
                 if (slideCount == 9 || slideCount == 7 || slideCount == 5 || slideCount == 3 || slideCount == 0)

@@ -211,7 +211,6 @@ MonoBehaviour:
   BLACK_BG: {fileID: 2385325391877355223}
   efx_dlg5_joe: {fileID: 0}
   efx_dlg6_trigger: {fileID: 0}
-  sfx_dlg4_eerie: {fileID: 8300000, guid: b0b7201e3f0004741bee69803a86ef3e, type: 3}
   sfx_dlg5_ambient: {fileID: 8300000, guid: 7d9688385c911324eb62d9acc4a414d1, type: 3}
   sfx_dlg6_ambient: {fileID: 8300000, guid: 95ac4a8fe9d1d884394efde66b9b5417, type: 3}
   mnb_dlg10_follow01: {fileID: 0}
