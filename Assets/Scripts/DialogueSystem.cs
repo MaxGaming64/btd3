@@ -1,15 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using BTD3Framework;
 
 public class DialogueSystem : MonoBehaviour
 {
     protected int slideCount;
     protected int dialogueType;
     public bool dialogue;
-    protected AudioSource audioSource;
-    protected AudioSource mainMus;
     protected CharacterController player;
     public Sprite[] dialogue01Images;
     public Sprite[] dialogue11Images;
@@ -24,18 +21,12 @@ public class DialogueSystem : MonoBehaviour
     public virtual void Start()
     {
         gameObject.SetActive(false);
-        audioSource = GetComponent<AudioSource>();
         dialogueImage_null = dialogueImage.sprite;
         player = FindObjectOfType<Player>().GetComponent<CharacterController>();
     }
 
     public virtual void Update()
     {
-        if (mainMus == null)
-        {
-            mainMus = MainMus.GetMainMus();
-        }
-
         if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
         {
             if (slideCount >= 0)

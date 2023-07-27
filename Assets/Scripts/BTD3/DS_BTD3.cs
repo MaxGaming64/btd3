@@ -533,7 +533,7 @@ public class DS_BTD3 : DialogueSystem
                 break;
             case 103:
                 SceneManager.LoadScene("MenuOutro");
-                Destroy(mainMus.gameObject);
+                Destroy(MainMus.GetMainMus().gameObject);
                 break;
         }
     }
