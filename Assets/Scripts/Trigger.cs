@@ -6,6 +6,8 @@ public class Trigger : MonoBehaviour
     private BaseGameController gc;
     public string exec;
     public GameObject args;
+    public bool invoke;
+    public float invokeDelay;
     public bool dontDestroyOnTrigger;
 
     void Start()
@@ -17,7 +19,15 @@ public class Trigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            gc.StartCoroutine(exec, args);
+            if (invoke)
+            {
+                gc.Invoke(exec, invokeDelay);
+            }
+
+            else
+            {
+                gc.StartCoroutine(exec, args);
+            }
 
             if (!dontDestroyOnTrigger)
             {
