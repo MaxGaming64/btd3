@@ -92,9 +92,14 @@ namespace BTD3Framework
                 mainMus = MainMus.CreateMainMus(clip, volume, pitch, loop);
             }
 
-            else
+            else if (MainMus.GetMainMus().clip != clip)
             {
                 mainMus = MainMus.SetMainMus(clip, volume, pitch, loop);
+            }
+
+            else
+            {
+                mainMus = MainMus.GetMainMus();
             }
 
             return mainMus;
