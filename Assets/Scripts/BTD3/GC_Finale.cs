@@ -93,11 +93,6 @@ public class GC_Finale : BaseGameController
                 }
             }
         }
-
-        if (joe.killing && joeSprite.sprite != joeRedSprite)
-        {
-            joeSprite.sprite = joeRedSprite;
-        }
     }
 
     public IEnumerator StartBossIntro()
