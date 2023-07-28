@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -5,9 +6,12 @@ using TMPro;
 public class DialogueSystem : MonoBehaviour
 {
     protected int slideCount;
+    protected int remainingSlides;
     protected int dialogueType;
     public bool dialogue;
     protected CharacterController player;
+    private string[] currentDialogue;
+    private Sprite[] currentImages;
     public Sprite[] dialogue01Images;
     public Sprite[] dialogue11Images;
     public Sprite[] dialogueNULLImages;
@@ -18,30 +22,39 @@ public class DialogueSystem : MonoBehaviour
     private Sprite dialogueImage_null;
     public GameObject BLACK_BG;
 
-    public virtual void Start()
+    protected enum CharSide
+    {
+        Left = 0,
+        Right = 1,
+        Both = 4,
+        None = -1
+    }
+
+    void Start()
     {
         gameObject.SetActive(false);
         dialogueImage_null = dialogueImage.sprite;
         player = FindObjectOfType<Player>().GetComponent<CharacterController>();
     }
 
-    public virtual void Update()
+    void Update()
     {
         if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
         {
-            if (slideCount >= 0)
+            if (remainingSlides < slideCount)
             {
-                slideCount--;
+                remainingSlides++;
                 NextSlide();
+            }
 
-                if (slideCount < 0)
-                {
-                    dialogue = false;
-                    dialogueImage.sprite = dialogueImage_null;
-                    gameObject.SetActive(false);
-                    player.GetComponent<Player>().stamina.value = 100f;
-                    OnDialogueEnd();
-                }
+            else
+            {
+                dialogue = false;
+                remainingSlides = 0;
+                dialogueImage.sprite = dialogueImage_null;
+                gameObject.SetActive(false);
+                player.GetComponent<Player>().stamina.value = 100f;
+                OnDialogueEnd();
             }
         }
 
@@ -58,66 +71,66 @@ public class DialogueSystem : MonoBehaviour
         }
     }
 
+    protected virtual void InitDialogue() { }
+    protected virtual void NextSlide() { }
+    protected virtual void OnDialogueEnd() { }
+
     public virtual void StartDialogue(int DialogueType)
     {
         dialogue = true;
         dialogueType = DialogueType;
+        InitDialogue();
+        slideCount = currentDialogue.Length - 1;
         gameObject.SetActive(true);
+        NextSlide();
     }
 
-    public virtual void NextSlide() { }
-    public virtual void OnDialogueEnd() { }
+    protected void SetDialogue(string[] text, Sprite[] images = null)
+    {
+        currentDialogue = text;
+        currentImages = images;
+    }
 
+    [Obsolete("Use ShowDialogue")]
     protected void ChangeTextAndImageAndChar(string[] dialogueNum, Sprite[] dialogueImageNum, int side, string left = "Joe", string right = "Player")
     {
-        if (slideCount >= 0)
+        ShowDialogue((CharSide)side, left, right);
+    }
+
+    protected void ShowDialogue(CharSide side = CharSide.Right, string left = "Joe", string right = "Player")
+    {
+        if (remainingSlides <= slideCount)
         {
-            text.text = dialogueNum[slideCount];
-            dialogueImage.sprite = dialogueImageNum[slideCount];
+            text.text = currentDialogue[remainingSlides];
+
+            if (currentImages != null)
+            {
+                dialogueImage.sprite = currentImages[remainingSlides];
+            }
         }
 
         switch (side)
         {
-            case -1:
-                DeactiveAll();
+            case CharSide.None:
+                anim_left.gameObject.SetActive(false);
+                anim_right.gameObject.SetActive(false);
                 break;
-            case 0:
-                ActivateLeft(left);
+            case CharSide.Left:
+                anim_left.gameObject.SetActive(true);
+                anim_right.gameObject.SetActive(false);
+                anim_left.Play(left);
                 break;
-            case 1:
-                ActivateRight(right);
+            case CharSide.Right:
+                anim_left.gameObject.SetActive(false);
+                anim_right.gameObject.SetActive(true);
+                anim_right.Play(right);
                 break;
-            case 4:
-                ActivateBoth(left, right);
+            case CharSide.Both:
+                anim_left.gameObject.SetActive(true);
+                anim_right.gameObject.SetActive(true);
+                anim_left.Play(left);
+                anim_right.Play(right);
                 break;
         }
-    }
-
-    protected void ActivateLeft(string anim = "Joe")
-    {
-        anim_left.gameObject.SetActive(true);
-        anim_right.gameObject.SetActive(false);
-        anim_left.Play(anim);
-    }
-
-    protected void ActivateRight(string anim = "Player")
-    {
-        anim_left.gameObject.SetActive(false);
-        anim_right.gameObject.SetActive(true);
-        anim_right.Play(anim);
-    }
-
-    protected void ActivateBoth(string anim = "Joe", string anim2 = "Player")
-    {
-        anim_left.gameObject.SetActive(true);
-        anim_right.gameObject.SetActive(true);
-        anim_left.Play(anim);
-        anim_right.Play(anim2);
-    }
-
-    protected void DeactiveAll()
-    {
-        anim_left.gameObject.SetActive(false);
-        anim_right.gameObject.SetActive(false);
     }
 }
