@@ -12,13 +12,12 @@ public class PlayerMovementBTD3 : MonoBehaviour
     private float jumpHeight = 1.75f;
     private float gravity = Physics.gravity.y;
     private bool grounded;
-    private bool finale;
     private Player player;
     private CharacterController controller;
     private Vector3 velocity;
     public LayerMask layerMaskGel;
     private Slider stamina;
-    private JumpHighTrigger jumpHigh;
+    private GC_Finale gc_finale;
 
     void Start()
     {
@@ -29,8 +28,7 @@ public class PlayerMovementBTD3 : MonoBehaviour
                 gravity = Physics.gravity.y / 2f;
                 break;
             case "Finale":
-                finale = true;
-                jumpHigh = GameObject.Find("JumpHighTrigger").GetComponent<JumpHighTrigger>();
+                gc_finale = FindObjectOfType<GC_Finale>();
                 break;
         }
 
@@ -51,10 +49,10 @@ public class PlayerMovementBTD3 : MonoBehaviour
                 velocity.y = -2f;
             }
 
-            if (!groundedOnGel && finale)
+            if (!groundedOnGel && gc_finale != null)
             {
-                jumpHigh.jumpHigh = false;
-                jumpHigh.knockoutTrigger.allowKnockout = false;
+                gc_finale.jumpHigh = false;
+                gc_finale.allowKnockout = false;
             }
         }
 
@@ -71,9 +69,9 @@ public class PlayerMovementBTD3 : MonoBehaviour
             controller.Move(velocity * Time.deltaTime);
         }
 
-        if (groundedOnGel && finale)
+        if (groundedOnGel && gc_finale != null)
         {
-            if (jumpHigh.jumpHigh)
+            if (gc_finale.jumpHigh)
             {
                 velocity.y = Mathf.Sqrt(50f * -2f * gravity);
             }
@@ -83,7 +81,7 @@ public class PlayerMovementBTD3 : MonoBehaviour
                 velocity.y = Mathf.Sqrt(5f * -2f * gravity);
             }
 
-            StartCoroutine(JumpHigh(jumpHigh.gelAudio));
+            StartCoroutine(JumpHigh(gc_finale.gelAudio));
         }
     }
 
@@ -127,8 +125,8 @@ public class PlayerMovementBTD3 : MonoBehaviour
 
     IEnumerator JumpHigh(AudioSource gelAudio)
     {
-        jumpHigh.gelAudio.time = 0.1f;
-        jumpHigh.gelAudio.Play();
+        gc_finale.gelAudio.time = 0.1f;
+        gc_finale.gelAudio.Play();
         yield return new WaitForSecondsRealtime(1.4f);
         gelAudio.Stop();
     }

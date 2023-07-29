@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
@@ -15,6 +16,9 @@ public class GC_Xen : BaseGameController
     public AudioClip ambient;
     public AudioClip comes;
     public AudioClip alien_squit;
+    public AudioClip beamstart2;
+    public AudioClip beamstart7;
+    public AudioClip heal;
     public Animator fade;
     public GameObject chapter;
     public TextMeshProUGUI healthText;
@@ -41,7 +45,7 @@ public class GC_Xen : BaseGameController
 
     void Update()
     {
-        pm.allowPause = !ds.dialogue;
+        pm.allowPause = !(ds.dialogue && playerDead);
 
         if (timeToRandomAmb < 0f)
         {
@@ -104,5 +108,25 @@ public class GC_Xen : BaseGameController
         }
 
         healthText.text = "Health: " + playerHealth;
+    }
+
+    IEnumerator SpawnAlien(GameObject enemy)
+    {
+        AudioSource audio = enemy.GetComponent<AudioSource>();
+        enemy.SetActive(true);
+        audio.PlayOneShot(beamstart2);
+        audio.PlayOneShot(beamstart7);
+        yield return null;
+    }
+
+    IEnumerator MedKit(GameObject medKit)
+    {
+        if (playerHealth < 100)
+        {
+            playerHealth += 20;
+            MainMus.GetMainMus().PlayOneShot(heal, 2f);
+            Destroy(medKit);
+            yield return null;
+        }
     }
 }

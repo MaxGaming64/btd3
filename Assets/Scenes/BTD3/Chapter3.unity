@@ -1499,11 +1499,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 54992833}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2979295c9609aad4bbca7cbafe255078, type: 3}
+  m_Script: {fileID: 11500000, guid: 77c3c0ffb7395c34d9b05e3313603fe7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 446547677}
-  num: 01
+  animName: 01
+  dontDestroyOnTrigger: 0
 --- !u!1 &57641856
 GameObject:
   m_ObjectHideFlags: 0
@@ -3474,12 +3475,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 146911845}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &157733395 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7335394905207194067, guid: d841c12cdab6c5244a9bdb58a1c5c15c,
-    type: 3}
-  m_PrefabInstance: {fileID: 765212651}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &163964430
 GameObject:
   m_ObjectHideFlags: 0
@@ -23206,7 +23201,7 @@ GameObject:
   m_Component:
   - component: {fileID: 831672595}
   - component: {fileID: 831672597}
-  - component: {fileID: 831672596}
+  - component: {fileID: 831672598}
   m_Layer: 0
   m_Name: ShakeTrigger05
   m_TagString: Untagged
@@ -23229,20 +23224,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 538420152}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &831672596
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 831672594}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2979295c9609aad4bbca7cbafe255078, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 446547677}
-  num: 01
 --- !u!65 &831672597
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23264,6 +23245,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 30, y: 10, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &831672598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831672594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77c3c0ffb7395c34d9b05e3313603fe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 446547677}
+  animName: 01
+  dontDestroyOnTrigger: 0
 --- !u!1 &832509298
 GameObject:
   m_ObjectHideFlags: 0
@@ -24051,10 +24047,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ambient: {fileID: 8300000, guid: 6735a081110e8c746981d414f216f266, type: 3}
+  creepyHigh: {fileID: 8300000, guid: d29a0ab065b2bff49978592c053ee36e, type: 3}
   finale1: {fileID: 8300000, guid: aba8c475d3c367b44a3449024275b467, type: 3}
   finale2: {fileID: 8300000, guid: 6f0858cb55204ce4e90d951172a5e0ad, type: 3}
   fade: {fileID: 1191314524}
   chapter: {fileID: 1867563946}
+  creepyHighCam: {fileID: 439402802}
   joe: {fileID: 849095672}
 --- !u!1 &843006306
 GameObject:
@@ -35155,7 +35153,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1168046092}
   - component: {fileID: 1168046095}
-  - component: {fileID: 1168046094}
+  - component: {fileID: 1168046096}
   m_Layer: 0
   m_Name: ShakeTrigger03
   m_TagString: Untagged
@@ -35178,20 +35176,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 538420152}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1168046094
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1168046091}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2979295c9609aad4bbca7cbafe255078, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 446547677}
-  num: 03
 --- !u!65 &1168046095
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -35213,6 +35197,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 30, y: 10, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1168046096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168046091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77c3c0ffb7395c34d9b05e3313603fe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 446547677}
+  animName: 03
+  dontDestroyOnTrigger: 0
 --- !u!1 &1173874055
 GameObject:
   m_ObjectHideFlags: 0
@@ -39691,7 +39690,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1342390244}
   - component: {fileID: 1342390247}
-  - component: {fileID: 1342390246}
+  - component: {fileID: 1342390248}
   m_Layer: 0
   m_Name: ShakeTrigger04
   m_TagString: Untagged
@@ -39714,20 +39713,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 538420152}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1342390246
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1342390243}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2979295c9609aad4bbca7cbafe255078, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 446547677}
-  num: 04
 --- !u!65 &1342390247
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -39749,6 +39734,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 30, y: 10, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1342390248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342390243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77c3c0ffb7395c34d9b05e3313603fe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 446547677}
+  animName: 04
+  dontDestroyOnTrigger: 0
 --- !u!1 &1351501375
 GameObject:
   m_ObjectHideFlags: 0
@@ -52153,7 +52153,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1748595630}
   - component: {fileID: 1748595633}
-  - component: {fileID: 1748595632}
+  - component: {fileID: 1748595634}
   m_Layer: 0
   m_Name: ShakeTrigger02
   m_TagString: Untagged
@@ -52176,20 +52176,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 538420152}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1748595632
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1748595629}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2979295c9609aad4bbca7cbafe255078, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 446547677}
-  num: 02
 --- !u!65 &1748595633
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -52211,6 +52197,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 30, y: 10, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1748595634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1748595629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77c3c0ffb7395c34d9b05e3313603fe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 446547677}
+  animName: 02
+  dontDestroyOnTrigger: 0
 --- !u!1 &1757018242
 GameObject:
   m_ObjectHideFlags: 0
@@ -57506,13 +57507,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1956850107}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 120cdffb34b86564590dbd0584b6cbc0, type: 3}
+  m_Script: {fileID: 11500000, guid: 766d98a02fd1f0a4388cf55eed62dbd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 157733395}
-  Camera: {fileID: 439402802}
-  creepyHigh: {fileID: 8300000, guid: d29a0ab065b2bff49978592c053ee36e, type: 3}
-  ambient: {fileID: 8300000, guid: 6735a081110e8c746981d414f216f266, type: 3}
+  exec: CreepyHigh
+  args: {fileID: 0}
+  invoke: 0
+  invokeDelay: 0
+  dontDestroyOnTrigger: 0
 --- !u!1 &1961114052
 GameObject:
   m_ObjectHideFlags: 0

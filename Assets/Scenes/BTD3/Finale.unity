@@ -17458,6 +17458,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 1840687551}
   animName: Intro
+  dontDestroyOnTrigger: 0
 --- !u!65 &613968124
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18305,7 +18306,7 @@ GameObject:
   m_Component:
   - component: {fileID: 645135856}
   - component: {fileID: 645135858}
-  - component: {fileID: 645135857}
+  - component: {fileID: 645135859}
   m_Layer: 0
   m_Name: KnockoutTrigger
   m_TagString: Untagged
@@ -18328,20 +18329,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1768758580}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &645135857
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 645135855}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58922086b1f618c44a4516e86602ced5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  allowKnockout: 0
-  gc: {fileID: 1871971806}
 --- !u!65 &645135858
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18363,6 +18350,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &645135859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 645135855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 766d98a02fd1f0a4388cf55eed62dbd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exec: Knockout
+  args: {fileID: 0}
+  invoke: 1
+  invokeDelay: 0
+  dontDestroyOnTrigger: 1
 --- !u!1 &662894507
 GameObject:
   m_ObjectHideFlags: 0
@@ -22900,10 +22904,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 774695457}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62be4af810dfc9c419204f59701df919, type: 3}
+  m_Script: {fileID: 11500000, guid: 766d98a02fd1f0a4388cf55eed62dbd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 808395844}
+  exec: SoftlockFix
+  args: {fileID: 0}
+  invoke: 1
+  invokeDelay: 0
+  dontDestroyOnTrigger: 1
 --- !u!1 &777787517
 GameObject:
   m_ObjectHideFlags: 0
@@ -23964,18 +23972,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 807741619}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &808395842 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7335394905207194067, guid: d841c12cdab6c5244a9bdb58a1c5c15c,
-    type: 3}
-  m_PrefabInstance: {fileID: 7335394904404321681}
-  m_PrefabAsset: {fileID: 0}
---- !u!143 &808395844 stripped
-CharacterController:
-  m_CorrespondingSourceObject: {fileID: 7335394905207194069, guid: d841c12cdab6c5244a9bdb58a1c5c15c,
-    type: 3}
-  m_PrefabInstance: {fileID: 7335394904404321681}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &808395845 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7335394905207194068, guid: d841c12cdab6c5244a9bdb58a1c5c15c,
@@ -49032,7 +49028,7 @@ GameObject:
   - component: {fileID: 1840687551}
   - component: {fileID: 1840687552}
   - component: {fileID: 1840687554}
-  - component: {fileID: 1840687553}
+  - component: {fileID: 1840687555}
   m_Layer: 0
   m_Name: Helicopter
   m_TagString: Untagged
@@ -49149,24 +49145,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2, y: 2, z: 20}
   m_Center: {x: 0, y: 0, z: 10}
---- !u!114 &1840687553
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1840687548}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8eb2a3cace4ed674a905a671a205331f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 808395842}
-  cutsceneCam: {fileID: 617468800}
-  joe: {fileID: 1768758577}
-  fakeJoe: {fileID: 497840843}
-  baldi: {fileID: 1858899337}
-  fade: {fileID: 1565004538}
 --- !u!82 &1840687554
 AudioSource:
   m_ObjectHideFlags: 0
@@ -49263,6 +49241,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1840687555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1840687548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 766d98a02fd1f0a4388cf55eed62dbd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exec: Helicopter
+  args: {fileID: 0}
+  invoke: 0
+  invokeDelay: 0
+  dontDestroyOnTrigger: 0
 --- !u!1 &1845722390
 GameObject:
   m_ObjectHideFlags: 0
@@ -50161,10 +50156,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knockout: 0
+  jumpHigh: 0
+  allowKnockout: 0
   stage: 0
   hud: {fileID: 1665046555}
   chapter: {fileID: 1267641446}
   dlg99: {fileID: 2141164952}
+  gelAudio: {fileID: 1737583751}
   mus_finale: {fileID: 8300000, guid: 5a6ab7cb92b08034987b190abd2ae305, type: 3}
   mus_bossintro: {fileID: 8300000, guid: d9b9ba7914059b54c8c2ca7f302018e7, type: 3}
   mus_bossmain1: {fileID: 8300000, guid: 6223c37154a727740b9e94e2b5a8e500, type: 3}
@@ -50185,7 +50183,11 @@ MonoBehaviour:
   aiBaldi: {fileID: 750091573}
   baldi: {fileID: 1949471661}
   finaleBaldi: {fileID: 1858899337}
+  endingJoe: {fileID: 497840843}
+  endingCam: {fileID: 617468800}
+  fade: {fileID: 1565004538}
   elev: {fileID: 597864215}
+  helicopter: {fileID: 1840687551}
 --- !u!1 &1872874568
 GameObject:
   m_ObjectHideFlags: 0
@@ -54953,13 +54955,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 2069304652}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f17ae6d52d1aa345b6bc773e3bd9aa7, type: 3}
+  m_Script: {fileID: 11500000, guid: 766d98a02fd1f0a4388cf55eed62dbd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpHigh: 0
-  knockoutTrigger: {fileID: 645135857}
-  gc: {fileID: 1871971806}
-  gelAudio: {fileID: 1737583751}
+  exec: JumpHigh
+  args: {fileID: 0}
+  invoke: 1
+  invokeDelay: 0
+  dontDestroyOnTrigger: 1
 --- !u!1 &2079985322
 GameObject:
   m_ObjectHideFlags: 0

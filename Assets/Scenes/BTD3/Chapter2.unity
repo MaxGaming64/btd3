@@ -4403,7 +4403,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1223445565}
   - component: {fileID: 1223445567}
-  - component: {fileID: 1223445566}
+  - component: {fileID: 1223445568}
   m_Layer: 0
   m_Name: 02
   m_TagString: Untagged
@@ -4426,19 +4426,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1921311043}
   m_LocalEulerAnglesHint: {x: 0, y: -25, z: 0}
---- !u!114 &1223445566
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1223445564}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea40a9211dacad24a9d2ecaade766209, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemy: {fileID: 215831050}
 --- !u!65 &1223445567
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4460,6 +4447,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 20, y: 10, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1223445568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1223445564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 766d98a02fd1f0a4388cf55eed62dbd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exec: SpawnAlien
+  args: {fileID: 215831050}
+  invoke: 0
+  invokeDelay: 0
+  dontDestroyOnTrigger: 0
 --- !u!1001 &1273633500
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5068,10 +5072,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1422292875}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea40a9211dacad24a9d2ecaade766209, type: 3}
+  m_Script: {fileID: 11500000, guid: 766d98a02fd1f0a4388cf55eed62dbd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 518642144}
+  exec: SpawnAlien
+  args: {fileID: 518642144}
+  invoke: 0
+  invokeDelay: 0
+  dontDestroyOnTrigger: 0
 --- !u!1 &1423827248
 GameObject:
   m_ObjectHideFlags: 0
@@ -5826,6 +5834,9 @@ MonoBehaviour:
   ambient: {fileID: 8300000, guid: 95ac4a8fe9d1d884394efde66b9b5417, type: 3}
   comes: {fileID: 8300000, guid: 0fc9c39f25cfb584d9db81e801ff432c, type: 3}
   alien_squit: {fileID: 8300000, guid: 7db1842008b6d3f46bd15bca437a0157, type: 3}
+  beamstart2: {fileID: 8300000, guid: fac1139ef4191dd4fb1d7a67d76efdf3, type: 3}
+  beamstart7: {fileID: 8300000, guid: 8a119f7bc8acd974cae1a6656e665c19, type: 3}
+  heal: {fileID: 8300000, guid: 012b2563d037b324babea46b31312489, type: 3}
   fade: {fileID: 24524695}
   chapter: {fileID: 57087716}
   healthText: {fileID: 2113980483}

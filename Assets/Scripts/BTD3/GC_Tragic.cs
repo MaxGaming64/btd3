@@ -6,10 +6,12 @@ public class GC_Tragic : BaseGameController
 {
     private AudioSource mainMus;
     public AudioClip ambient;
+    public AudioClip creepyHigh;
     public AudioClip finale1;
     public AudioClip finale2;
     public Animator fade;
     public GameObject chapter;
+    public GameObject creepyHighCam;
     public GameObject joe;
 
     void Start()
@@ -26,6 +28,19 @@ public class GC_Tragic : BaseGameController
         {
             joe.transform.Translate(Vector3.forward * 10f * Time.deltaTime);
         }
+    }
+
+    IEnumerator CreepyHigh()
+    {
+        player.gameObject.SetActive(false);
+        creepyHighCam.SetActive(true);
+        MainMus.SetMainMus(creepyHigh, 1f, 1f, false);
+        mainMus.gameObject.AddComponent<PauseAudio>();
+        yield return new WaitForSeconds(creepyHigh.length);
+        player.gameObject.SetActive(true);
+        creepyHighCam.SetActive(false);
+        MainMus.SetMainMus(ambient);
+        Destroy(mainMus.gameObject.GetComponent<PauseAudio>());
     }
 
     public void StartChaos()

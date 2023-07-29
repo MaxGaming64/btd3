@@ -1254,7 +1254,7 @@ GameObject:
   - component: {fileID: 147788927}
   - component: {fileID: 147788926}
   - component: {fileID: 147788928}
-  - component: {fileID: 147788929}
+  - component: {fileID: 147788930}
   - component: {fileID: 147788925}
   m_Layer: 0
   m_Name: Elev
@@ -1373,7 +1373,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &147788929
+--- !u!114 &147788930
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1382,15 +1382,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 147788923}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 655624dd66984bb478db8fbdd471ef46, type: 3}
+  m_Script: {fileID: 11500000, guid: 766d98a02fd1f0a4388cf55eed62dbd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animName: 01
-  trigger: {fileID: 1088896667}
-  barrier: {fileID: 1234790263}
-  ambient: {fileID: 8300000, guid: 5cef57a2bc4cc4143a8ff838b825c103, type: 3}
-  xenSky: {fileID: 2100000, guid: 27e3d290aa0be6e4fa35c0251299be09, type: 2}
-  skyCam: {fileID: 1867273159}
+  exec: XenElev
+  args: {fileID: 0}
+  invoke: 0
+  invokeDelay: 0
+  dontDestroyOnTrigger: 0
 --- !u!1 &160453534
 GameObject:
   m_ObjectHideFlags: 0
@@ -11332,10 +11331,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1008674147}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d140176676fb35e4180c51ea6aa08679, type: 3}
+  m_Script: {fileID: 11500000, guid: 766d98a02fd1f0a4388cf55eed62dbd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gc: {fileID: 1376021871}
+  exec: FallDown
+  args: {fileID: 0}
+  invoke: 1
+  invokeDelay: 0
+  dontDestroyOnTrigger: 0
 --- !u!1 &1008705557
 GameObject:
   m_ObjectHideFlags: 0
@@ -12368,74 +12371,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1078039935}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1088896667
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1088896668}
-  - component: {fileID: 1088896670}
-  - component: {fileID: 1088896669}
-  m_Layer: 0
-  m_Name: AlienTrigger
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1088896668
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1088896667}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -45, y: -75, z: 45}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1820856879}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1088896669
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1088896667}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec9c8feef3362314da22cad3e47f8266, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogeType: 6
-  dialogeSystem: {fileID: 585638337}
---- !u!65 &1088896670
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1088896667}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1110149517
 GameObject:
   m_ObjectHideFlags: 0
@@ -15738,11 +15673,15 @@ MonoBehaviour:
   mus_school: {fileID: 8300000, guid: 5a5bf3e81ec8eea4dae5c6e6b63c350f, type: 3}
   tube_suck: {fileID: 8300000, guid: 57073dfef5bed314190ddfd97c381680, type: 3}
   sfx_falldown: {fileID: 8300000, guid: b1afc731f8fbbae4aac5314ae405e6e0, type: 3}
+  zapmachine: {fileID: 8300000, guid: 5cef57a2bc4cc4143a8ff838b825c103, type: 3}
   lockDoor01: {fileID: 953340900}
   SwingDoor60: {fileID: 2100000, guid: 1cc5d653459dd2545821877f611a8094, type: 2}
   button_click: {fileID: 2100000, guid: 3380523fb7264db4ca9e1281ef8c5f6f, type: 2}
+  xenSky: {fileID: 2100000, guid: 27e3d290aa0be6e4fa35c0251299be09, type: 2}
   cutsceneCam: {fileID: 1685688600}
+  elevBarrier: {fileID: 1234790263}
   fallFloorAnim: {fileID: 65149372}
+  elevAnim: {fileID: 147788928}
 --- !u!82 &1376021872
 AudioSource:
   m_ObjectHideFlags: 0
@@ -22297,7 +22236,6 @@ Transform:
   - {fileID: 1694164123}
   - {fileID: 289617429}
   - {fileID: 147788924}
-  - {fileID: 1088896668}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1828173325

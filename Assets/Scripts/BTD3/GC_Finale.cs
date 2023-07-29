@@ -1,15 +1,20 @@
 using System.Collections;
 using UnityEngine;
 using BTD3Framework;
+using UnityEngine.SceneManagement;
 
 public class GC_Finale : BaseGameController
 {
     private bool bossPause;
+    private bool playerRescued;
     public bool knockout;
+    public bool jumpHigh;
+    public bool allowKnockout;
     public int stage;
     public GameObject hud;
     public GameObject chapter;
     public GameObject dlg99;
+    public AudioSource gelAudio;
     public AudioClip mus_finale;
     public AudioClip mus_bossintro;
     public AudioClip mus_bossmain1;
@@ -30,7 +35,11 @@ public class GC_Finale : BaseGameController
     public GameObject aiBaldi;
     public GameObject baldi;
     public GameObject finaleBaldi;
+    public GameObject endingJoe;
+    public GameObject endingCam;
+    public Animator fade;
     public Animator elev;
+    public Animator helicopter;
 
     private void Start()
     {
@@ -93,6 +102,11 @@ public class GC_Finale : BaseGameController
                 }
             }
         }
+
+        if (!MainMus.GetMainMus().isPlaying && playerRescued)
+        {
+            SceneManager.LoadScene("Outro");
+        }
     }
 
     public IEnumerator StartBossIntro()
@@ -137,16 +151,36 @@ public class GC_Finale : BaseGameController
         stage++;
     }
 
-    public void Knockout()
+    void JumpHigh()
     {
-        knockout = true;
-        bossPause = true;
-        MainMus.SetMainMus(mus_bossknockout);
-        joe.attacking = false;
-        joe.transform.rotation = Quaternion.identity;
-        joeSprite.GetComponent<BillboardY>().enabled = false;
-        joeSprite.transform.rotation = Quaternion.Euler(90f, 90f, 0f);
-        joeSprite.sprite = joeNoneSprite;
+        if (jumpHigh)
+        {
+            if (stage != 4)
+            {
+                allowKnockout = true;
+            }
+        }
+
+        else
+        {
+            jumpHigh = true;
+        }
+    }
+
+    void Knockout()
+    {
+        if (allowKnockout)
+        {
+            knockout = true;
+            bossPause = true;
+            allowKnockout = false;
+            MainMus.SetMainMus(mus_bossknockout);
+            joe.attacking = false;
+            joe.transform.rotation = Quaternion.identity;
+            joeSprite.GetComponent<BillboardY>().enabled = false;
+            joeSprite.transform.rotation = Quaternion.Euler(90f, 90f, 0f);
+            joeSprite.sprite = joeNoneSprite;
+        }
     }
 
     private IEnumerator Prepare()
@@ -158,5 +192,27 @@ public class GC_Finale : BaseGameController
         joeSprite.GetComponent<BillboardY>().enabled = true;
         yield return new WaitForSeconds(mus_bossprepare.length);
         StartMainBattle();
+    }
+
+    IEnumerator Helicopter()
+    {
+        playerRescued = true;
+        helicopter.Play("Outro");
+        player.gameObject.SetActive(false);
+        endingCam.SetActive(true);
+        joe.gameObject.SetActive(false);
+        endingJoe.SetActive(true);
+        finaleBaldi.SetActive(false);
+        GameObject.Find("Reticle").SetActive(false);
+        player.GetComponent<Player>().stamina.transform.parent.gameObject.SetActive(false);
+        yield return new WaitForSeconds(5f);
+        fade.Play("In");
+        yield return new WaitForSeconds(5f);
+        MainMus.GetMainMus().loop = false;
+    }
+
+    void SoftlockFix()
+    {
+        WorldFunctions.TeleportPlayer(new Vector3(15f, 10f, -270f), Quaternion.identity);
     }
 }

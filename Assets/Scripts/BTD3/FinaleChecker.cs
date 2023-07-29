@@ -1,11 +1,11 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using TMPro;
+using BTD3Framework;
 
-public class FinaleChecker : MonoBehaviour
+public class FinaleChecker : BaseGameController
 {
     private bool loadFinale;
-    public Transform player;
+    public Transform testPlayer;
     public Transform passTrigger;
     
     void Start()
@@ -26,10 +26,10 @@ public class FinaleChecker : MonoBehaviour
 
     void Update()
     {
-        player.position -= Vector3.right * 16f * Time.deltaTime;
+        testPlayer.position -= Vector3.right * 16f * Time.deltaTime;
     }
 
-    public void Pass()
+    void Pass()
     {
         if (!loadFinale)
         {
