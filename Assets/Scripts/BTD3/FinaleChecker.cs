@@ -9,12 +9,6 @@ public class FinaleChecker : BaseGameController
     
     void Start()
     {
-        /*if (PlayerPrefs.GetInt("hasEverCheckedFinale") == 1 && !loadFinale)
-        {
-            loadFinale = true;
-            SceneManager.LoadSceneAsync("Finale");
-        }*/
-
         GameObject mainMus = GameObject.FindGameObjectWithTag("MainMus");
         
         if (mainMus != null)
@@ -33,7 +27,6 @@ public class FinaleChecker : BaseGameController
         if (!loadFinale)
         {
             loadFinale = true;
-            //PlayerPrefs.SetInt("hasEverCheckedFinale", 1);
             PlayerPrefs.SetInt("finaleFix", 0);
             SceneManager.LoadSceneAsync("Warning");
         }
