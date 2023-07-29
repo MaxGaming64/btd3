@@ -7,6 +7,8 @@ public class DiscordController : MonoBehaviour
     
     void Start()
     {
+        if (FindObjectOfType<DiscordController>() != null) Destroy(gameObject);
+        
         DontDestroyOnLoad(gameObject);
         
         discord = new Discord.Discord(970109734105542690, (ulong)CreateFlags.Default);
