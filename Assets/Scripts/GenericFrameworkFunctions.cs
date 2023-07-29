@@ -43,6 +43,15 @@ namespace BTD3Framework
 
     public class WorldFunctions : MonoBehaviour
     {
+        public static void TeleportPlayer(Vector3 pos, Quaternion rot)
+        {
+            CharacterController player = GameObject.FindWithTag("Player").GetComponent<CharacterController>();
+            player.enabled = false;
+            player.transform.position = pos;
+            player.transform.rotation = rot;
+            player.enabled = true;
+        }
+        
         public static void ButtonClick(RaycastHit hit)
         {
             hit.transform.GetComponent<MeshRenderer>().material = (Material)Resources.Load("materials/ButtonPressed");
