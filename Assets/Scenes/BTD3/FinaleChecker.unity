@@ -5783,7 +5783,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   testPlayer: {fileID: 1287294442}
-  passTrigger: {fileID: 3501208}
 --- !u!1 &1226322543
 GameObject:
   m_ObjectHideFlags: 0

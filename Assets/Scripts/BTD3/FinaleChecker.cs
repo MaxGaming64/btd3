@@ -6,7 +6,6 @@ public class FinaleChecker : BaseGameController
 {
     private bool loadFinale;
     public Transform testPlayer;
-    public Transform passTrigger;
     
     void Start()
     {
