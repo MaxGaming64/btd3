@@ -6,16 +6,6 @@ public class FinaleChecker : BaseGameController
 {
     private bool loadFinale;
     public Transform testPlayer;
-    
-    void Start()
-    {
-        GameObject mainMus = GameObject.FindGameObjectWithTag("MainMus");
-        
-        if (mainMus != null)
-        {
-            Destroy(mainMus);
-        }
-    }
 
     void Update()
     {
