@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 25988837}
   - component: {fileID: 25988836}
   m_Layer: 0
-  m_Name: alien_squit
+  m_Name: Random
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
