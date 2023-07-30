@@ -72,7 +72,7 @@ public class GC_Xen : BaseGameController
                 component.SetActive(false);
             }
 
-            Transform playerCamera = player.GetComponent<Player>().cameraScript.transform;
+            Transform playerCamera = player.GetComponent<BasePlayer>().cameraScript.transform;
 
             deathCameraRoot.position = playerCamera.position;
             deathCameraRoot.rotation = player.rotation;

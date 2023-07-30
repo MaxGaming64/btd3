@@ -66,14 +66,14 @@ namespace BTD3Framework
         protected DialogueSystem ds;
         protected PauseManager pm;
         protected Transform player;
-        protected Player playerScript;
+        protected BasePlayer playerScript;
 
         protected void Init(int chapter = 0, GameObject text = null, string title = null, Animator fadeAnim = null)
         {
             ds = FindObjectOfType<DialogueSystem>(true);
             pm = FindObjectOfType<PauseManager>();
-            player = FindObjectOfType<Player>().transform;
-            playerScript = FindObjectOfType<Player>();
+            player = FindObjectOfType<BasePlayer>().transform;
+            playerScript = FindObjectOfType<BasePlayer>();
 
             if (chapter != 0 && PlayerPrefs.GetInt("chapter") < chapter)
             {

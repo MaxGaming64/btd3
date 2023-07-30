@@ -5,7 +5,7 @@ public class Landmark : MonoBehaviour
     void Start()
     {
         var keeper = FindObjectOfType<LandmarkKeeper>();
-        var player = FindObjectOfType<Player>().transform;
+        var player = FindObjectOfType<BasePlayer>().transform;
 
         if (keeper != null)
         {

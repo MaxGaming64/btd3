@@ -3,11 +3,11 @@ using UnityEngine;
 public class SetSpeedMultiplierTrigger : MonoBehaviour
 {
     public float speedMultiplier;
-    private Player player;
+    private BasePlayer player;
 
     public void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<BasePlayer>();
     }
 
     private void OnTriggerEnter(Collider other)

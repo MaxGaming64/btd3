@@ -56,10 +56,10 @@ public class Joe : MonoBehaviour
 
         if (killing)
         {
-            player.GetComponent<Player>().enabled = false;
+            player.GetComponent<BasePlayer>().enabled = false;
             player.position = diePos.position;
             player.rotation = diePos.rotation;
-            player.GetComponent<Player>().cameraScript.transform.localRotation = Quaternion.identity;
+            player.GetComponent<BasePlayer>().cameraScript.transform.localRotation = Quaternion.identity;
         }
     }
 

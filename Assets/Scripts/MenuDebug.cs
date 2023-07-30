@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class MenuDebug : MonoBehaviour
 {
-    private Player player;
+    private BasePlayer player;
     private Transform playerCamera;
     private Vector3 startPosition;
     private Quaternion startRotation;
     
     void Start()
     {
-        player = GetComponent<Player>();
+        player = GetComponent<BasePlayer>();
         playerCamera = Camera.main.transform;
         startPosition = transform.position;
         startRotation = playerCamera.rotation;

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerMovementBTD3 : MonoBehaviour
+public class BasePlayerMovement : MonoBehaviour
 {
     private float currentSpeed;
     private float speed = 10f;
@@ -10,7 +10,7 @@ public class PlayerMovementBTD3 : MonoBehaviour
     private float jumpHeight = 1.75f;
     private float gravity = Physics.gravity.y;
     private bool grounded;
-    private Player player;
+    private BasePlayer player;
     private CharacterController controller;
     private Vector3 velocity;
     public LayerMask layerMaskGel;
@@ -30,7 +30,7 @@ public class PlayerMovementBTD3 : MonoBehaviour
                 break;
         }
 
-        player = GetComponent<Player>();
+        player = GetComponent<BasePlayer>();
         controller = GetComponent<CharacterController>();
         stamina = player.stamina;
     }

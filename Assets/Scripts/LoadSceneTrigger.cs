@@ -11,7 +11,7 @@ public class LoadSceneTrigger : MonoBehaviour
     {
         if (landmark != null)
         {
-            Transform player = FindObjectOfType<Player>().transform;
+            Transform player = FindObjectOfType<BasePlayer>().transform;
             LandmarkKeeper.CreateLandmarkKeeper(landmark.position - player.position, player.eulerAngles);
             
             if (async)

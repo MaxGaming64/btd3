@@ -49,7 +49,7 @@ public class GC_Finale : BaseGameController
         {
             InitMainMus();
             dlg99.SetActive(false);
-            player.GetComponent<Player>().enabled = false;
+            player.GetComponent<BasePlayer>().enabled = false;
             player.position = new Vector3(15f, 10f, -270f);
             player.rotation = Quaternion.Euler(0f, 90f, 0f);
             PlayerPrefs.SetInt("respawn", 0);
@@ -65,7 +65,7 @@ public class GC_Finale : BaseGameController
     {
         pm.allowPause = !ds.dialogue && !joe.killing;
 
-        Player playerScript = player.GetComponent<Player>();
+        BasePlayer playerScript = player.GetComponent<BasePlayer>();
         
         if (bossPause)
         {
@@ -121,7 +121,7 @@ public class GC_Finale : BaseGameController
     private void StartMainBattle()
     {
         bossPause = false;
-        player.GetComponent<Player>().enabled = true;
+        player.GetComponent<BasePlayer>().enabled = true;
         joe.attacking = true;
         joeSprite.sprite = joeRedSprite;
 
@@ -212,7 +212,7 @@ public class GC_Finale : BaseGameController
         endingJoe.SetActive(true);
         finaleBaldi.SetActive(false);
         GameObject.Find("Reticle").SetActive(false);
-        player.GetComponent<Player>().stamina.transform.parent.gameObject.SetActive(false);
+        player.GetComponent<BasePlayer>().stamina.transform.parent.gameObject.SetActive(false);
         yield return new WaitForSeconds(5f);
         fade.Play("In");
         yield return new WaitForSeconds(5f);

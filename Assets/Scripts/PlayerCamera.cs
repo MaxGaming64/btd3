@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class PlayerCamera : MonoBehaviour
+public class BasePlayerCamera : MonoBehaviour
 {
     private float mouseSensitivity;
     private float XRotation;
-    private Player player;
+    private BasePlayer player;
 
     private void OnEnable()
     {
@@ -19,7 +19,7 @@ public class PlayerCamera : MonoBehaviour
     void Start()
     {
         mouseSensitivity = PlayerPrefs.GetFloat("MouseSensitivity");
-        player = GetComponentInParent<Player>();
+        player = GetComponentInParent<BasePlayer>();
     }
 
     void Update()

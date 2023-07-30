@@ -3,11 +3,11 @@ using UnityEngine.UI;
 
 public class StaminaSlider : MonoBehaviour
 {
-    private Player player;
+    private BasePlayer player;
     
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<BasePlayer>();
     }
 
     void Update()

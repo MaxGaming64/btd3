@@ -1,11 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Player : MonoBehaviour
+public class BasePlayer : MonoBehaviour
 {
     public bool advancedMovement;
-    public PlayerMovementBTD3 movementScript;
-    public PlayerCamera cameraScript;
+    public BasePlayerMovement movementScript;
+    public BasePlayerCamera cameraScript;
     public Slider stamina;
 
     void Start()

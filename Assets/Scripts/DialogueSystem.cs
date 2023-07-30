@@ -34,7 +34,7 @@ public class DialogueSystem : MonoBehaviour
     {
         gameObject.SetActive(false);
         dialogueImage_null = dialogueImage.sprite;
-        player = FindObjectOfType<Player>().GetComponent<CharacterController>();
+        player = FindObjectOfType<BasePlayer>().GetComponent<CharacterController>();
     }
 
     void Update()
@@ -53,7 +53,7 @@ public class DialogueSystem : MonoBehaviour
                 remainingSlides = 0;
                 dialogueImage.sprite = dialogueImage_null;
                 gameObject.SetActive(false);
-                player.GetComponent<Player>().stamina.value = 100f;
+                player.GetComponent<BasePlayer>().stamina.value = 100f;
                 OnDialogueEnd();
             }
         }
