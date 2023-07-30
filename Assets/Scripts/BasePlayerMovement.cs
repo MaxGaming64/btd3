@@ -19,7 +19,7 @@ public class BasePlayerMovement : MonoBehaviour
     {
         player = GetComponent<BasePlayer>();
         controller = GetComponent<CharacterController>();
-        stamina = player.stamina;
+        stamina = FindObjectOfType<StaminaSlider>().GetComponent<Slider>();
     }
 
     protected void Update()

@@ -212,7 +212,7 @@ public class GC_Finale : BaseGameController
         endingJoe.SetActive(true);
         finaleBaldi.SetActive(false);
         GameObject.Find("Reticle").SetActive(false);
-        player.GetComponent<BasePlayer>().stamina.transform.parent.gameObject.SetActive(false);
+        FindObjectOfType<StaminaSlider>().GetComponent<UnityEngine.UI.Slider>().transform.parent.gameObject.SetActive(false);
         yield return new WaitForSeconds(5f);
         fade.Play("In");
         yield return new WaitForSeconds(5f);

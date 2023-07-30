@@ -53,7 +53,7 @@ public class DialogueSystem : MonoBehaviour
                 remainingSlides = 0;
                 dialogueImage.sprite = dialogueImage_null;
                 gameObject.SetActive(false);
-                player.GetComponent<BasePlayer>().stamina.value = 100f;
+                FindObjectOfType<StaminaSlider>().GetComponent<Slider>().value = 100f;
                 OnDialogueEnd();
             }
         }

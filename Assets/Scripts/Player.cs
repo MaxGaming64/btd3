@@ -6,7 +6,6 @@ public class BasePlayer : MonoBehaviour
     public bool advancedMovement;
     public BasePlayerMovement movementScript;
     public BasePlayerCamera cameraScript;
-    public Slider stamina;
 
     void Start()
     {
