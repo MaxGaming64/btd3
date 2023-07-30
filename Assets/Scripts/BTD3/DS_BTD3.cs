@@ -212,18 +212,12 @@ public class DS_BTD3 : DialogueSystem
                 break;
             case 5:
                 SetDialogue(dialogue06);
-                player.enabled = false;
-                player.transform.position = new Vector3(-15f, -110f, 75f);
-                player.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
-                player.enabled = true;
+                WorldFunctions.TeleportPlayer(new Vector3(-15f, -110f, 75f), Quaternion.Euler(0f, 180f, 0f));
                 MainMus.SetMainMus(sfx_dlg5_ambient, 0.5f);
                 break;
             case 6:
                 SetDialogue(dialogue07);
-                player.enabled = false;
-                player.transform.position = new Vector3(-45f, -80f, 45f);
-                player.transform.rotation = Quaternion.identity;
-                player.enabled = true;
+                WorldFunctions.TeleportPlayer(new Vector3(-45f, -80f, 45f), Quaternion.identity);
                 MainMus.SetMainMus(sfx_dlg6_ambient);
                 break;
             case 7:
