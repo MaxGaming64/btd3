@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class PlayerMovementBTD3 : MonoBehaviour
 {
@@ -20,7 +19,7 @@ public class PlayerMovementBTD3 : MonoBehaviour
 
     void Start()
     {
-        switch (SceneManager.GetActiveScene().name)
+        switch (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name)
         {
             case "Chapter2":
                 jumpHeight = 5f;
