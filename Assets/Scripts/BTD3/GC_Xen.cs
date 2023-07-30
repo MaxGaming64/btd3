@@ -8,14 +8,11 @@ public class GC_Xen : BaseGameController
 {
     public bool playerDead;
     private float mouseSensitivity;
-    private float timeToRandomAmb = -1f;
     private float XRotation;
     public int playerHealth;
-    private AudioSource mainMus;
     public GameObject[] hudItems;
     public AudioClip ambient;
     public AudioClip comes;
-    public AudioClip alien_squit;
     public AudioClip beamstart2;
     public AudioClip beamstart7;
     public AudioClip heal;
@@ -37,8 +34,8 @@ public class GC_Xen : BaseGameController
             Init(2, chapter, "Xen");
         }
 
-        mainMus = InitMainMus(ambient);
-        mainMus.PlayOneShot(comes, 2f);
+        InitMainMus(ambient);
+        MainMus.GetMainMus().PlayOneShot(comes, 2f);
         healthText.gameObject.SetActive(true);
         mouseSensitivity = PlayerPrefs.GetFloat("MouseSensitivity");
     }
@@ -46,17 +43,6 @@ public class GC_Xen : BaseGameController
     void Update()
     {
         pm.allowPause = !(ds.dialogue && playerDead);
-
-        if (timeToRandomAmb < 0f)
-        {
-            timeToRandomAmb = Random.Range(alien_squit.length, 30);
-            mainMus.PlayOneShot(alien_squit);
-        }
-
-        if (timeToRandomAmb > 0f)
-        {
-            timeToRandomAmb -= Time.deltaTime;
-        }
 
         if (playerHealth > 100)
         {
