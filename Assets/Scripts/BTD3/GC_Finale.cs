@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine;
 using BTD3Framework;
-using UnityEngine.SceneManagement;
 
 public class GC_Finale : BaseGameController
 {
@@ -105,7 +104,7 @@ public class GC_Finale : BaseGameController
 
         if (!MainMus.GetMainMus().isPlaying && playerRescued)
         {
-            SceneManager.LoadScene("Outro");
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Outro");
         }
     }
 
