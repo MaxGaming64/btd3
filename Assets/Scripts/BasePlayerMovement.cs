@@ -3,54 +3,35 @@ using UnityEngine.UI;
 
 public class BasePlayerMovement : MonoBehaviour
 {
-    private float currentSpeed;
-    private float speed = 10f;
-    private float runSpeed = 16f;
-    private float speedMultiplier = 1f;
-    private float jumpHeight = 1.75f;
-    private float gravity = Physics.gravity.y;
-    private bool grounded;
-    private BasePlayer player;
-    private CharacterController controller;
-    private Vector3 velocity;
-    public LayerMask layerMaskGel;
-    private Slider stamina;
-    private GC_Finale gc_finale;
+    protected float currentSpeed;
+    protected float speed = 10f;
+    protected float runSpeed = 16f;
+    protected float speedMultiplier = 1f;
+    protected float jumpHeight = 1.75f;
+    protected float gravity = Physics.gravity.y;
+    protected bool grounded;
+    protected BasePlayer player;
+    protected CharacterController controller;
+    protected Vector3 velocity;
+    protected Slider stamina;
 
-    void Start()
+    protected void Start()
     {
-        switch (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name)
-        {
-            case "Chapter2":
-                jumpHeight = 5f;
-                gravity = Physics.gravity.y / 2f;
-                break;
-            case "Finale":
-                gc_finale = FindObjectOfType<GC_Finale>();
-                break;
-        }
-
         player = GetComponent<BasePlayer>();
         controller = GetComponent<CharacterController>();
         stamina = player.stamina;
     }
 
-    void Update()
+    protected void Update()
     {
         grounded = controller.isGrounded;
-        bool groundedOnGel = Physics.Raycast(transform.position, Vector3.down, 0.1f, layerMaskGel);
+        
 
         if (grounded)
         {
             if (velocity.y < 0f)
             {
                 velocity.y = -2f;
-            }
-
-            if (!groundedOnGel && gc_finale != null)
-            {
-                gc_finale.jumpHigh = false;
-                gc_finale.allowKnockout = false;
             }
         }
 
@@ -66,24 +47,9 @@ public class BasePlayerMovement : MonoBehaviour
 
             controller.Move(velocity * Time.deltaTime);
         }
-
-        if (groundedOnGel && gc_finale != null)
-        {
-            if (gc_finale.jumpHigh)
-            {
-                velocity.y = Mathf.Sqrt(50f * -2f * gravity);
-            }
-
-            else
-            {
-                velocity.y = Mathf.Sqrt(5f * -2f * gravity);
-            }
-
-            gc_finale.StartCoroutine("JumpHighAudio");
-        }
     }
 
-    void Move()
+    protected void Move()
     {
         float x = Input.GetAxisRaw("Strafe");
         float z = Input.GetAxisRaw("Forward");
@@ -97,7 +63,7 @@ public class BasePlayerMovement : MonoBehaviour
         }
     }
 
-    void Sprint()
+    protected void Sprint()
     {
         if (Input.GetButton("Run") && stamina != null && stamina.value > 0f && controller.velocity != Vector3.zero)
         {
