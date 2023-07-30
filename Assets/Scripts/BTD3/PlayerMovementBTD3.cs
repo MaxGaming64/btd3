@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class PlayerMovementBTD3 : BasePlayerMovement
 {
-    public LayerMask layerMaskGel;
     private GC_Finale gc_finale;
 
     new void Start()
@@ -25,7 +24,7 @@ public class PlayerMovementBTD3 : BasePlayerMovement
     {
         base.Update();
 
-        bool groundedOnGel = Physics.Raycast(transform.position, Vector3.down, 0.1f, layerMaskGel);
+        bool groundedOnGel = Physics.Raycast(transform.position, Vector3.down, 0.1f, LayerMask.GetMask("Gel"));
 
         if (grounded)
         {
