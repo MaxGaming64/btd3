@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -81,7 +80,7 @@ public class PlayerMovementBTD3 : MonoBehaviour
                 velocity.y = Mathf.Sqrt(5f * -2f * gravity);
             }
 
-            StartCoroutine(JumpHigh(gc_finale.gelAudio));
+            gc_finale.StartCoroutine("JumpHighAudio");
         }
     }
 
@@ -121,13 +120,5 @@ public class PlayerMovementBTD3 : MonoBehaviour
     public void SetSpeedMultiplier(float speedMultiplier)
     {
         this.speedMultiplier = speedMultiplier;
-    }
-
-    IEnumerator JumpHigh(AudioSource gelAudio)
-    {
-        gc_finale.gelAudio.time = 0.1f;
-        gc_finale.gelAudio.Play();
-        yield return new WaitForSecondsRealtime(1.4f);
-        gelAudio.Stop();
     }
 }

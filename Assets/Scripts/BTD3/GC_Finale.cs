@@ -167,6 +167,14 @@ public class GC_Finale : BaseGameController
         }
     }
 
+    IEnumerator JumpHighAudio()
+    {
+        gelAudio.time = 0.1f;
+        gelAudio.Play();
+        yield return new WaitForSecondsRealtime(1.4f);
+        gelAudio.Stop();
+    }
+
     void Knockout()
     {
         if (allowKnockout)
