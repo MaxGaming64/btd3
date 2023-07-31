@@ -25,7 +25,6 @@ public class BasePlayerMovement : MonoBehaviour
     protected void Update()
     {
         grounded = controller.isGrounded;
-        
 
         if (grounded)
         {
