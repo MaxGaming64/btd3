@@ -1,4 +1,4 @@
-Shader "MP2011 Mats/Depth Mask" {
+Shader "BTD3/Depth Mask" {
     SubShader{
         Tags {"Queue" = "Geometry-10" }
         Lighting Off
