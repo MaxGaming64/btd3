@@ -1,25 +1,26 @@
 using System.Collections;
 using UnityEngine;
 using BTD3Framework;
-using System.Threading;
 
 public class GC_Mansion : BaseGameController
 {
     private float timeToEnablePlayer;
+    private bool elevActive;
     public bool lockDoor01_open;
     private AudioSource mainMus;
     public AudioClip mus_school;
     public AudioClip tube_suck;
     public AudioClip sfx_falldown;
     public AudioClip zapmachine;
+    public AudioClip alienwind;
     public MeshRenderer lockDoor01;
     public Material SwingDoor60;
     public Material button_click;
     public Material xenSky;
+    public Transform elev;
     public GameObject cutsceneCam;
     public GameObject elevBarrier;
     public Animator fallFloorAnim;
-    public Animator elevAnim;
 
     private void Start()
     {
@@ -63,6 +64,11 @@ public class GC_Mansion : BaseGameController
             cutsceneCam.SetActive(false);
             player.gameObject.SetActive(true);
         }
+
+        if (elevActive)
+        {
+            elev.position = Vector3.MoveTowards(elev.position, new Vector3(-45f, -80f, 45f), 5f * Time.deltaTime);
+        }
     }
 
     void FallDown()
@@ -79,12 +85,14 @@ public class GC_Mansion : BaseGameController
 
     IEnumerator XenElev()
     {
+        elevActive = true;
         elevBarrier.SetActive(true);
-        elevAnim.Play("01");
         RenderSettings.skybox = xenSky;
         Destroy(FindObjectOfType<SkyCamera>().gameObject);
         MainMus.SetMainMus(zapmachine);
         yield return new WaitForSeconds(6f);
+        MainMus.SetMainMus(alienwind);
+        yield return new WaitForSeconds(4f);
         ds.StartDialogue(6);
     }
 }

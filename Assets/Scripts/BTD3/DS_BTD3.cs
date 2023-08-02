@@ -175,7 +175,6 @@ public class DS_BTD3 : DialogueSystem
     };
     public GameObject efx_dlg5_joe;
     public AudioClip sfx_dlg5_ambient;
-    public AudioClip sfx_dlg6_ambient;
     public Follow mnb_dlg10_follow01;
     public Follow mnb_dlg10_follow02;
     public Material rfx_dlg10_sky;
@@ -216,7 +215,6 @@ public class DS_BTD3 : DialogueSystem
             case 6:
                 SetDialogue(dialogue07);
                 WorldFunctions.TeleportPlayer(new Vector3(-45f, -80f, 45f), Quaternion.identity);
-                MainMus.SetMainMus(sfx_dlg6_ambient);
                 break;
             case 7:
                 SetDialogue(dialogue08);

@@ -214,7 +214,6 @@ MonoBehaviour:
   efx_dlg5_joe: {fileID: 0}
   efx_dlg6_trigger: {fileID: 0}
   sfx_dlg5_ambient: {fileID: 8300000, guid: 7d9688385c911324eb62d9acc4a414d1, type: 3}
-  sfx_dlg6_ambient: {fileID: 8300000, guid: 95ac4a8fe9d1d884394efde66b9b5417, type: 3}
   mnb_dlg10_follow01: {fileID: 0}
   mnb_dlg10_follow02: {fileID: 0}
   rfx_dlg10_sky: {fileID: 2100000, guid: 82b660520bdecce4daf45d270ec93fe4, type: 2}

@@ -15673,14 +15673,15 @@ MonoBehaviour:
   tube_suck: {fileID: 8300000, guid: 57073dfef5bed314190ddfd97c381680, type: 3}
   sfx_falldown: {fileID: 8300000, guid: b1afc731f8fbbae4aac5314ae405e6e0, type: 3}
   zapmachine: {fileID: 8300000, guid: 5cef57a2bc4cc4143a8ff838b825c103, type: 3}
+  alienwind: {fileID: 8300000, guid: 95ac4a8fe9d1d884394efde66b9b5417, type: 3}
   lockDoor01: {fileID: 953340900}
   SwingDoor60: {fileID: 2100000, guid: 1cc5d653459dd2545821877f611a8094, type: 2}
   button_click: {fileID: 2100000, guid: 3380523fb7264db4ca9e1281ef8c5f6f, type: 2}
   xenSky: {fileID: 2100000, guid: 27e3d290aa0be6e4fa35c0251299be09, type: 2}
+  elev: {fileID: 147788924}
   cutsceneCam: {fileID: 1685688600}
   elevBarrier: {fileID: 1234790263}
   fallFloorAnim: {fileID: 65149372}
-  elevAnim: {fileID: 147788928}
 --- !u!82 &1376021872
 AudioSource:
   m_ObjectHideFlags: 0
