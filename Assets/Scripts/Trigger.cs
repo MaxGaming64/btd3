@@ -8,6 +8,7 @@ public class Trigger : MonoBehaviour
     public GameObject args;
     public bool invoke;
     public float invokeDelay;
+    public bool onExit;
     public bool dontDestroyOnTrigger;
 
     void Start()
@@ -16,6 +17,22 @@ public class Trigger : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider other)
+    {
+        if (!onExit)
+        {
+            StartExec(other);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (onExit)
+        {
+            StartExec(other);
+        }
+    }
+
+    void StartExec(Collider other)
     {
         if (other.CompareTag("Player"))
         {
