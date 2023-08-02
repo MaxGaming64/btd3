@@ -212,7 +212,6 @@ MonoBehaviour:
   dialogueImage: {fileID: 2385325392229855141}
   BLACK_BG: {fileID: 2385325391877355223}
   efx_dlg5_joe: {fileID: 0}
-  efx_dlg6_trigger: {fileID: 0}
   sfx_dlg5_ambient: {fileID: 8300000, guid: 7d9688385c911324eb62d9acc4a414d1, type: 3}
   mnb_dlg10_follow01: {fileID: 0}
   mnb_dlg10_follow02: {fileID: 0}
