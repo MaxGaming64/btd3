@@ -1,3 +1,7 @@
+//  ---INVERT RETICLE SHADER---
+//  By dandeentremont on the Unity Forums
+//  Also known as @QuiteDan on Twitter
+
 Shader "BTD3/InvertReticle" {
     Properties
     {
