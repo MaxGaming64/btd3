@@ -5,7 +5,8 @@ public class MovingPlatform : MonoBehaviour
 {
     private bool moving = true;
     private bool goBack;
-    public float speed;
+    public float speed = 5f;
+    public float stopDelay = 2f;
     private AudioSource audioSource;
     public AudioClip stopSound;
     private Vector3 startPosition;
@@ -21,24 +22,19 @@ public class MovingPlatform : MonoBehaviour
     {
         if (moving)
         {
-            if (!goBack)
+            if (goBack)
             {
-                transform.position = Vector3.MoveTowards(transform.position, endPosition, speed * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, startPosition, speed * Time.deltaTime);
             }
 
             else
             {
-                transform.position = Vector3.MoveTowards(transform.position, startPosition, speed * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, endPosition, speed * Time.deltaTime);
             }
 
             if (Vector3.Distance(transform.position, endPosition) <= 0f && !goBack || Vector3.Distance(transform.position, startPosition) <= 0f && goBack)
             {
                 StartCoroutine(ReachEnd());
-            }
-
-            if (!audioSource.isPlaying)
-            {
-                audioSource.Play();
             }
         }
     }
@@ -48,8 +44,9 @@ public class MovingPlatform : MonoBehaviour
         moving = false;
         audioSource.Stop();
         audioSource.PlayOneShot(stopSound);
-        yield return new WaitForSeconds(stopSound.length);
+        yield return new WaitForSeconds(stopDelay);
         moving = true;
         goBack = !goBack;
+        audioSource.Play();
     }
 }
