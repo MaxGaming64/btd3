@@ -174,7 +174,6 @@ public class DS_BTD3 : DialogueSystem
         "Imma head back home. It's 12:00 in the morning already!"
     };
     public GameObject efx_dlg5_joe;
-    public GameObject efx_dlg6_trigger;
     public AudioClip sfx_dlg5_ambient;
     public AudioClip sfx_dlg6_ambient;
     public Follow mnb_dlg10_follow01;
@@ -208,7 +207,6 @@ public class DS_BTD3 : DialogueSystem
             case 4:
                 SetDialogue(dialogue05);
                 efx_dlg5_joe.SetActive(true);
-                efx_dlg6_trigger.SetActive(true);
                 break;
             case 5:
                 SetDialogue(dialogue06);
