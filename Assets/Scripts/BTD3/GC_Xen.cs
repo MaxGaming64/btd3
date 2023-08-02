@@ -10,6 +10,7 @@ public class GC_Xen : BaseGameController
     private float mouseSensitivity;
     private float XRotation;
     public int playerHealth;
+    public GameObject portalBack;
     public GameObject[] hudItems;
     public AudioClip ambient;
     public AudioClip comes;
@@ -94,6 +95,16 @@ public class GC_Xen : BaseGameController
         }
 
         healthText.text = "Health: " + playerHealth;
+    }
+
+    void EnablePortalBack()
+    {
+        portalBack.SetActive(true);
+    }
+
+    void DisablePortalBack()
+    {
+        portalBack.SetActive(false);
     }
 
     IEnumerator SpawnAlien(GameObject enemy)
