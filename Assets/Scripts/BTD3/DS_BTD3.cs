@@ -16,9 +16,9 @@ public class DS_BTD3 : DialogueSystem
     };
     string[] dialogue01 =
     {
-        "What the hell happened to this place?",
-        "Oh, wait! There's a locked door there!",
-        "But I think I need to find the key to the door first..."
+        "What happened to this place?",
+        "Oh, wait! There's a door there!",
+        "It's locked, though... I need to find a way to open it..."
     };
     string[] dialogue02 =
     {
@@ -28,14 +28,14 @@ public class DS_BTD3 : DialogueSystem
     string[] dialogue03 =
     {
         "WHAT THE HELL?!",
-        "I've gotta get the hell outta here!",
+        "I have to get out of here!",
         "I think I'm in some kind of vent..."
     };
     string[] dialogue04 =
     {
         "Dead end.",
-        "Let's see if there's a way to get outta here.",
-        "Wait, there's an opening here; how did I not notice it?",
+        "What am I supposed to do now?",
+        "Wait, there's an opening here! How did I not notice it??",
         "Alright, let's go in.",
     };
     string[] dialogue05 =
@@ -49,7 +49,7 @@ public class DS_BTD3 : DialogueSystem
         "<color=red>Oh yes!", //6, joe
         "So what are you gonna do to me?", //7, player
         "Hmm...", //8, joe
-        "Let me think... I gotta make up a really huge plan...", //9, joe
+        "Let me think... This will take some time...", //9, joe
         "<i>Hmm, it's gonna take him a long time, huh? Then, let's escape!" //10, player
     };
     string[] dialogue06 =
@@ -65,15 +65,15 @@ public class DS_BTD3 : DialogueSystem
         "What?? Is that Baldi?!", //2, player
         "YES, AND I'M KIDNAPPED BY JOE!!!", //3
         "Oh no! How can I save you?!", //4, player
-        "TO SAVE ME, YOU MUST GO THROUGH PLANET XEN!", //5
+        "TO SAVE ME, YOU MUST GO THROUGH XEN!", //5
         "BUT BE CAREFUL, THERE ARE DANGEROUS ALIENS THERE!", //6
         "Don't worry, Baldi! I'll save you!" //7, player
     };
     string[] dialogue08 =
     {
         "This place is creepy.",
-        "And what was that alien?",
-        "I gotta get outta here soon..."
+        "And I wonder if anyone else got hurt my that alien...",
+        "I have to get out of here soon..."
     };
     string[] dialogue09 =
     {
@@ -148,7 +148,7 @@ public class DS_BTD3 : DialogueSystem
         "No.", //joe mad, 9
         "No no no NO NO NO!!!!!!", //joe mad, 10
         "HA HA HA!!!", //baldi evil, 11
-        "Baldi, we are about to die and you are <i>HAPPY?!</i>", //player, 12
+        "Baldi, we are about to die and you are <i>HAPPY?!", //player, 12
         "You're right.", //baldi sad, 13
         "<i>*sigh*", //baldi sad, 14
         "Wait, what's that noise?", //baldi sad, 15
@@ -171,7 +171,7 @@ public class DS_BTD3 : DialogueSystem
         "School sweet school!",
         "It's so amazing that Joe is finally gone!",
         "This was even crazier than going into Baldi's brain!",
-        "Imma head back home. It's 12:00 in the morning already!"
+        "I'm gonna head back home. It's 12:00 in the morning already!"
     };
     public GameObject efx_dlg5_joe;
     public AudioClip sfx_dlg5_ambient;
