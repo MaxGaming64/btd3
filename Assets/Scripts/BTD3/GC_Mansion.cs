@@ -92,7 +92,7 @@ public class GC_Mansion : BaseGameController
         MainMus.SetMainMus(zapmachine);
         yield return new WaitForSeconds(6f);
         MainMus.SetMainMus(alienwind);
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(2f);
         ds.StartDialogue(6);
     }
 }
