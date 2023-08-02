@@ -37,7 +37,6 @@ public class GC_Finale : BaseGameController
     public GameObject endingJoe;
     public GameObject endingCam;
     public Animator fade;
-    public Animator elev;
     public Animator helicopter;
 
     private void Start()
@@ -127,7 +126,6 @@ public class GC_Finale : BaseGameController
         switch (stage)
         {
             case 0:
-                elev.enabled = true;
                 aiBaldi.SetActive(false);
                 baldi.SetActive(true);
                 MainMus.SetMainMus(mus_bossmain1);
