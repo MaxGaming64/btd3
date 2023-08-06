@@ -36544,7 +36544,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 50
   stopDelay: 1
-  stopSound: {fileID: 8300000, guid: 3b610cea7c5a8344d8e68e697374f66b, type: 3}
+  stopSound: {fileID: 8300000, guid: 599340c37c668f74c9f04843553ed23e, type: 3}
   endPosition: {x: 40, y: 49.5, z: -235}
 --- !u!65 &1375841621
 BoxCollider:
