@@ -4,7 +4,6 @@ using BTD3Framework;
 
 public class GC_Mansion : BaseGameController
 {
-    private float timeToEnablePlayer;
     private bool elevActive;
     public bool lockDoor01_open;
     private AudioSource mainMus;
@@ -54,33 +53,24 @@ public class GC_Mansion : BaseGameController
             }
         }
 
-        if (timeToEnablePlayer > 0f)
-        {
-            timeToEnablePlayer -= Time.deltaTime;
-        }
-
-        if (timeToEnablePlayer < 0f && !player.gameObject.activeSelf)
-        {
-            cutsceneCam.SetActive(false);
-            player.gameObject.SetActive(true);
-        }
-
         if (elevActive)
         {
             elev.position = Vector3.MoveTowards(elev.position, new Vector3(-45f, -80f, 45f), 5f * Time.deltaTime);
         }
     }
 
-    void FallDown()
+    IEnumerator FallDown()
     {
         player.gameObject.SetActive(false);
         cutsceneCam.SetActive(true);
-        timeToEnablePlayer = 2f;
         player.position = new Vector3(5f, -5f, 45f);
         player.rotation = Quaternion.identity;
         fallFloorAnim.enabled = true;
         MainMus.SetMainMus(tube_suck);
         mainMus.PlayOneShot(sfx_falldown, 0.2f);
+        yield return new WaitForSeconds(2f);
+        cutsceneCam.SetActive(false);
+        player.gameObject.SetActive(true);
     }
 
     IEnumerator XenElev()

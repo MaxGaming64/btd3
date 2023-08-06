@@ -12764,7 +12764,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   exec: FallDown
   args: {fileID: 0}
-  invoke: 1
+  invoke: 0
   invokeDelay: 0
   onExit: 0
   dontDestroyOnTrigger: 0
