@@ -404,7 +404,7 @@ GameObject:
   - component: {fileID: 65149372}
   - component: {fileID: 65149373}
   m_Layer: 0
-  m_Name: FallFloorRoot
+  m_Name: FallFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1559,7 +1559,7 @@ GameObject:
   - component: {fileID: 160453537}
   - component: {fileID: 160453536}
   m_Layer: 0
-  m_Name: Plane (6)
+  m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9748,7 +9748,7 @@ GameObject:
   - component: {fileID: 762080366}
   - component: {fileID: 762080365}
   m_Layer: 0
-  m_Name: WhereTrigger
+  m_Name: DeadEndTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13744,7 +13744,7 @@ GameObject:
   - component: {fileID: 1110149520}
   - component: {fileID: 1110149519}
   m_Layer: 0
-  m_Name: FirstTimeTrigger
+  m_Name: VentTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16807,7 +16807,7 @@ GameObject:
   - component: {fileID: 1348334976}
   - component: {fileID: 1348334977}
   m_Layer: 0
-  m_Name: BlackVoid
+  m_Name: KitchenTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22016,7 +22016,7 @@ GameObject:
   - component: {fileID: 1685688604}
   - component: {fileID: 1685688605}
   m_Layer: 0
-  m_Name: falldowncam
+  m_Name: FallDownCam
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
