@@ -3,8 +3,8 @@ using UnityEngine;
 public class ChangeMainMus : MonoBehaviour
 {
     public AudioClip clip;
-    public float volume;
-    public float pitch;
+    public float volume = 1f;
+    public float pitch = 1f;
     public bool seamless;
     
     private void OnTriggerEnter(Collider other)
