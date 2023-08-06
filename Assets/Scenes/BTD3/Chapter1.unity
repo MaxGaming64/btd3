@@ -402,6 +402,7 @@ GameObject:
   m_Component:
   - component: {fileID: 65149371}
   - component: {fileID: 65149372}
+  - component: {fileID: 65149373}
   m_Layer: 0
   m_Name: FallFloorRoot
   m_TagString: Untagged
@@ -446,6 +447,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &65149373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65149370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be45f1cf30f885547b8eff1344af4df8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animName: FallFloor
 --- !u!1 &71625226
 GameObject:
   m_ObjectHideFlags: 0
@@ -1258,6 +1272,7 @@ MonoBehaviour:
   args: {fileID: 0}
   invoke: 0
   invokeDelay: 0
+  onExit: 0
   dontDestroyOnTrigger: 0
 --- !u!1 &147788923
 GameObject:
@@ -12751,6 +12766,7 @@ MonoBehaviour:
   args: {fileID: 0}
   invoke: 1
   invokeDelay: 0
+  onExit: 0
   dontDestroyOnTrigger: 0
 --- !u!1 &1008705557
 GameObject:
@@ -22066,6 +22082,7 @@ GameObject:
   - component: {fileID: 1685688602}
   - component: {fileID: 1685688601}
   - component: {fileID: 1685688604}
+  - component: {fileID: 1685688605}
   m_Layer: 0
   m_Name: falldowncam
   m_TagString: MainCamera
@@ -22157,7 +22174,7 @@ Animator:
   m_GameObject: {fileID: 1685688600}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1bebcc7fd591d0943accbc69c0d411f2, type: 2}
+  m_Controller: {fileID: 9100000, guid: 567afb2eb308945419d7cea144f8bce0, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -22168,6 +22185,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1685688605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685688600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be45f1cf30f885547b8eff1344af4df8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animName: FallCam
 --- !u!1 &1691349982
 GameObject:
   m_ObjectHideFlags: 0
