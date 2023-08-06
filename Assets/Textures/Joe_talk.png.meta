@@ -152,9 +152,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 663
-        width: 663
-        height: 663
+        y: 512
+        width: 1024
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,10 +172,10 @@ TextureImporter:
       name: Joe_talk_1
       rect:
         serializedVersion: 2
-        x: 663
-        y: 663
-        width: 663
-        height: 663
+        x: 0
+        y: 0
+        width: 1024
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,10 +193,10 @@ TextureImporter:
       name: Joe_talk_angry_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 663
-        height: 663
+        x: 1024
+        y: 512
+        width: 1024
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -214,10 +214,10 @@ TextureImporter:
       name: Joe_talk_angry_1
       rect:
         serializedVersion: 2
-        x: 663
+        x: 1024
         y: 0
-        width: 663
-        height: 663
+        width: 1024
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
