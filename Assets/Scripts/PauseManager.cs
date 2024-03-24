@@ -5,14 +5,8 @@ public class PauseManager : MonoBehaviour
 {
     public bool paused;
     public bool allowPause;
-    private bool silenceAudio;
     public string menuScene;
     public GameObject pauseMenu;
-
-    void Start()
-    {
-        silenceAudio = PlayerPrefs.GetInt("pauseAudio") == 1;
-    }
 
     void Update()
     {
@@ -31,7 +25,6 @@ public class PauseManager : MonoBehaviour
                 paused = true;
                 Time.timeScale = 0f;
                 pauseMenu.SetActive(true);
-                AudioListener.pause = silenceAudio;
             }
         }
 
@@ -43,23 +36,6 @@ public class PauseManager : MonoBehaviour
                 Destroy(GameObject.FindGameObjectWithTag("MainMus"));
                 SceneManager.LoadScene(menuScene);
             }
-
-            /*else if (Input.GetKeyDown(KeyCode.T))
-            {
-                silenceAudio = !silenceAudio;
-
-                if (silenceAudio)
-                {
-                    PlayerPrefs.SetInt("pauseAudio", 1);
-                    AudioListener.pause = true;
-                }
-
-                else
-                {
-                    PlayerPrefs.SetInt("pauseAudio", 0);
-                    AudioListener.pause = false;
-                }
-            }*/
         }
     }
 }
