@@ -1,10 +1,10 @@
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class LoadSceneTrigger : MonoBehaviour
 {
     public string scene;
-    public bool async;
     public Transform landmark;
 
     private void OnTriggerEnter(Collider other)
@@ -13,16 +13,16 @@ public class LoadSceneTrigger : MonoBehaviour
         {
             Transform player = FindObjectOfType<BasePlayer>().transform;
             LandmarkKeeper.CreateLandmarkKeeper(landmark.position - player.position, player.eulerAngles);
-            
-            if (async)
+
+            foreach (var image in FindObjectsOfType<Image>(true))
             {
-                SceneManager.LoadSceneAsync(scene);
+                if (image.name == "Loading")
+                {
+                    image.gameObject.SetActive(true);
+                }
             }
 
-            else
-            {
-                SceneManager.LoadScene(scene);
-            }
+            SceneManager.LoadScene(scene);
         }
     }
 }
