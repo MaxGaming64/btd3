@@ -4,8 +4,8 @@ using UnityEngine.UI;
 public class BasePlayerMovement : MonoBehaviour
 {
     protected float currentSpeed;
-    protected float speed = 10f;
-    protected float runSpeed = 16f;
+    protected float speed = 16f;
+    protected float runSpeed = 24f;
     protected float speedMultiplier = 1f;
     protected float jumpHeight = 1.75f;
     protected float gravity = Physics.gravity.y;
