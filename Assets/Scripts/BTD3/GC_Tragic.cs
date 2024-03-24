@@ -17,7 +17,7 @@ public class GC_Tragic : BaseGameController
     void Start()
     {
         Init(3, chapter, "The Union", fade);
-        mainMus = InitMainMus(ambient);
+        mainMus = InitMainMus(ambient, 0.5f);
     }
 
     void Update()
@@ -34,24 +34,24 @@ public class GC_Tragic : BaseGameController
     {
         player.gameObject.SetActive(false);
         creepyHighCam.SetActive(true);
-        MainMus.SetMainMus(creepyHigh, 1f, 1f, false);
+        MainMus.SetMainMus(creepyHigh, 0.5f, 1f, false);
         mainMus.gameObject.AddComponent<PauseAudio>();
         yield return new WaitForSeconds(creepyHigh.length);
         player.gameObject.SetActive(true);
         creepyHighCam.SetActive(false);
-        MainMus.SetMainMus(ambient);
+        MainMus.SetMainMus(ambient, 0.5f);
         Destroy(mainMus.gameObject.GetComponent<PauseAudio>());
     }
 
     public void StartChaos()
     {
         joe.SetActive(true);
-        MainMus.SetMainMus(finale1);
+        MainMus.SetMainMus(finale1, 0.7f);
     }
 
     public IEnumerator ContinueChaos()
     {
         yield return new WaitForSecondsRealtime(finale1.length - mainMus.time);
-        MainMus.SetMainMus(finale2);
+        MainMus.SetMainMus(finale2, 0.7f);
     }
 }

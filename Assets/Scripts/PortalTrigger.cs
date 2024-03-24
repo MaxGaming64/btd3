@@ -56,6 +56,6 @@ public class PortalTrigger : MonoBehaviour
 
     void PlaySuckSound()
     {
-        audioSource.PlayOneShot((AudioClip)Resources.Load("sounds/port_suckout1"), 3f);
+        audioSource.PlayOneShot((AudioClip)Resources.Load("sounds/port_suckout1"));
     }
 }

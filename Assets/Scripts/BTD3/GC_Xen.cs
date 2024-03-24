@@ -13,7 +13,6 @@ public class GC_Xen : BaseGameController
     public GameObject portalBack;
     public GameObject[] hudItems;
     public AudioClip ambient;
-    public AudioClip comes;
     public AudioClip beamstart2;
     public AudioClip beamstart7;
     public AudioClip heal;
@@ -35,8 +34,7 @@ public class GC_Xen : BaseGameController
             Init(2, chapter, "Xen");
         }
 
-        InitMainMus(ambient);
-        MainMus.GetMainMus().PlayOneShot(comes, 2f);
+        InitMainMus(ambient, 0.5f);
         healthText.gameObject.SetActive(true);
         mouseSensitivity = PlayerPrefs.GetFloat("MouseSensitivity");
     }

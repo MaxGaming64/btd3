@@ -480,10 +480,10 @@ public class DS_BTD3 : DialogueSystem
                 gc_finale.StartCoroutine("StartBossIntro");
                 break;
             case 101:
-                MainMus.SetMainMus(gc_finale.mus_bossfinale2);
+                MainMus.SetMainMus(gc_finale.mus_bossfinale2, 0.25f);
                 break;
             case 102:
-                MainMus.SetMainMus(gc_finale.mus_bossfinale3);
+                MainMus.SetMainMus(gc_finale.mus_bossfinale3, 0.25f);
                 break;
             case 103:
                 SceneManager.LoadScene("MenuOutro");

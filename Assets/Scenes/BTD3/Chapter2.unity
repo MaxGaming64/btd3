@@ -1619,7 +1619,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b3f68e1ff09c37d45a57b6a322847e87, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -3417,7 +3417,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: 95ac4a8fe9d1d884394efde66b9b5417, type: 3}
-  volume: 1
+  volume: 0.5
   pitch: 1
   seamless: 0
 --- !u!65 &935684800
@@ -6085,7 +6085,6 @@ MonoBehaviour:
   - {fileID: 1881818765}
   - {fileID: 2075584986}
   ambient: {fileID: 8300000, guid: 95ac4a8fe9d1d884394efde66b9b5417, type: 3}
-  comes: {fileID: 8300000, guid: 0fc9c39f25cfb584d9db81e801ff432c, type: 3}
   beamstart2: {fileID: 8300000, guid: fac1139ef4191dd4fb1d7a67d76efdf3, type: 3}
   beamstart7: {fileID: 8300000, guid: 8a119f7bc8acd974cae1a6656e665c19, type: 3}
   heal: {fileID: 8300000, guid: 012b2563d037b324babea46b31312489, type: 3}
@@ -8858,7 +8857,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: ca8509eab88a5014b94578b7431e898a, type: 3}
-  volume: 1
+  volume: 0.5
   pitch: 1
   seamless: 0
 --- !u!1 &2104452526333321309

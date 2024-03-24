@@ -66,8 +66,8 @@ public class GC_Mansion : BaseGameController
         player.position = new Vector3(5f, -5f, 45f);
         player.rotation = Quaternion.identity;
         fallFloorAnim.enabled = true;
-        MainMus.SetMainMus(tube_suck);
-        mainMus.PlayOneShot(sfx_falldown, 0.2f);
+        MainMus.SetMainMus(tube_suck, 0.7f);
+        mainMus.PlayOneShot(sfx_falldown, 0.25f);
         yield return new WaitForSeconds(2f);
         cutsceneCam.SetActive(false);
         player.gameObject.SetActive(true);
@@ -79,9 +79,9 @@ public class GC_Mansion : BaseGameController
         elevBarrier.SetActive(true);
         RenderSettings.skybox = xenSky;
         Destroy(FindObjectOfType<SkyCamera>().gameObject);
-        MainMus.SetMainMus(zapmachine);
+        MainMus.SetMainMus(zapmachine, 0.5f);
         yield return new WaitForSeconds(6f);
-        MainMus.SetMainMus(alienwind);
+        MainMus.SetMainMus(alienwind, 0.5f);
         yield return new WaitForSeconds(2f);
         ds.StartDialogue(6);
     }

@@ -55,7 +55,7 @@ public class GC_Finale : BaseGameController
 
         else
         {
-            InitMainMus(mus_finale, 0.7f);
+            InitMainMus(mus_finale, 0.5f);
         }
     }
 
@@ -110,7 +110,7 @@ public class GC_Finale : BaseGameController
     public IEnumerator StartBossIntro()
     {
         bossPause = true;
-        MainMus.SetMainMus(mus_bossintro, 0.7f);
+        MainMus.SetMainMus(mus_bossintro, 0.25f);
         yield return new WaitForSeconds(16f);
         StartMainBattle();
         barrier.SetActive(true);
@@ -128,19 +128,19 @@ public class GC_Finale : BaseGameController
             case 0:
                 aiBaldi.SetActive(false);
                 baldi.SetActive(true);
-                MainMus.SetMainMus(mus_bossmain1);
+                MainMus.SetMainMus(mus_bossmain1, 0.25f);
                 break;
             case 1:
-                MainMus.SetMainMus(mus_bossmain2);
+                MainMus.SetMainMus(mus_bossmain2, 0.25f);
                 break;
             case 2:
-                MainMus.SetMainMus(mus_bossmain3);
+                MainMus.SetMainMus(mus_bossmain3, 0.25f);
                 break;
             case 3:
                 baldi.SetActive(false);
                 finaleBaldi.SetActive(true);
                 joeSprite.sprite = joeAngrySprite;
-                MainMus.SetMainMus(mus_bossfinale1, 0.7f);
+                MainMus.SetMainMus(mus_bossfinale1, 0.25f);
                 ds.StartDialogue(101);
                 break;
         }
@@ -167,6 +167,7 @@ public class GC_Finale : BaseGameController
     IEnumerator JumpHighAudio()
     {
         gelAudio.time = 0.1f;
+        gelAudio.volume = 0.5f;
         gelAudio.Play();
         yield return new WaitForSecondsRealtime(1.4f);
         gelAudio.Stop();
@@ -179,7 +180,7 @@ public class GC_Finale : BaseGameController
             knockout = true;
             bossPause = true;
             allowKnockout = false;
-            MainMus.SetMainMus(mus_bossknockout);
+            MainMus.SetMainMus(mus_bossknockout, 0.25f);
             joe.attacking = false;
             joe.transform.rotation = Quaternion.identity;
             joeSprite.GetComponent<BillboardY>().enabled = false;
@@ -192,7 +193,7 @@ public class GC_Finale : BaseGameController
     {
         knockout = false;
         bossPause = true;
-        MainMus.SetMainMus(mus_bossprepare);
+        MainMus.SetMainMus(mus_bossprepare, 0.25f);
         joeSprite.sprite = joeBlueSprite;
         joeSprite.GetComponent<BillboardY>().enabled = true;
         yield return new WaitForSeconds(mus_bossprepare.length);
